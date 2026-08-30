@@ -1,0 +1,67 @@
+name: Compile LaTeX manuscript
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'latex/**'
+      - '.github/workflows/compile-latex.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install LuaLaTeX and Japanese TeX packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-luatex \
+            texlive-lang-japanese \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            latexmk
+
+      - name: Show TeX versions
+        run: |
+          lualatex --version | head -n 2
+          kpsewhich ltjsbook.cls
+          kpsewhich luatexja.sty
+          kpsewhich luatexja-fontspec.sty
+
+      - name: Compile manuscript twice
+        working-directory: latex
+        run: |
+          set -o pipefail
+          lualatex -interaction=nonstopmode -halt-on-error main.tex | tee compile-pass1.txt
+          lualatex -interaction=nonstopmode -halt-on-error main.tex | tee compile-pass2.txt
+          test -s main.pdf
+
+      - name: Summarize warnings
+        if: always()
+        working-directory: latex
+        run: |
+          if [ -f main.log ]; then
+            echo '=== LaTeX warnings ==='
+            grep -E 'LaTeX Warning|Package .* Warning|Overfull|Underfull' main.log || true
+          fi
+
+      - name: Upload PDF and logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: latex-build
+          path: |
+            latex/main.pdf
+            latex/main.log
+            latex/compile-pass1.txt
+            latex/compile-pass2.txt
+          if-no-files-found: warn
