@@ -39,6 +39,22 @@ Recorded: 2026-08-30 20:41 JST
 - `bookmark`
 - `enumitem`
 
-## Verification plan
+## CI verification result
 
-A dedicated GitHub Actions workflow will install a Japanese-capable TeX Live environment, compile `latex/main.tex` twice with LuaLaTeX, and upload `main.pdf` and `main.log` as build artifacts.
+- Workflow: `.github/workflows/compile-latex.yml`
+- Verified commit: `441e8716f52c208982664093a01c28a6a114913a`
+- GitHub Actions run: `33310298826`
+- Job: `99254019961`
+- Result: **success**
+- Runner: Ubuntu 24.04
+- Engine: LuaHBTeX 1.17.0 / TeX Live 2023 (Debian packages)
+- `ltjsbook.cls`, `luatexja.sty`, and `luatexja-fontspec.sty` were found successfully.
+- LuaLaTeX pass 1: success, PDF generated.
+- LuaLaTeX pass 2: success, final PDF generated.
+- Final output: `main.pdf`, 227 pages, 1,783,886 bytes.
+- LaTeX warning scan (`LaTeX Warning`, package warnings, `Overfull`, `Underfull`): no matches in the final log.
+- Build artifact: `latex-build`, artifact ID `9731792237`.
+- Artifact contains `main.pdf`, `main.log`, `compile-pass1.txt`, and `compile-pass2.txt`.
+- Artifact expiry: 2026-11-28.
+
+The current pre-figure manuscript therefore compiles reproducibly on GitHub Actions with the repository contents alone plus the documented TeX Live packages.
