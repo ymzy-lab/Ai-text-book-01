@@ -1,0 +1,78 @@
+\documentclass[10pt,openany]{ltjsbook}
+\usepackage[
+  paperwidth=182mm,
+  paperheight=257mm,
+  top=20mm,
+  bottom=22mm,
+  inner=22mm,
+  outer=18mm,
+  headheight=6mm,
+  headsep=6mm,
+  footskip=10mm
+]{geometry}
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=2em,itemsep=0.25\baselineskip,topsep=0.45\baselineskip}
+\linespread{0.98}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{1em}
+\setlength{\abovedisplayskip}{0.6\baselineskip}
+\setlength{\belowdisplayskip}{0.6\baselineskip}
+\setlength{\abovedisplayshortskip}{0.4\baselineskip}
+\setlength{\belowdisplayshortskip}{0.4\baselineskip}
+\sloppy
+\emergencystretch=2em
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue}
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+  \vspace*{1.2\baselineskip}%
+  {\parindent\z@ \raggedright \normalfont
+    {\sffamily\bfseries\Large \@chapapp\thechapter\@chappos}\par\nobreak
+    \vspace{0.55\baselineskip}%
+    {\sffamily\bfseries\huge\baselineskip=1.22\baselineskip #1\par\nobreak}%
+    \vspace{1.4\baselineskip}}}
+\renewcommand{\@makeschapterhead}[1]{%
+  \vspace*{1.2\baselineskip}%
+  {\parindent\z@ \raggedright \normalfont
+    {\sffamily\bfseries\huge\baselineskip=1.22\baselineskip #1\par\nobreak}%
+    \vspace{1.4\baselineskip}}}
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+  {1.1\baselineskip}{0.45\baselineskip}{\raggedright\sffamily\bfseries\Large}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+  {0.8\baselineskip}{0.3\baselineskip}{\raggedright\sffamily\bfseries\large}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  {0.55\baselineskip}{0.2\baselineskip}{\raggedright\sffamily\bfseries\normalsize}}
+\makeatother
+\title{AIと物理学の系譜}
+\author{}
+\date{}
+\begin{document}
+\frontmatter
+\maketitle
+\include{chapters/preface}
+\tableofcontents
+\mainmatter
+\include{chapters/chapter01}
+\include{chapters/chapter02}
+\include{chapters/chapter03}
+\include{chapters/chapter04}
+\include{chapters/chapter05}
+\include{chapters/chapter06}
+\include{chapters/chapter07}
+\include{chapters/chapter08}
+\include{chapters/chapter09}
+\include{chapters/chapter10}
+\include{chapters/chapter11}
+\include{chapters/chapter12}
+\include{chapters/chapter13}
+\include{chapters/chapter14}
+\include{chapters/chapter15}
+\include{chapters/chapter16}
+\include{chapters/chapter17}
+\backmatter
+\end{document}
