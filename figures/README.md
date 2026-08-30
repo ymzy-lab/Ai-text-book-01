@@ -5,7 +5,7 @@ Editable vector figures for **AI と物理学の系譜**.
 ## Policy
 
 - Final textbook assets: `figures/eps/*.eps`
-- Reproducible sources: `figures/generate_figures.py` and `figures/generate_new_figures.py`
+- Reproducible sources: `figures/generate_figures.py`, `figures/generate_new_figures.py`, and `figures/generate_ch07_09.py`
 - EPS is generated with Matplotlib's PostScript backend.
 - Japanese glyphs use Type-3 vector fonts for broad EPS compatibility.
 - Randomized illustrations use fixed RNG seeds for reproducibility.
@@ -28,6 +28,14 @@ Editable vector figures for **AI と物理学の系譜**.
 | `fig10_fourier_decomposition.eps` | 5.3–5.4 | Fourier decomposition and frequency spectrum |
 | `fig11_minkowski_time_dilation.eps` | 6.3 | Light clock and Minkowski diagram |
 | `fig12_embedding_analogy.eps` | 6.5–6.6 | Word-vector analogy geometry |
+| `fig13_light_cone_curvature.eps` | 7.1–7.4 | Light cone, causal region, and curved spacetime |
+| `fig14_manifold_unfolding.eps` | 7.5–7.6 | Manifold hypothesis and deep representation flattening |
+| `fig15_blackbody_radiation.eps` | 8.2–8.4 | Blackbody radiation, ultraviolet catastrophe, and Planck distribution |
+| `fig16_bohr_spectrum.eps` | 8.6–8.7 | Hydrogen energy levels and Balmer spectrum |
+| `fig17_symbolic_regression.eps` | 8.8 | Symbolic regression and accuracy-complexity tradeoff |
+| `fig18_stress_strain.eps` | 9.2 | Elastic, plastic, and fracture regimes |
+| `fig19_chaos_lyapunov.eps` | 9.4 | Lorenz attractor and exponential separation of nearby trajectories |
+| `fig20_pinn_architecture.eps` | 9.5 | PINN training loop, physics loss, forward and inverse problems |
 
 ## Local regeneration
 
@@ -35,6 +43,7 @@ Editable vector figures for **AI と物理学の系譜**.
 python -m pip install numpy matplotlib
 python figures/generate_figures.py
 python figures/generate_new_figures.py
+python figures/generate_ch07_09.py
 ```
 
-On GitHub, `.github/workflows/generate-figures.yml` regenerates and validates all EPS files whenever either generator is changed.
+On GitHub, `.github/workflows/generate-figures.yml` regenerates and validates all EPS files whenever a generator is changed.
