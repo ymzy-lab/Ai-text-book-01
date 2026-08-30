@@ -5,7 +5,7 @@ Editable vector figures for **AI と物理学の系譜**.
 ## Policy
 
 - Final textbook assets: `figures/eps/*.eps`
-- Reproducible sources: `figures/generate_figures.py`, `figures/generate_new_figures.py`, `figures/generate_ch07_09.py`, `figures/generate_ch10_12.py`, and `figures/generate_ch13_15.py`
+- Reproducible sources: `figures/generate_figures.py`, `figures/generate_new_figures.py`, `figures/generate_ch07_09.py`, `figures/generate_ch10_12.py`, `figures/generate_ch13_15.py`, and `figures/generate_ch16_17.py`
 - EPS is generated with Matplotlib's PostScript backend.
 - Japanese glyphs use Type-3 vector fonts for broad EPS compatibility.
 - Randomized illustrations use fixed RNG seeds for reproducibility.
@@ -59,6 +59,14 @@ Editable vector figures for **AI と物理学の系譜**.
 | `fig41_holographic_principle.eps` | 14.9 | Boundary information and bulk description |
 | `fig42_math_intuition_proof_loop.eps` | 15.1–15.3 | Intuition, conjecture, proof, and discovery loop |
 | `fig43_formal_proof_pipeline.eps` | 15.4 | AI-assisted formal proof and machine verification pipeline |
+| `fig44_spin_glass_landscape.eps` | 16.2 | Frustration and rugged spin-glass / loss landscape |
+| `fig45_double_descent.eps` | 16.3 | Double-descent test-error curve and interpolation threshold |
+| `fig46_grokking_learning_curve.eps` | 16.4 | Memorization followed by sudden generalization |
+| `fig47_ntk_infinite_width.eps` | 16.5 | Infinite-width neural network and NTK limit |
+| `fig48_rg_deep_learning.eps` | 16.6 | Renormalization coarse-graining vs hierarchical deep features |
+| `fig49_five_paradigms.eps` | 17.1 | Five paradigms of science from observation to AI-driven discovery |
+| `fig50_prediction_vs_understanding.eps` | 17.3 | Prediction performance vs human-understandable explanation |
+| `fig51_self_referential_universe.eps` | 17.5 | Universe–life–human–AI–science self-referential loop |
 
 ## Local regeneration
 
@@ -69,6 +77,7 @@ python figures/generate_new_figures.py
 python figures/generate_ch07_09.py
 python figures/generate_ch10_12.py
 python figures/generate_ch13_15.py
+python figures/generate_ch16_17.py
 ```
 
 On GitHub, `.github/workflows/generate-figures.yml` regenerates and validates all EPS files whenever a generator is changed.
