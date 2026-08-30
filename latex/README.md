@@ -1,13 +1,28 @@
 # LaTeX manuscript source
 
-This directory is reserved for the LaTeX source of the textbook manuscript.
+LaTeX source for **AI と物理学の系譜**.
 
-Suggested structure:
+## Structure
 
 - `main.tex` — root document
-- `chapters/` — chapter source files
-- `references.bib` — bibliography database
-- `styles/` — local style/class files if needed
-- `assets/` — manuscript-specific auxiliary assets
+- `chapters/preface.tex` — preface
+- `chapters/chapter01.tex` ... `chapters/chapter17.tex` — chapter source files
+- `chapters/references/chapter01_refs.tex` ... `chapter17_refs.tex` — chapter-end references included directly with `\input`
 
-The textbook figures themselves are maintained separately under `figures/eps/`.
+The manuscript does not currently use BibTeX or Biber. References are ordinary LaTeX source files.
+
+The textbook figures are maintained separately under `../figures/eps/`. The current manuscript source is the pre-figure-insertion version.
+
+## Build
+
+The document class is `ltjsbook`, so compile with LuaLaTeX from this directory:
+
+```bash
+cd latex
+lualatex -interaction=nonstopmode -halt-on-error main.tex
+lualatex -interaction=nonstopmode -halt-on-error main.tex
+```
+
+The second pass resolves the table of contents and cross-references.
+
+Required TeX packages include LuaTeX-ja / `ltjsbook`, `luatexja-fontspec`, `geometry`, `amsmath`, `graphicx`, `hyperref`, `bookmark`, and `enumitem`.
