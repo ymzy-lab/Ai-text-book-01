@@ -5,7 +5,7 @@ Editable vector figures for **AI と物理学の系譜**.
 ## Policy
 
 - Final textbook assets: `figures/eps/*.eps`
-- Reproducible sources: `figures/generate_figures.py`, `figures/generate_new_figures.py`, `figures/generate_ch07_09.py`, and `figures/generate_ch10_12.py`
+- Reproducible sources: `figures/generate_figures.py`, `figures/generate_new_figures.py`, `figures/generate_ch07_09.py`, `figures/generate_ch10_12.py`, and `figures/generate_ch13_15.py`
 - EPS is generated with Matplotlib's PostScript backend.
 - Japanese glyphs use Type-3 vector fonts for broad EPS compatibility.
 - Randomized illustrations use fixed RNG seeds for reproducibility.
@@ -47,6 +47,18 @@ Editable vector figures for **AI と物理学の系譜**.
 | `fig29_semiconductor_bands.eps` | 12.2 | Conductor, semiconductor, and insulator band gaps |
 | `fig30_superconductivity_cooper_pair.eps` | 12.3 | Cooper pairing and coherent superconducting state |
 | `fig31_quantum_interference_vqe.eps` | 12.4 | Quantum interference and VQE hybrid optimization |
+| `fig32_reduction_hierarchy.eps` | 13.1 | Matter hierarchy from macroscopic matter to quarks |
+| `fig33_standard_model_map.eps` | 13.5–13.7 | Standard Model fermions, gauge bosons, and Higgs |
+| `fig34_feynman_gnn.eps` | 13.4 | Feynman diagram and GNN structural analogy |
+| `fig35_higgs_symmetry_breaking.eps` | 13.7 | Spontaneous symmetry breaking and vacuum selection |
+| `fig36_lhc_trigger_funnel.eps` | 13.9 | LHC event filtering and AI trigger funnel |
+| `fig37_hubble_law.eps` | 14.1 | Hubble–Lemaître law with schematic galaxy data |
+| `fig38_cosmic_timeline.eps` | 14.2–14.3 | Inflation-to-present cosmic timeline |
+| `fig39_universe_composition.eps` | 14.4 | Ordinary matter, dark matter, and dark energy fractions |
+| `fig40_gravitational_chirp.eps` | 14.5 | Gravitational-wave chirp waveform and rising frequency |
+| `fig41_holographic_principle.eps` | 14.9 | Boundary information and bulk description |
+| `fig42_math_intuition_proof_loop.eps` | 15.1–15.3 | Intuition, conjecture, proof, and discovery loop |
+| `fig43_formal_proof_pipeline.eps` | 15.4 | AI-assisted formal proof and machine verification pipeline |
 
 ## Local regeneration
 
@@ -56,6 +68,7 @@ python figures/generate_figures.py
 python figures/generate_new_figures.py
 python figures/generate_ch07_09.py
 python figures/generate_ch10_12.py
+python figures/generate_ch13_15.py
 ```
 
 On GitHub, `.github/workflows/generate-figures.yml` regenerates and validates all EPS files whenever a generator is changed.
