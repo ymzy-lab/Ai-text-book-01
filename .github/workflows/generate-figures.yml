@@ -9,6 +9,7 @@ on:
       - 'figures/generate_new_figures.py'
       - 'figures/generate_ch07_09.py'
       - 'figures/generate_ch10_12.py'
+      - 'figures/generate_ch13_15.py'
       - '.github/workflows/generate-figures.yml'
 
 permissions:
@@ -42,6 +43,7 @@ jobs:
           python figures/generate_new_figures.py
           python figures/generate_ch07_09.py
           python figures/generate_ch10_12.py
+          python figures/generate_ch13_15.py
 
       - name: Validate EPS files with Ghostscript
         run: |
