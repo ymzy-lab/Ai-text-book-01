@@ -5,7 +5,7 @@ Editable vector figures for **AI と物理学の系譜**.
 ## Policy
 
 - Final textbook assets: `figures/eps/*.eps`
-- Reproducible sources: `figures/generate_figures.py`, `figures/generate_new_figures.py`, and `figures/generate_ch07_09.py`
+- Reproducible sources: `figures/generate_figures.py`, `figures/generate_new_figures.py`, `figures/generate_ch07_09.py`, and `figures/generate_ch10_12.py`
 - EPS is generated with Matplotlib's PostScript backend.
 - Japanese glyphs use Type-3 vector fonts for broad EPS compatibility.
 - Randomized illustrations use fixed RNG seeds for reproducibility.
@@ -36,6 +36,17 @@ Editable vector figures for **AI と物理学の系譜**.
 | `fig18_stress_strain.eps` | 9.2 | Elastic, plastic, and fracture regimes |
 | `fig19_chaos_lyapunov.eps` | 9.4 | Lorenz attractor and exponential separation of nearby trajectories |
 | `fig20_pinn_architecture.eps` | 9.5 | PINN training loop, physics loss, forward and inverse problems |
+| `fig21_de_broglie_diffraction.eps` | 10.1 | de Broglie wavelength and electron diffraction |
+| `fig22_wavefunction_born_probability.eps` | 10.4 | Complex wavefunction and Born probability density |
+| `fig23_uncertainty_wavepacket.eps` | 10.3 | Position-momentum uncertainty using wave packets |
+| `fig24_curse_dimensionality_nnqs.eps` | 10.5–10.6 | Exponential Hilbert-space growth and neural quantum states |
+| `fig25_law_large_numbers.eps` | 11.1 | Law of large numbers and vanishing relative fluctuations |
+| `fig26_quantum_statistics.eps` | 11.3–11.4 | Maxwell-Boltzmann, Fermi-Dirac, and Bose-Einstein statistics |
+| `fig27_boltzmann_softmax.eps` | 11.5 | Boltzmann distribution and Softmax correspondence |
+| `fig28_emergence_hierarchy.eps` | 12.1 | Hierarchy, emergence, and top-down constraints |
+| `fig29_semiconductor_bands.eps` | 12.2 | Conductor, semiconductor, and insulator band gaps |
+| `fig30_superconductivity_cooper_pair.eps` | 12.3 | Cooper pairing and coherent superconducting state |
+| `fig31_quantum_interference_vqe.eps` | 12.4 | Quantum interference and VQE hybrid optimization |
 
 ## Local regeneration
 
@@ -44,6 +55,7 @@ python -m pip install numpy matplotlib
 python figures/generate_figures.py
 python figures/generate_new_figures.py
 python figures/generate_ch07_09.py
+python figures/generate_ch10_12.py
 ```
 
 On GitHub, `.github/workflows/generate-figures.yml` regenerates and validates all EPS files whenever a generator is changed.
