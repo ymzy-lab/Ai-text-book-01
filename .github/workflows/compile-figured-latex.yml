@@ -1,5 +1,6 @@
 name: Compile figured LaTeX manuscript
 
+# Grayscale print specification is mandatory for all textbook figures.
 on:
   workflow_dispatch:
   push:
