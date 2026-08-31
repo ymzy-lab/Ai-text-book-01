@@ -1,0 +1,82 @@
+name: Compile figured LaTeX manuscript
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - figure-layout-prototype
+    paths:
+      - 'latex/**'
+      - 'figures/eps/**'
+      - '.github/workflows/compile-figured-latex.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  compile:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install LuaLaTeX, Japanese packages, and Ghostscript
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-luatex \
+            texlive-lang-japanese \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            ghostscript
+
+      - name: Generate figure-inserted LaTeX source
+        run: |
+          cd latex
+          python3 build_figured_version.py
+          cat generated/insertion-report.txt
+
+      - name: Convert EPS masters to build-time PDF
+        run: |
+          mkdir -p latex/generated/figures
+          for f in figures/eps/*.eps; do
+            stem=$(basename "$f" .eps)
+            gs -q -dSAFER -dBATCH -dNOPAUSE -dEPSCrop \
+              -sDEVICE=pdfwrite \
+              -dCompatibilityLevel=1.5 \
+              -sOutputFile="latex/generated/figures/${stem}.pdf" \
+              "$f"
+          done
+          test "$(find latex/generated/figures -name 'fig*.pdf' | wc -l)" -eq 52
+
+      - name: Compile twice with LuaLaTeX
+        working-directory: latex
+        run: |
+          set -o pipefail
+          lualatex -interaction=nonstopmode -halt-on-error -output-directory=generated generated/main_with_figures.tex | tee generated/compile-pass1.txt
+          lualatex -interaction=nonstopmode -halt-on-error -output-directory=generated generated/main_with_figures.tex | tee generated/compile-pass2.txt
+          test -s generated/main_with_figures.pdf
+
+      - name: Summarize layout warnings
+        working-directory: latex
+        run: |
+          echo '=== insertion summary ==='
+          grep -E 'OK|FALLBACK' generated/insertion-report.txt || true
+          echo '=== LaTeX warnings ==='
+          grep -E 'LaTeX Warning|Package .* Warning|Overfull|Underfull' generated/main_with_figures.log || true
+          echo '=== output PDF ==='
+          pdfinfo generated/main_with_figures.pdf | grep -E 'Pages|Page size' || true
+
+      - name: Upload figured manuscript
+        uses: actions/upload-artifact@v4
+        with:
+          name: figured-manuscript-prototype
+          path: |
+            latex/generated/main_with_figures.pdf
+            latex/generated/main_with_figures.log
+            latex/generated/compile-pass1.txt
+            latex/generated/compile-pass2.txt
+            latex/generated/insertion-report.txt
+            latex/generated/main_with_figures.tex
+            latex/generated/chapters/*.tex
+          retention-days: 30
