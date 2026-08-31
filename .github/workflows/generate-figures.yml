@@ -3,7 +3,8 @@ name: Generate textbook EPS figures
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches:
+      - figure-layout-prototype
     paths:
       - 'figures/generate_figures.py'
       - 'figures/generate_new_figures.py'
@@ -47,13 +48,36 @@ jobs:
           python figures/generate_ch13_15.py
           python figures/generate_ch16_17.py
 
-      - name: Validate EPS files with Ghostscript
+      - name: Normalize all EPS masters to grayscale
         run: |
+          mkdir -p figures/eps-gray
+          for f in figures/eps/*.eps; do
+            stem=$(basename "$f" .eps)
+            gs -q -dSAFER -dBATCH -dNOPAUSE -dEPSCrop \
+              -sDEVICE=eps2write \
+              -sColorConversionStrategy=Gray \
+              -dProcessColorModel=/DeviceGray \
+              -dOverrideICC \
+              -sOutputFile="figures/eps-gray/${stem}.eps" \
+              "$f"
+          done
+          mv figures/eps-gray/*.eps figures/eps/
+          rmdir figures/eps-gray
+
+      - name: Validate EPS files and grayscale ink coverage
+        run: |
+          set -euo pipefail
+          count=0
           for f in figures/eps/*.eps; do
             gs -q -dSAFER -dBATCH -dNOPAUSE -dEPSCrop -sDEVICE=nullpage "$f"
+            coverage=$(gs -q -dSAFER -dBATCH -dNOPAUSE -dEPSCrop -sDEVICE=inkcov -o - "$f" | tail -n 1)
+            echo "$(basename "$f"): $coverage"
+            echo "$coverage" | awk '{ if (($1+0) > 0.00001 || ($2+0) > 0.00001 || ($3+0) > 0.00001) exit 1 }'
+            count=$((count+1))
           done
+          test "$count" -eq 52
 
-      - name: Commit generated EPS files
+      - name: Commit generated grayscale EPS files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -61,7 +85,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No EPS changes to commit."
           else
-            git commit -m "Generate textbook EPS figures [skip ci]"
-            git pull --rebase origin main
-            git push origin HEAD:main
+            git commit -m "Generate grayscale textbook EPS figures [skip ci]"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
