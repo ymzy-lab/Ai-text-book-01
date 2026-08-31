@@ -37,18 +37,31 @@ jobs:
           python3 build_figured_version.py
           cat generated/insertion-report.txt
 
-      - name: Convert EPS masters to build-time PDF
+      - name: Convert EPS masters to grayscale build-time PDF
         run: |
+          set -euo pipefail
           mkdir -p latex/generated/figures
           for f in figures/eps/*.eps; do
             stem=$(basename "$f" .eps)
             gs -q -dSAFER -dBATCH -dNOPAUSE -dEPSCrop \
               -sDEVICE=pdfwrite \
               -dCompatibilityLevel=1.5 \
+              -sColorConversionStrategy=Gray \
+              -dProcessColorModel=/DeviceGray \
+              -dOverrideICC \
               -sOutputFile="latex/generated/figures/${stem}.pdf" \
               "$f"
           done
           test "$(find latex/generated/figures -name 'fig*.pdf' | wc -l)" -eq 52
+
+      - name: Verify every figure PDF is grayscale
+        run: |
+          set -euo pipefail
+          for f in latex/generated/figures/fig*.pdf; do
+            while read -r c m y k rest; do
+              awk -v c="$c" -v m="$m" -v y="$y" 'BEGIN { if ((c+0) > 0.00001 || (m+0) > 0.00001 || (y+0) > 0.00001) exit 1 }'
+            done < <(gs -q -dSAFER -dBATCH -dNOPAUSE -sDEVICE=inkcov -o - "$f" | grep 'CMYK OK')
+          done
 
       - name: Compile twice with LuaLaTeX
         working-directory: latex
@@ -57,6 +70,14 @@ jobs:
           lualatex -interaction=nonstopmode -halt-on-error generated/main_with_figures.tex | tee generated/compile-pass1.txt
           lualatex -interaction=nonstopmode -halt-on-error generated/main_with_figures.tex | tee generated/compile-pass2.txt
           test -s main_with_figures.pdf
+
+      - name: Verify final manuscript is grayscale
+        working-directory: latex
+        run: |
+          set -euo pipefail
+          while read -r c m y k rest; do
+            awk -v c="$c" -v m="$m" -v y="$y" 'BEGIN { if ((c+0) > 0.00001 || (m+0) > 0.00001 || (y+0) > 0.00001) exit 1 }'
+          done < <(gs -q -dSAFER -dBATCH -dNOPAUSE -sDEVICE=inkcov -o - main_with_figures.pdf | grep 'CMYK OK')
 
       - name: Summarize layout warnings
         working-directory: latex
@@ -67,11 +88,13 @@ jobs:
           grep -E 'LaTeX Warning|Package .* Warning|Overfull|Underfull' main_with_figures.log || true
           echo '=== output PDF ==='
           pdfinfo main_with_figures.pdf | grep -E 'Pages|Page size' || true
+          echo '=== grayscale validation ==='
+          echo 'All figure PDFs and the final manuscript have zero C/M/Y ink coverage.'
 
-      - name: Upload figured manuscript
+      - name: Upload grayscale figured manuscript
         uses: actions/upload-artifact@v4
         with:
-          name: figured-manuscript-prototype
+          name: figured-manuscript-grayscale-prototype
           path: |
             latex/main_with_figures.pdf
             latex/main_with_figures.log
