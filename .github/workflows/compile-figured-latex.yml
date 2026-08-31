@@ -1,6 +1,7 @@
 name: Compile figured LaTeX manuscript
 
 # Grayscale print specification is mandatory for all textbook figures.
+# This rebuild validates the geometry-preserving grayscale EPS masters.
 on:
   workflow_dispatch:
   push:
