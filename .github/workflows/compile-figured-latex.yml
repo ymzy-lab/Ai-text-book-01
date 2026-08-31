@@ -28,7 +28,8 @@ jobs:
             texlive-lang-japanese \
             texlive-latex-extra \
             texlive-fonts-recommended \
-            ghostscript
+            ghostscript \
+            poppler-utils
 
       - name: Generate figure-inserted LaTeX source
         run: |
@@ -53,9 +54,9 @@ jobs:
         working-directory: latex
         run: |
           set -o pipefail
-          lualatex -interaction=nonstopmode -halt-on-error -output-directory=generated generated/main_with_figures.tex | tee generated/compile-pass1.txt
-          lualatex -interaction=nonstopmode -halt-on-error -output-directory=generated generated/main_with_figures.tex | tee generated/compile-pass2.txt
-          test -s generated/main_with_figures.pdf
+          lualatex -interaction=nonstopmode -halt-on-error generated/main_with_figures.tex | tee generated/compile-pass1.txt
+          lualatex -interaction=nonstopmode -halt-on-error generated/main_with_figures.tex | tee generated/compile-pass2.txt
+          test -s main_with_figures.pdf
 
       - name: Summarize layout warnings
         working-directory: latex
@@ -63,17 +64,17 @@ jobs:
           echo '=== insertion summary ==='
           grep -E 'OK|FALLBACK' generated/insertion-report.txt || true
           echo '=== LaTeX warnings ==='
-          grep -E 'LaTeX Warning|Package .* Warning|Overfull|Underfull' generated/main_with_figures.log || true
+          grep -E 'LaTeX Warning|Package .* Warning|Overfull|Underfull' main_with_figures.log || true
           echo '=== output PDF ==='
-          pdfinfo generated/main_with_figures.pdf | grep -E 'Pages|Page size' || true
+          pdfinfo main_with_figures.pdf | grep -E 'Pages|Page size' || true
 
       - name: Upload figured manuscript
         uses: actions/upload-artifact@v4
         with:
           name: figured-manuscript-prototype
           path: |
-            latex/generated/main_with_figures.pdf
-            latex/generated/main_with_figures.log
+            latex/main_with_figures.pdf
+            latex/main_with_figures.log
             latex/generated/compile-pass1.txt
             latex/generated/compile-pass2.txt
             latex/generated/insertion-report.txt
