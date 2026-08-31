@@ -12,6 +12,7 @@ on:
       - 'figures/generate_ch10_12.py'
       - 'figures/generate_ch13_15.py'
       - 'figures/generate_ch16_17.py'
+      - 'figures/grayscale_eps.py'
       - '.github/workflows/generate-figures.yml'
 
 permissions:
@@ -39,7 +40,7 @@ jobs:
       - name: Install Python dependencies
         run: python -m pip install --upgrade numpy matplotlib
 
-      - name: Generate EPS figures
+      - name: Generate native Matplotlib EPS figures
         run: |
           python figures/generate_figures.py
           python figures/generate_new_figures.py
@@ -48,21 +49,8 @@ jobs:
           python figures/generate_ch13_15.py
           python figures/generate_ch16_17.py
 
-      - name: Normalize all EPS masters to grayscale
-        run: |
-          mkdir -p figures/eps-gray
-          for f in figures/eps/*.eps; do
-            stem=$(basename "$f" .eps)
-            gs -q -dSAFER -dBATCH -dNOPAUSE -dEPSCrop \
-              -sDEVICE=eps2write \
-              -sColorConversionStrategy=Gray \
-              -dProcessColorModel=/DeviceGray \
-              -dOverrideICC \
-              -sOutputFile="figures/eps-gray/${stem}.eps" \
-              "$f"
-          done
-          mv figures/eps-gray/*.eps figures/eps/
-          rmdir figures/eps-gray
+      - name: Convert EPS color operators to grayscale without rewriting geometry
+        run: python figures/grayscale_eps.py figures/eps
 
       - name: Validate EPS files and grayscale ink coverage
         run: |
@@ -85,7 +73,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No EPS changes to commit."
           else
-            git commit -m "Generate grayscale textbook EPS figures [skip ci]"
+            git commit -m "Generate geometry-preserving grayscale EPS figures [skip ci]"
             git pull --rebase origin "${GITHUB_REF_NAME}"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
