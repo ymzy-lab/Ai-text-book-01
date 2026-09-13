@@ -3,7 +3,7 @@ name: Generate textbook EPS figures
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [main, monochrome-figure-overhaul]
     paths:
       - 'figures/generate_figures.py'
       - 'figures/generate_new_figures.py'
@@ -11,6 +11,9 @@ on:
       - 'figures/generate_ch10_12.py'
       - 'figures/generate_ch13_15.py'
       - 'figures/generate_ch16_17.py'
+      - 'figures/monochrome_style.py'
+      - 'figures/postprocess_monochrome_eps.py'
+      - 'figures/validate_monochrome_eps.py'
       - '.github/workflows/generate-figures.yml'
 
 permissions:
@@ -47,7 +50,13 @@ jobs:
           python figures/generate_ch13_15.py
           python figures/generate_ch16_17.py
 
-      - name: Validate EPS files with Ghostscript
+      - name: Apply monochrome publication style
+        run: python figures/postprocess_monochrome_eps.py
+
+      - name: Validate monochrome vector output
+        run: python figures/validate_monochrome_eps.py
+
+      - name: Validate EPS syntax with Ghostscript
         run: |
           for f in figures/eps/*.eps; do
             gs -q -dSAFER -dBATCH -dNOPAUSE -dEPSCrop -sDEVICE=nullpage "$f"
@@ -61,7 +70,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No EPS changes to commit."
           else
-            git commit -m "Generate textbook EPS figures [skip ci]"
-            git pull --rebase origin main
-            git push origin HEAD:main
+            git commit -m "Generate monochrome textbook EPS figures [skip ci]"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
