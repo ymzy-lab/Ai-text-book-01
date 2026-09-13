@@ -15,6 +15,11 @@ on:
       - 'figures/postprocess_monochrome_eps.py'
       - 'figures/validate_monochrome_eps.py'
       - '.github/workflows/generate-figures.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'figures/**'
+      - '.github/workflows/generate-figures.yml'
 
 permissions:
   contents: write
@@ -63,6 +68,7 @@ jobs:
           done
 
       - name: Commit generated EPS files
+        if: github.event_name != 'pull_request'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
