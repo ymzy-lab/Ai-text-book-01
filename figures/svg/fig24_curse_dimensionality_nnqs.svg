@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="766.78pt" height="308.26875pt" viewBox="0 0 766.78 308.26875" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-01T06:44:40.647465</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 308.26875 
+L 766.78 308.26875 
+L 766.78 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 42.66 271.50875 
+L 396.44 271.50875 
+L 396.44 67.28 
+L 42.66 67.28 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="ma7af643c2b" d="M 0 2.645751 
+C 0.701661 2.645751 1.374679 2.366978 1.870829 1.870829 
+C 2.366978 1.374679 2.645751 0.701661 2.645751 0 
+C 2.645751 -0.701661 2.366978 -1.374679 1.870829 -1.870829 
+C 1.374679 -2.366978 0.701661 -2.645751 0 -2.645751 
+C -0.701661 -2.645751 -1.374679 -2.366978 -1.870829 -1.870829 
+C -2.366978 -1.374679 -2.645751 -0.701661 -2.645751 0 
+C -2.645751 0.701661 -2.366978 1.374679 -1.870829 1.870829 
+C -1.374679 2.366978 -0.701661 2.645751 0 2.645751 
+z
+" style="stroke: #606060"/>
+    </defs>
+    <g clip-path="url(#p426d9798c3)">
+     <use xlink:href="#ma7af643c2b" x="158.553448" y="204.606228" style="fill: #606060; stroke: #606060"/>
+     <use xlink:href="#ma7af643c2b" x="269.45627" y="140.584677" style="fill: #606060; stroke: #606060"/>
+     <use xlink:href="#ma7af643c2b" x="380.359091" y="76.563125" style="fill: #606060; stroke: #606060"/>
+    </g>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 47.650627 271.50875 
+L 47.650627 67.28 
+" clip-path="url(#p426d9798c3)" style="fill: none; stroke: #dddddd; stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="mcef7bf115c" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#mcef7bf115c" x="47.650627" y="271.50875" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 10px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="47.650627" y="287.30875" transform="rotate(-0 47.650627 287.30875)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 103.102038 271.50875 
+L 103.102038 67.28 
+" clip-path="url(#p426d9798c3)" style="fill: none; stroke: #dddddd; stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#mcef7bf115c" x="103.102038" y="271.50875" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 10px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="103.102038" y="287.30875" transform="rotate(-0 103.102038 287.30875)">5</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 158.553448 271.50875 
+L 158.553448 67.28 
+" clip-path="url(#p426d9798c3)" style="fill: none; stroke: #dddddd; stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#mcef7bf115c" x="158.553448" y="271.50875" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 10px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="158.553448" y="287.30875" transform="rotate(-0 158.553448 287.30875)">10</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 214.004859 271.50875 
+L 214.004859 67.28 
+" clip-path="url(#p426d9798c3)" style="fill: none; stroke: #dddddd; stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#mcef7bf115c" x="214.004859" y="271.50875" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 10px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="214.004859" y="287.30875" transform="rotate(-0 214.004859 287.30875)">15</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 269.45627 271.50875 
+L 269.45627 67.28 
+" clip-path="url(#p426d9798c3)" style="fill: none; stroke: #dddddd; stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#mcef7bf115c" x="269.45627" y="271.50875" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 10px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="269.45627" y="287.30875" transform="rotate(-0 269.45627 287.30875)">20</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_11">
+      <path d="M 324.90768 271.50875 
+L 324.90768 67.28 
+" clip-path="url(#p426d9798c3)" style="fill: none; stroke: #dddddd; stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#mcef7bf115c" x="324.90768" y="271.50875" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 10px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="324.90768" y="287.30875" transform="rotate(-0 324.90768 287.30875)">25</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_13">
+      <path d="M 380.359091 271.50875 
+L 380.359091 67.28 
+" clip-path="url(#p426d9798c3)" style="fill: none; stroke: #dddddd; stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#mcef7bf115c" x="380.359091" y="271.50875" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 10px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="380.359091" y="287.30875" transform="rotate(-0 380.359091 287.30875)">30</text>
+     </g>
+    </g>
+    <g id="text_8">
+     <text style="font-size: 10px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="219.55" y="301.30875" transform="rotate(-0 219.55 301.30875)">2状態粒子の数  N</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_15">
+      <path d="M 42.66 268.62778 
+L 396.44 268.62778 
+" clip-path="url(#p426d9798c3)" style="fill: none; stroke: #dddddd; stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_16">
+      <defs>
+       <path id="m37d96d58cf" d="M 0 0 
+L -3.5 0 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m37d96d58cf" x="42.66" y="268.62778" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <!-- $\mathdefault{10^{0}}$ -->
+      <g transform="translate(20.26 273.32778)">
+       <text>
+        <tspan x="0" y="-0.652812" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">1</tspan>
+        <tspan x="5.549988" y="-0.652812" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">0</tspan>
+        <tspan x="11.195679" y="-4.782812" style="font-size: 7px; font-family: 'Noto Sans CJK JP'">0</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_17">
+      <path d="M 42.66 226.092782 
+L 396.44 226.092782 
+" clip-path="url(#p426d9798c3)" style="fill: none; stroke: #dddddd; stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_18">
+      <g>
+       <use xlink:href="#m37d96d58cf" x="42.66" y="226.092782" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <!-- $\mathdefault{10^{2}}$ -->
+      <g transform="translate(20.26 230.792782)">
+       <text>
+        <tspan x="0" y="-0.652812" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">1</tspan>
+        <tspan x="5.549988" y="-0.652812" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">0</tspan>
+        <tspan x="11.195679" y="-4.782812" style="font-size: 7px; font-family: 'Noto Sans CJK JP'">2</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_19">
+      <path d="M 42.66 183.557784 
+L 396.44 183.557784 
+" clip-path="url(#p426d9798c3)" style="fill: none; stroke: #dddddd; stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_20">
+      <g>
+       <use xlink:href="#m37d96d58cf" x="42.66" y="183.557784" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <!-- $\mathdefault{10^{4}}$ -->
+      <g transform="translate(20.26 188.207784)">
+       <text>
+        <tspan x="0" y="-0.740313" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">1</tspan>
+        <tspan x="5.549988" y="-0.740313" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">0</tspan>
+        <tspan x="11.195679" y="-4.870313" style="font-size: 7px; font-family: 'Noto Sans CJK JP'">4</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_21">
+      <path d="M 42.66 141.022785 
+L 396.44 141.022785 
+" clip-path="url(#p426d9798c3)" style="fill: none; stroke: #dddddd; stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_22">
+      <g>
+       <use xlink:href="#m37d96d58cf" x="42.66" y="141.022785" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_12">
+      <!-- $\mathdefault{10^{6}}$ -->
+      <g transform="translate(20.26 145.722785)">
+       <text>
+        <tspan x="0" y="-0.652812" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">1</tspan>
+        <tspan x="5.549988" y="-0.652812" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">0</tspan>
+        <tspan x="11.195679" y="-4.782812" style="font-size: 7px; font-family: 'Noto Sans CJK JP'">6</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_23">
+      <path d="M 42.66 98.487787 
+L 396.44 98.487787 
+" clip-path="url(#p426d9798c3)" style="fill: none; stroke: #dddddd; stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_24">
+      <g>
+       <use xlink:href="#m37d96d58cf" x="42.66" y="98.487787" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_13">
+      <!-- $\mathdefault{10^{8}}$ -->
+      <g transform="translate(20.26 103.187787)">
+       <text>
+        <tspan x="0" y="-0.66375" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">1</tspan>
+        <tspan x="5.549988" y="-0.66375" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">0</tspan>
+        <tspan x="11.195679" y="-4.79375" style="font-size: 7px; font-family: 'Noto Sans CJK JP'">8</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="text_14">
+     <!-- ヒルベルト空間の次元  $2^N$ -->
+     <g transform="translate(15.06 227.644375) rotate(-90)">
+      <text>
+       <tspan x="0" y="-0.762187" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">ヒ</tspan>
+       <tspan x="9.999985" y="-0.762187" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">ル</tspan>
+       <tspan x="19.999969" y="-0.762187" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">ベ</tspan>
+       <tspan x="29.999954" y="-0.762187" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">ル</tspan>
+       <tspan x="39.999939" y="-0.762187" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">ト</tspan>
+       <tspan x="49.999924" y="-0.762187" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">空</tspan>
+       <tspan x="59.999908" y="-0.762187" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">間</tspan>
+       <tspan x="69.999893" y="-0.762187" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">の</tspan>
+       <tspan x="79.999878" y="-0.762187" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">次</tspan>
+       <tspan x="89.999863" y="-0.762187" style="font-size: 10px; font-family: 'Noto Sans CJK JP'">元</tspan>
+       <tspan x="99.999847" y="-0.762187" style="font-size: 10px; font-family: 'Noto Sans CJK JP'"> </tspan>
+       <tspan x="102.239853" y="-0.762187" style="font-size: 10px; font-family: 'Noto Sans CJK JP'"> </tspan>
+       <tspan x="104.479858" y="-0.762187" style="font-size: 10px; font-family: 'DejaVu Sans'">2</tspan>
+       <tspan x="110.937866" y="-4.892187" style="font-style: oblique; font-size: 7px; font-family: 'DejaVu Sans'">N</tspan>
+      </text>
+     </g>
+    </g>
+   </g>
+   <g id="line2d_25">
+    <path d="M 58.740909 262.225625 
+L 69.831191 255.82347 
+L 80.921473 249.421315 
+L 92.011755 243.019159 
+L 103.102038 236.617004 
+L 114.19232 230.214849 
+L 125.282602 223.812694 
+L 136.372884 217.410539 
+L 147.463166 211.008384 
+L 158.553448 204.606228 
+L 169.64373 198.204073 
+L 180.734013 191.801918 
+L 191.824295 185.399763 
+L 202.914577 178.997608 
+L 214.004859 172.595453 
+L 225.095141 166.193297 
+L 236.185423 159.791142 
+L 247.275705 153.388987 
+L 258.365987 146.986832 
+L 269.45627 140.584677 
+L 280.546552 134.182522 
+L 291.636834 127.780366 
+L 302.727116 121.378211 
+L 313.817398 114.976056 
+L 324.90768 108.573901 
+L 335.997962 102.171746 
+L 347.088245 95.769591 
+L 358.178527 89.367435 
+L 369.268809 82.96528 
+L 380.359091 76.563125 
+" clip-path="url(#p426d9798c3)" style="fill: none; stroke: #606060; stroke-width: 2.2; stroke-linecap: square"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 42.66 271.50875 
+L 42.66 67.28 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 396.44 271.50875 
+L 396.44 67.28 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 42.66 271.50875 
+L 396.44 271.50875 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 42.66 67.28 
+L 396.44 67.28 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #707070" x="49.7356" y="79.284575" transform="rotate(-0 49.7356 79.284575)">(a) 状態数は指数関数的に爆発</text>
+   </g>
+   <g id="text_16">
+    <!-- $2^{10}=1024$ -->
+    <g transform="translate(135.858448 191.801918)">
+     <text>
+      <tspan x="0" y="-0.07075" style="font-size: 8.5px; font-family: 'DejaVu Sans'">2</tspan>
+      <tspan x="14.948877" y="-0.07075" style="font-size: 8.5px; font-family: 'DejaVu Sans'">=</tspan>
+      <tspan x="23.726953" y="-0.07075" style="font-size: 8.5px; font-family: 'DejaVu Sans'">1</tspan>
+      <tspan x="29.134912" y="-0.07075" style="font-size: 8.5px; font-family: 'DejaVu Sans'">0</tspan>
+      <tspan x="34.542871" y="-0.07075" style="font-size: 8.5px; font-family: 'DejaVu Sans'">2</tspan>
+      <tspan x="39.95083" y="-0.07075" style="font-size: 8.5px; font-family: 'DejaVu Sans'">4</tspan>
+      <tspan x="5.489307" y="-3.58125" style="font-size: 5.95px; font-family: 'DejaVu Sans'">1</tspan>
+      <tspan x="9.274878" y="-3.58125" style="font-size: 5.95px; font-family: 'DejaVu Sans'">0</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_17">
+    <!-- $2^{20}\approx10^6$ -->
+    <g transform="translate(250.11877 127.780366)">
+     <text>
+      <tspan x="0" y="-0.07075" style="font-size: 8.5px; font-family: 'DejaVu Sans'">2</tspan>
+      <tspan x="14.948877" y="-0.07075" style="font-size: 8.5px; font-family: 'DejaVu Sans'">≈</tspan>
+      <tspan x="23.726953" y="-0.07075" style="font-size: 8.5px; font-family: 'DejaVu Sans'">1</tspan>
+      <tspan x="29.134912" y="-0.07075" style="font-size: 8.5px; font-family: 'DejaVu Sans'">0</tspan>
+      <tspan x="5.489307" y="-3.58125" style="font-size: 5.95px; font-family: 'DejaVu Sans'">2</tspan>
+      <tspan x="9.274878" y="-3.58125" style="font-size: 5.95px; font-family: 'DejaVu Sans'">0</tspan>
+      <tspan x="34.624219" y="-3.58125" style="font-size: 5.95px; font-family: 'DejaVu Sans'">6</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(263.183527 86.769591)">粒子を1個増やすだけで</text>
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(286.178527 95.769591)">必要状態数が倍増</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_7">
+    <path d="M 432.0046 122.713518 
+L 451.4625 122.713518 
+L 451.4625 102.290643 
+L 432.0046 102.290643 
+z
+" clip-path="url(#p5ab086b866)" style="fill: #f5f5f5; stroke: #545454; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 460.307 122.713518 
+L 479.7649 122.713518 
+L 479.7649 102.290643 
+L 460.307 102.290643 
+z
+" clip-path="url(#p5ab086b866)" style="fill: #f5f5f5; stroke: #545454; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 488.6094 122.713518 
+L 508.0673 122.713518 
+L 508.0673 102.290643 
+L 488.6094 102.290643 
+z
+" clip-path="url(#p5ab086b866)" style="fill: #f5f5f5; stroke: #545454; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 516.9118 122.713518 
+L 536.3697 122.713518 
+L 536.3697 102.290643 
+L 516.9118 102.290643 
+z
+" clip-path="url(#p5ab086b866)" style="fill: #f5f5f5; stroke: #545454; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 545.2142 122.713518 
+L 564.6721 122.713518 
+L 564.6721 102.290643 
+L 545.2142 102.290643 
+z
+" clip-path="url(#p5ab086b866)" style="fill: #f5f5f5; stroke: #545454; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 573.5166 122.713518 
+L 592.9745 122.713518 
+L 592.9745 102.290643 
+L 573.5166 102.290643 
+z
+" clip-path="url(#p5ab086b866)" style="fill: #f5f5f5; stroke: #545454; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 601.819 112.50208 
+Q 621.2769 112.50208 639.169552 112.50208 
+" clip-path="url(#p5ab086b866)" style="fill: none; stroke: #242424; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 634.369552 110.10208 
+L 639.169552 112.50208 
+L 634.369552 114.90208 
+z
+" clip-path="url(#p5ab086b866)" style="fill: #242424; stroke: #242424; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 644.2726 137.00953 
+L 718.5664 137.00953 
+Q 719.98152 137.00953 719.98152 135.842509 
+L 719.98152 89.161652 
+Q 719.98152 87.99463 718.5664 87.99463 
+L 644.2726 87.99463 
+Q 642.85748 87.99463 642.85748 89.161652 
+L 642.85748 135.842509 
+Q 642.85748 137.00953 644.2726 137.00953 
+z
+" clip-path="url(#p5ab086b866)" style="fill: #ffffff; stroke: #606060; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 681.4195 137.301286 
+Q 681.4195 154.077219 681.4195 169.287904 
+" clip-path="url(#p5ab086b866)" style="fill: none; stroke: #606060; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 683.8195 164.487904 
+L 681.4195 169.287904 
+L 679.0195 164.487904 
+z
+" clip-path="url(#p5ab086b866)" style="fill: #606060; stroke: #606060; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 635.4281 208.489593 
+L 727.4109 208.489593 
+Q 728.82602 208.489593 728.82602 207.322571 
+L 728.82602 175.229482 
+Q 728.82602 174.062461 727.4109 174.062461 
+L 635.4281 174.062461 
+Q 634.01298 174.062461 634.01298 175.229482 
+L 634.01298 207.322571 
+Q 634.01298 208.489593 635.4281 208.489593 
+z
+" clip-path="url(#p5ab086b866)" style="fill: #ffffff; stroke: #808080; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_19">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #707070" x="414.3156" y="79.284575" transform="rotate(-0 414.3156 79.284575)">(b) NNQS：巨大な波動関数を関数として圧縮</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="441.73355" y="116.30208" transform="rotate(-0 441.73355 116.30208)">↑</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="470.03595" y="116.30208" transform="rotate(-0 470.03595 116.30208)">↓</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="498.33835" y="116.30208" transform="rotate(-0 498.33835 116.30208)">↑</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="526.64075" y="116.30208" transform="rotate(-0 526.64075 116.30208)">↑</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="554.94315" y="116.30208" transform="rotate(-0 554.94315 116.30208)">↓</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="583.24555" y="116.30208" transform="rotate(-0 583.24555 116.30208)">…</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #606060" transform="translate(665.959344 111.30208)">Neural</text>
+    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #606060" transform="translate(661.484344 121.30208)">Network</text>
+   </g>
+   <g id="text_27">
+    <!-- $\psi_\theta(s_1,\dots,s_N)$ -->
+    <g style="fill: #242424" transform="translate(643.1395 195.296027)">
+     <text>
+      <tspan x="0" y="-0.890625" style="font-style: oblique; font-size: 12px; font-family: 'DejaVu Sans'; fill: #242424">ψ</tspan>
+      <tspan x="18.065039" y="-0.890625" style="font-style: oblique; font-size: 12px; font-family: 'DejaVu Sans'; fill: #242424">s</tspan>
+      <tspan x="58.969922" y="-0.890625" style="font-style: oblique; font-size: 12px; font-family: 'DejaVu Sans'; fill: #242424">s</tspan>
+      <tspan x="7.916016" y="0.909369" style="font-style: oblique; font-size: 8.4px; font-family: 'DejaVu Sans'; fill: #242424">θ</tspan>
+      <tspan x="65.221875" y="0.909369" style="font-style: oblique; font-size: 8.4px; font-family: 'DejaVu Sans'; fill: #242424">N</tspan>
+      <tspan x="13.383398" y="-0.890625" style="font-size: 12px; font-family: 'DejaVu Sans'; fill: #242424">(</tspan>
+      <tspan x="29.989453" y="-0.890625" style="font-size: 12px; font-family: 'DejaVu Sans'; fill: #242424">,</tspan>
+      <tspan x="38.479687" y="-0.890625" style="font-size: 12px; font-family: 'DejaVu Sans'; fill: #242424">…</tspan>
+      <tspan x="52.817578" y="-0.890625" style="font-size: 12px; font-family: 'DejaVu Sans'; fill: #242424">,</tspan>
+      <tspan x="71.833594" y="-0.890625" style="font-size: 12px; font-family: 'DejaVu Sans'; fill: #242424">)</tspan>
+      <tspan x="24.316992" y="0.909369" style="font-size: 8.4px; font-family: 'DejaVu Sans'; fill: #242424">1</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(514.8644 234.791991)">すべての振幅を表に保存せず、</text>
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(500.5544 243.791991)">重要な相関構造をネットワークで表現</text>
+   </g>
+  </g>
+  <g id="text_29">
+   <text style="font-weight: 700; font-size: 14px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="383.02" y="18.08" transform="rotate(-0 383.02 18.08)">量子多体問題の「次元の呪い」とニューラル量子状態</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p426d9798c3">
+   <rect x="42.66" y="67.28" width="353.78" height="204.22875"/>
+  </clipPath>
+  <clipPath id="p5ab086b866">
+   <rect x="407.24" y="67.28" width="353.78" height="204.22875"/>
+  </clipPath>
+ </defs>
+</svg>

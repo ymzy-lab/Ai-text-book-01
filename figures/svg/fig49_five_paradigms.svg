@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="817.92pt" height="304.848pt" viewBox="0 0 817.92 304.848" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-01T06:45:20.198066</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 304.848 
+L 817.92 304.848 
+L 817.92 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 62.208 184.101851 
+C 67.554494 184.101851 72.68273 183.489949 76.463273 182.400909 
+C 80.243815 181.311868 82.368 179.834606 82.368 178.29447 
+C 82.368 176.754334 80.243815 175.277072 76.463273 174.188031 
+C 72.68273 173.098991 67.554494 172.487089 62.208 172.487089 
+C 56.861506 172.487089 51.73327 173.098991 47.952727 174.188031 
+C 44.172185 175.277072 42.048 176.754334 42.048 178.29447 
+C 42.048 179.834606 44.172185 181.311868 47.952727 182.400909 
+C 51.73327 183.489949 56.861506 184.101851 62.208 184.101851 
+z
+" clip-path="url(#p43cc0a9886)" style="fill: #ffffff; stroke: #545454; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 223.488 184.101851 
+C 228.834494 184.101851 233.96273 183.489949 237.743273 182.400909 
+C 241.523815 181.311868 243.648 179.834606 243.648 178.29447 
+C 243.648 176.754334 241.523815 175.277072 237.743273 174.188031 
+C 233.96273 173.098991 228.834494 172.487089 223.488 172.487089 
+C 218.141506 172.487089 213.01327 173.098991 209.232727 174.188031 
+C 205.452185 175.277072 203.328 176.754334 203.328 178.29447 
+C 203.328 179.834606 205.452185 181.311868 209.232727 182.400909 
+C 213.01327 183.489949 218.141506 184.101851 223.488 184.101851 
+z
+" clip-path="url(#p43cc0a9886)" style="fill: #ffffff; stroke: #545454; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 384.768 184.101851 
+C 390.114494 184.101851 395.24273 183.489949 399.023273 182.400909 
+C 402.803815 181.311868 404.928 179.834606 404.928 178.29447 
+C 404.928 176.754334 402.803815 175.277072 399.023273 174.188031 
+C 395.24273 173.098991 390.114494 172.487089 384.768 172.487089 
+C 379.421506 172.487089 374.29327 173.098991 370.512727 174.188031 
+C 366.732185 175.277072 364.608 176.754334 364.608 178.29447 
+C 364.608 179.834606 366.732185 181.311868 370.512727 182.400909 
+C 374.29327 183.489949 379.421506 184.101851 384.768 184.101851 
+z
+" clip-path="url(#p43cc0a9886)" style="fill: #ffffff; stroke: #545454; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 546.048 184.101851 
+C 551.394494 184.101851 556.52273 183.489949 560.303273 182.400909 
+C 564.083815 181.311868 566.208 179.834606 566.208 178.29447 
+C 566.208 176.754334 564.083815 175.277072 560.303273 174.188031 
+C 556.52273 173.098991 551.394494 172.487089 546.048 172.487089 
+C 540.701506 172.487089 535.57327 173.098991 531.792727 174.188031 
+C 528.012185 175.277072 525.888 176.754334 525.888 178.29447 
+C 525.888 179.834606 528.012185 181.311868 531.792727 182.400909 
+C 535.57327 183.489949 540.701506 184.101851 546.048 184.101851 
+z
+" clip-path="url(#p43cc0a9886)" style="fill: #ffffff; stroke: #808080; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 715.392 184.101851 
+C 720.738494 184.101851 725.86673 183.489949 729.647273 182.400909 
+C 733.427815 181.311868 735.552 179.834606 735.552 178.29447 
+C 735.552 176.754334 733.427815 175.277072 729.647273 174.188031 
+C 725.86673 173.098991 720.738494 172.487089 715.392 172.487089 
+C 710.045506 172.487089 704.91727 173.098991 701.136727 174.188031 
+C 697.356185 175.277072 695.232 176.754334 695.232 178.29447 
+C 695.232 179.834606 697.356185 181.311868 701.136727 182.400909 
+C 704.91727 183.489949 710.045506 184.101851 715.392 184.101851 
+z
+" clip-path="url(#p43cc0a9886)" style="fill: #ffffff; stroke: #606060; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 62.208 178.29447 
+L 715.392 178.29447 
+" clip-path="url(#p43cc0a9886)" style="fill: none; stroke: #dddddd; stroke-width: 4; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(54.894 123.762563)">第1</text>
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(39.208 132.962563)">経験・神話</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 8.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #707070" x="62.208" y="155.064945" transform="rotate(-0 62.208 155.064945)">観測・記録</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #545454" x="62.208" y="280.50438" transform="rotate(-0 62.208 280.50438)">ティコ</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(216.174 228.295425)">第2</text>
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(205.088 237.495425)">理論科学</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 8.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #707070" x="223.488" y="199.201043" transform="rotate(-0 223.488 199.201043)">方程式・演繹</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #545454" transform="translate(203.988 272.70438)">ニュートン</text>
+    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #545454" transform="translate(200.205 280.50438)">マクスウェル</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(377.454 123.762563)">第3</text>
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(366.368 132.962563)">計算科学</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 8.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #707070" x="384.768" y="155.064945" transform="rotate(-0 384.768 155.064945)">シミュレーション</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #545454" transform="translate(369.168 272.70438)">数値計算</text>
+    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #545454" transform="translate(373.068 280.50438)">カオス</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(538.734 228.295425)">第4</text>
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(523.048 237.495425)">データ駆動</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 8.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #707070" x="546.048" y="199.201043" transform="rotate(-0 546.048 199.201043)">統計・ML</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #808080" transform="translate(538.603266 272.70438)">LHC</text>
+    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #808080" transform="translate(522.648 280.50438)">ビッグデータ</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(708.078 123.762563)">第5</text>
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(701.725687 132.962563)">AI駆動</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 8.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #707070" x="715.392" y="155.064945" transform="rotate(-0 715.392 155.064945)">発見・推論・協働</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #606060" transform="translate(694.094953 271.814693)">Symbolic AI</text>
+    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #606060" transform="translate(684.816609 280.50438)">PINNs・証明支援</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #707070" x="408.96" y="80.730465" transform="rotate(-0 408.96 80.730465)">知識の作り方そのものが変化してきた</text>
+   </g>
+  </g>
+  <g id="text_17">
+   <text style="font-weight: 700; font-size: 14px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="408.96" y="18.08" transform="rotate(-0 408.96 18.08)">科学の5つのパラダイム：神話からAI駆動型科学へ</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p43cc0a9886">
+   <rect x="5.76" y="66.79275" width="806.4" height="232.29525"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="337.672897pt" height="387.792pt" viewBox="0 0 337.672897 387.792" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-01T06:45:05.492953</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 387.792 
+L 337.672897 387.792 
+L 337.672897 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 206.963104 103.464086 
+C 200.657482 101.415266 194.200602 99.865106 187.652106 98.827926 
+C 181.103611 97.790746 174.483727 97.26975 167.853604 97.26975 
+L 167.853604 150.42537 
+C 171.699076 150.42537 175.538608 150.727548 179.336736 151.329112 
+C 183.134863 151.930676 186.879853 152.829769 190.537114 154.018085 
+z
+" style="fill: #444444; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 282.369421 277.717803 
+C 290.015956 261.468088 294.116904 243.775387 294.398991 225.818684 
+C 294.681077 207.861981 291.137894 190.049196 284.005547 173.567316 
+C 276.873201 157.085435 266.313715 142.308876 253.030741 130.222299 
+C 239.747766 118.135722 224.04305 109.013697 206.963104 103.464086 
+L 190.537114 154.018085 
+C 200.443483 157.236859 209.552218 162.527634 217.256343 169.537848 
+C 224.960469 176.548063 231.08497 185.118468 235.221731 194.677958 
+C 239.358492 204.237449 241.413538 214.568864 241.249928 224.983752 
+C 241.086318 235.398639 238.707768 245.660406 234.272778 255.085241 
+z
+" style="fill: #777777; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 167.853604 97.26975 
+C 145.189742 97.26975 122.936552 103.357534 103.428814 114.894378 
+C 83.921075 126.431223 67.865753 142.999029 56.947354 162.859523 
+C 46.028955 182.720017 40.643165 205.153448 41.355054 227.806127 
+C 42.066944 250.458806 48.850713 272.509793 60.994618 291.645525 
+C 73.138522 310.781257 90.202463 326.308248 110.396113 336.597427 
+C 130.589762 346.886605 153.181295 351.565086 175.800435 350.142011 
+C 198.419576 348.718935 220.246598 341.245875 238.991439 328.506895 
+C 257.736279 315.767914 272.719617 298.224679 282.369421 277.717803 
+L 234.272778 255.085241 
+C 228.675892 266.979229 219.985556 277.154305 209.113548 284.542914 
+C 198.241541 291.931522 185.581868 296.265897 172.462766 297.091281 
+C 159.343665 297.916665 146.240576 295.203146 134.528259 289.235422 
+C 122.815942 283.267699 112.918857 274.262044 105.875392 263.163319 
+C 98.831927 252.064595 94.897341 239.275023 94.484445 226.136469 
+C 94.07155 212.997915 97.195308 199.986525 103.527979 188.467438 
+C 109.860651 176.948352 119.172737 167.339024 130.487226 160.647654 
+C 141.801714 153.956285 154.708564 150.42537 167.853604 150.42537 
+z
+" style="fill: #aaaaaa; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_1"/>
+   <g id="matplotlib.axis_2"/>
+   <g id="text_1">
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(173.215837 75.247418)">通常物質</text>
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(184.574118 84.247418)">5%</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(277.912897 163.439898)">ダークマター</text>
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(295.773678 172.439898)">27%</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(5.76 302.772184)">ダークエネルギー</text>
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(32.620781 311.772184)">68%</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(152.853604 222.63075)">宇宙の</text>
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; fill: #242424" transform="translate(132.853604 232.63075)">エネルギー収支</text>
+   </g>
+  </g>
+  <g id="text_5">
+   <text style="font-weight: 700; font-size: 14px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="167.853604" y="18.08" transform="rotate(-0 167.853604 18.08)">宇宙の成分：私たちが知る通常物質は約5%</text>
+  </g>
+ </g>
+</svg>

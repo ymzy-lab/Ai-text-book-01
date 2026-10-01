@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="418.6425pt" height="484.56pt" viewBox="0 0 418.6425 484.56" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-01T06:45:23.197602</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 484.56 
+L 418.6425 484.56 
+L 418.6425 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 209.32125 171.761781 
+C 216.969136 171.761781 224.304813 168.723244 229.712685 163.315372 
+C 235.120557 157.907501 238.159094 150.571823 238.159094 142.923937 
+C 238.159094 135.276052 235.120557 127.940374 229.712685 122.532503 
+C 224.304813 117.124631 216.969136 114.086094 209.32125 114.086094 
+C 201.673364 114.086094 194.337687 117.124631 188.929815 122.532503 
+C 183.521943 127.940374 180.483406 135.276052 180.483406 142.923937 
+C 180.483406 150.571823 183.521943 157.907501 188.929815 163.315372 
+C 194.337687 168.723244 201.673364 171.761781 209.32125 171.761781 
+z
+" clip-path="url(#p0313e1c63a)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 237.233709 159.039203 
+Q 266.615244 176.002641 294.447587 192.071651 
+" clip-path="url(#p0313e1c63a)" style="fill: none; stroke: #dddddd; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 291.983485 188.3396 
+L 294.447587 192.071651 
+L 289.983485 191.803702 
+z
+" clip-path="url(#p0313e1c63a)" style="fill: #dddddd; stroke: #dddddd; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 323.909239 237.919187 
+C 331.557124 237.919187 338.892802 234.88065 344.300674 229.472779 
+C 349.708546 224.064907 352.747083 216.729229 352.747083 209.081344 
+C 352.747083 201.433458 349.708546 194.097781 344.300674 188.689909 
+C 338.892802 183.282037 331.557124 180.2435 323.909239 180.2435 
+C 316.261353 180.2435 308.925676 183.282037 303.517804 188.689909 
+C 298.109932 194.097781 295.071395 201.433458 295.071395 209.081344 
+C 295.071395 216.729229 298.109932 224.064907 303.517804 229.472779 
+C 308.925676 234.88065 316.261353 237.919187 323.909239 237.919187 
+z
+" clip-path="url(#p0313e1c63a)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 323.909239 241.311875 
+Q 323.909239 275.23875 323.909239 307.376771 
+" clip-path="url(#p0313e1c63a)" style="fill: none; stroke: #dddddd; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 325.909239 303.376771 
+L 323.909239 307.376771 
+L 321.909239 303.376771 
+z
+" clip-path="url(#p0313e1c63a)" style="fill: #dddddd; stroke: #dddddd; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 323.909239 370.234 
+C 331.557124 370.234 338.892802 367.195463 344.300674 361.787591 
+C 349.708546 356.379719 352.747083 349.044042 352.747083 341.396156 
+C 352.747083 333.748271 349.708546 326.412593 344.300674 321.004721 
+C 338.892802 315.59685 331.557124 312.558312 323.909239 312.558312 
+C 316.261353 312.558312 308.925676 315.59685 303.517804 321.004721 
+C 298.109932 326.412593 295.071395 333.748271 295.071395 341.396156 
+C 295.071395 349.044042 298.109932 356.379719 303.517804 361.787591 
+C 308.925676 367.195463 316.261353 370.234 323.909239 370.234 
+z
+" clip-path="url(#p0313e1c63a)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 295.99678 357.511422 
+Q 266.615244 374.474859 238.782902 390.54387 
+" clip-path="url(#p0313e1c63a)" style="fill: none; stroke: #dddddd; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 243.247004 390.27592 
+L 238.782902 390.54387 
+L 241.247004 386.811819 
+z
+" clip-path="url(#p0313e1c63a)" style="fill: #dddddd; stroke: #dddddd; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 209.32125 436.391406 
+C 216.969136 436.391406 224.304813 433.352869 229.712685 427.944997 
+C 235.120557 422.537126 238.159094 415.201448 238.159094 407.553562 
+C 238.159094 399.905677 235.120557 392.569999 229.712685 387.162128 
+C 224.304813 381.754256 216.969136 378.715719 209.32125 378.715719 
+C 201.673364 378.715719 194.337687 381.754256 188.929815 387.162128 
+C 183.521943 392.569999 180.483406 399.905677 180.483406 407.553562 
+C 180.483406 415.201448 183.521943 422.537126 188.929815 427.944997 
+C 194.337687 433.352869 201.673364 436.391406 209.32125 436.391406 
+z
+" clip-path="url(#p0313e1c63a)" style="fill: #ffffff; stroke: #707070; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 181.408791 391.438297 
+Q 152.027256 374.474859 124.194913 358.405849 
+" clip-path="url(#p0313e1c63a)" style="fill: none; stroke: #dddddd; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 126.659015 362.1379 
+L 124.194913 358.405849 
+L 128.659015 358.673798 
+z
+" clip-path="url(#p0313e1c63a)" style="fill: #dddddd; stroke: #dddddd; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 94.733261 370.234 
+C 102.381147 370.234 109.716824 367.195463 115.124696 361.787591 
+C 120.532568 356.379719 123.571105 349.044042 123.571105 341.396156 
+C 123.571105 333.748271 120.532568 326.412593 115.124696 321.004721 
+C 109.716824 315.59685 102.381147 312.558312 94.733261 312.558312 
+C 87.085376 312.558312 79.749698 315.59685 74.341826 321.004721 
+C 68.933954 326.412593 65.895417 333.748271 65.895417 341.396156 
+C 65.895417 349.044042 68.933954 356.379719 74.341826 361.787591 
+C 79.749698 367.195463 87.085376 370.234 94.733261 370.234 
+z
+" clip-path="url(#p0313e1c63a)" style="fill: #ffffff; stroke: #606060; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 94.733261 309.165625 
+Q 94.733261 275.23875 94.733261 243.100729 
+" clip-path="url(#p0313e1c63a)" style="fill: none; stroke: #dddddd; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 92.733261 247.100729 
+L 94.733261 243.100729 
+L 96.733261 247.100729 
+z
+" clip-path="url(#p0313e1c63a)" style="fill: #dddddd; stroke: #dddddd; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 94.733261 237.919188 
+C 102.381147 237.919188 109.716824 234.88065 115.124696 229.472779 
+C 120.532568 224.064907 123.571105 216.729229 123.571105 209.081344 
+C 123.571105 201.433458 120.532568 194.097781 115.124696 188.689909 
+C 109.716824 183.282037 102.381147 180.2435 94.733261 180.2435 
+C 87.085376 180.2435 79.749698 183.282037 74.341826 188.689909 
+C 68.933954 194.097781 65.895417 201.433458 65.895417 209.081344 
+C 65.895417 216.729229 68.933954 224.064907 74.341826 229.472779 
+C 79.749698 234.88065 87.085376 237.919188 94.733261 237.919188 
+z
+" clip-path="url(#p0313e1c63a)" style="fill: #ffffff; stroke: #808080; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 122.64572 192.966078 
+Q 152.027256 176.002641 179.859598 159.93363 
+" clip-path="url(#p0313e1c63a)" style="fill: none; stroke: #dddddd; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 175.395496 160.20158 
+L 179.859598 159.93363 
+L 177.395496 163.665681 
+z
+" clip-path="url(#p0313e1c63a)" style="fill: #dddddd; stroke: #dddddd; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 8.5px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="209.32125" y="146.153937" transform="rotate(-0 209.32125 146.153937)">宇宙</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 8.5px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="323.909239" y="212.311344" transform="rotate(-0 323.909239 212.311344)">物質・星</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 8.5px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="323.909239" y="344.626156" transform="rotate(-0 323.909239 344.626156)">生命</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 8.5px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="209.32125" y="410.783562" transform="rotate(-0 209.32125 410.783562)">人間の知能</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 8.5px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="94.733261" y="344.626156" transform="rotate(-0 94.733261 344.626156)">AI</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 8.5px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="94.733261" y="212.311344" transform="rotate(-0 94.733261 212.311344)">新しい科学</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="209.32125" y="261.668" transform="rotate(-0 209.32125 261.668)">法則</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #707070" x="209.32125" y="297.291219" transform="rotate(-0 209.32125 297.291219)">観測 → 理解 → 創造 → 再観測</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 8.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #707070" x="209.32125" y="458.443875" transform="rotate(-0 209.32125 458.443875)">人間が宇宙を解き明かし、その法則でAIを作り、AIが次の発見を支援する循環</text>
+   </g>
+  </g>
+  <g id="text_10">
+   <text style="font-weight: 700; font-size: 14px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="209.32125" y="18.08" transform="rotate(-0 209.32125 18.08)">自己言及する宇宙：宇宙が知能を生み、知能が宇宙を理解する</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p0313e1c63a">
+   <rect x="5.76" y="71.6775" width="407.1225" height="407.1225"/>
+  </clipPath>
+ </defs>
+</svg>

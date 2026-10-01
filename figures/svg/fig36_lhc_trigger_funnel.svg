@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="637.92pt" height="373.968pt" viewBox="0 0 637.92 373.968" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-01T06:45:01.113976</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 373.968 
+L 637.92 373.968 
+L 637.92 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 68.4 116.313375 
+L 569.52 116.313375 
+L 541.332 146.662125 
+L 96.588 146.662125 
+z
+" clip-path="url(#pc59eaab62d)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 118.512 173.976 
+L 519.408 173.976 
+L 491.22 204.32475 
+L 146.7 204.32475 
+z
+" clip-path="url(#pc59eaab62d)" style="fill: #ffffff; stroke: #707070; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 174.888 231.638625 
+L 463.032 231.638625 
+L 434.844 261.987375 
+L 203.076 261.987375 
+z
+" clip-path="url(#pc59eaab62d)" style="fill: #ffffff; stroke: #606060; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 237.528 289.30125 
+L 400.392 289.30125 
+L 372.204 319.65 
+L 265.716 319.65 
+z
+" clip-path="url(#pc59eaab62d)" style="fill: #ffffff; stroke: #808080; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 318.96 148.179563 
+Q 318.96 159.560344 318.96 169.599484 
+" clip-path="url(#pc59eaab62d)" style="fill: none; stroke: #242424; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 320.96 165.599484 
+L 318.96 169.599484 
+L 316.96 165.599484 
+z
+" clip-path="url(#pc59eaab62d)" style="fill: #242424; stroke: #242424; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 318.96 205.842188 
+Q 318.96 217.222969 318.96 227.262109 
+" clip-path="url(#pc59eaab62d)" style="fill: none; stroke: #242424; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 320.96 223.262109 
+L 318.96 227.262109 
+L 316.96 223.262109 
+z
+" clip-path="url(#pc59eaab62d)" style="fill: #242424; stroke: #242424; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 318.96 263.504813 
+Q 318.96 274.885594 318.96 284.924734 
+" clip-path="url(#pc59eaab62d)" style="fill: none; stroke: #242424; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 320.96 280.924734 
+L 318.96 284.924734 
+L 316.96 280.924734 
+z
+" clip-path="url(#pc59eaab62d)" style="fill: #242424; stroke: #242424; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <!-- 陽子衝突：およそ $4\times10^7$ 回/秒 -->
+    <g style="fill: #242424" transform="translate(253.89 134.86275)">
+     <text>
+      <tspan x="0" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #242424">陽</tspan>
+      <tspan x="9.000061" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #242424">子</tspan>
+      <tspan x="18.000122" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #242424">衝</tspan>
+      <tspan x="27.000183" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #242424">突</tspan>
+      <tspan x="36.000244" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #242424">：</tspan>
+      <tspan x="45.000305" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #242424">お</tspan>
+      <tspan x="54.000366" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #242424">よ</tspan>
+      <tspan x="63.000427" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #242424">そ</tspan>
+      <tspan x="72.000488" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #242424"> </tspan>
+      <tspan x="106.583063" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #242424"> </tspan>
+      <tspan x="108.599084" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #242424">回</tspan>
+      <tspan x="117.599146" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #242424">/</tspan>
+      <tspan x="121.127176" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #242424">秒</tspan>
+      <tspan x="74.01651" y="-0.68925" style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #242424">4</tspan>
+      <tspan x="81.496002" y="-0.68925" style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #242424">×</tspan>
+      <tspan x="90.790436" y="-0.68925" style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #242424">1</tspan>
+      <tspan x="96.51651" y="-0.68925" style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #242424">0</tspan>
+      <tspan x="102.328717" y="-4.40625" style="font-size: 6.3px; font-family: 'DejaVu Sans'; fill: #242424">7</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="318.96" y="192.570375" transform="rotate(-0 318.96 192.570375)">超高速トリガー：粗い特徴で大幅削減</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="318.96" y="250.233" transform="rotate(-0 318.96 250.233)">高レベル解析：再構成・機械学習</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="318.96" y="307.895625" transform="rotate(-0 318.96 307.895625)">保存候補</text>
+   </g>
+   <g id="text_5">
+    <!-- 概念図：原稿では最終的に約 $10^{-5}$ まで絞り込んで保存 -->
+    <g style="fill: #707070" transform="translate(207.405 328.754625)">
+     <text>
+      <tspan x="0" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">概</tspan>
+      <tspan x="9.000061" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">念</tspan>
+      <tspan x="18.000122" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">図</tspan>
+      <tspan x="27.000183" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">：</tspan>
+      <tspan x="36.000244" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">原</tspan>
+      <tspan x="45.000305" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">稿</tspan>
+      <tspan x="54.000366" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">で</tspan>
+      <tspan x="63.000427" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">は</tspan>
+      <tspan x="72.000488" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">最</tspan>
+      <tspan x="81.000549" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">終</tspan>
+      <tspan x="90.00061" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">的</tspan>
+      <tspan x="99.000671" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">に</tspan>
+      <tspan x="108.000732" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">約</tspan>
+      <tspan x="117.000793" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070"> </tspan>
+      <tspan x="140.088153" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070"> </tspan>
+      <tspan x="142.104175" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">ま</tspan>
+      <tspan x="151.104236" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">で</tspan>
+      <tspan x="160.104297" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">絞</tspan>
+      <tspan x="169.104358" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">り</tspan>
+      <tspan x="178.104419" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">込</tspan>
+      <tspan x="187.10448" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">ん</tspan>
+      <tspan x="196.104541" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">で</tspan>
+      <tspan x="205.104602" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">保</tspan>
+      <tspan x="214.104663" y="-0.68925" style="font-size: 9px; font-family: 'Noto Sans CJK JP'; fill: #707070">存</tspan>
+      <tspan x="119.016815" y="-0.68925" style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #707070">1</tspan>
+      <tspan x="124.742889" y="-0.68925" style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #707070">0</tspan>
+      <tspan x="130.555096" y="-4.40625" style="font-size: 6.3px; font-family: 'DejaVu Sans'; fill: #707070">−</tspan>
+      <tspan x="135.833807" y="-4.40625" style="font-size: 6.3px; font-family: 'DejaVu Sans'; fill: #707070">5</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #606060" x="318.96" y="348.481313" transform="rotate(-0 318.96 348.481313)">未知の物理を探すには「既知に似た事象だけ残す」バイアスにも注意が必要</text>
+   </g>
+  </g>
+  <g id="text_7">
+   <text style="font-weight: 700; font-size: 14px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="318.96" y="18.08" transform="rotate(-0 318.96 18.08)">LHCとAIトリガー：膨大な衝突から「残すべき事象」を選ぶ</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pc59eaab62d">
+   <rect x="5.76" y="64.7205" width="626.4" height="303.4875"/>
+  </clipPath>
+ </defs>
+</svg>
