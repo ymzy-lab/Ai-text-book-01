@@ -1,26 +1,31 @@
-"""Generate editable EPS figures for chapters 10–12 of AI と物理学の系譜."""
+"""Generate editable EPS, SVG, and PDF figures for chapters 10–12 of AI と物理学の系譜."""
 from pathlib import Path
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle, Rectangle, FancyArrowPatch, FancyBboxPatch, Polygon
 
-OUT = Path(__file__).resolve().parent / "eps"
-OUT.mkdir(parents=True, exist_ok=True)
+ROOT = Path(__file__).resolve().parent
+OUT = ROOT / "eps"
+SVG_OUT = ROOT / "svg"
+PDF_OUT = ROOT / "pdf"
+for _dir in (OUT, SVG_OUT, PDF_OUT):
+    _dir.mkdir(parents=True, exist_ok=True)
 
 mpl.rcParams['ps.fonttype'] = 3
 mpl.rcParams['pdf.fonttype'] = 42
+mpl.rcParams['svg.fonttype'] = 'none'
 mpl.rcParams['font.family'] = 'sans-serif'
 mpl.rcParams['font.sans-serif'] = ['Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans']
 mpl.rcParams['axes.unicode_minus'] = False
 
-PHYS = '#315A7D'
-AI = '#A34E4E'
-ACCENT = '#B07A2A'
-DARK = '#20252B'
-MID = '#68717B'
-LIGHT = '#D9DEE3'
-PALE = '#F3F5F7'
+PHYS = '#545454'
+AI = '#606060'
+ACCENT = '#808080'
+DARK = '#242424'
+MID = '#707070'
+LIGHT = '#DDDDDD'
+PALE = '#F5F5F5'
 
 
 def save_eps(fig, name):
@@ -398,7 +403,7 @@ def main():
     fig29_semiconductor_bands()
     fig30_superconductivity_cooper_pair()
     fig31_quantum_interference_vqe()
-    print(f'Generated 11 EPS figures in {OUT}')
+    print(f'Generated 11 figures as EPS/SVG/PDF in {ROOT}')
 
 
 if __name__ == '__main__':
