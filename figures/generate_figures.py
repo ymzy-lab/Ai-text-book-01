@@ -33,7 +33,10 @@ LIGHT = '#DDDDDD'
 
 
 def save_eps(fig, name):
-    fig.savefig(OUT / name, format='eps', bbox_inches='tight', pad_inches=0.08)
+    stem = Path(name).stem
+    fig.savefig(OUT / f"{stem}.eps", format='eps', bbox_inches='tight', pad_inches=0.08)
+    fig.savefig(SVG_OUT / f"{stem}.svg", format='svg', bbox_inches='tight', pad_inches=0.08)
+    fig.savefig(PDF_OUT / f"{stem}.pdf", format='pdf', bbox_inches='tight', pad_inches=0.08)
     plt.close(fig)
 
 
