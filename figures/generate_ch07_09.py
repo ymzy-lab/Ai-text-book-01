@@ -1,24 +1,32 @@
-"""Generate editable EPS figures for chapters 7–9 of AI と物理学の系譜."""
+"""Generate editable EPS, SVG, and PDF figures for chapters 7–9 of AI と物理学の系譜."""
 from pathlib import Path
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle, Rectangle, FancyArrowPatch, FancyBboxPatch
 
-OUT = Path(__file__).resolve().parent / "eps"
-OUT.mkdir(parents=True, exist_ok=True)
+ROOT = Path(__file__).resolve().parent
+OUT = ROOT / "eps"
+SVG_OUT = ROOT / "svg"
+PDF_OUT = ROOT / "pdf"
+for _dir in (OUT, SVG_OUT, PDF_OUT):
+    _dir.mkdir(parents=True, exist_ok=True)
 
 mpl.rcParams["ps.fonttype"] = 3
 mpl.rcParams["pdf.fonttype"] = 42
+mpl.rcParams['svg.fonttype'] = 'none'
 mpl.rcParams["font.family"] = "sans-serif"
 mpl.rcParams["font.sans-serif"] = ["Noto Sans CJK JP", "Noto Sans CJK JP Regular", "DejaVu Sans"]
 mpl.rcParams["axes.unicode_minus"] = False
 
-PHYS = "#315A7D"; AI = "#A34E4E"; ACCENT = "#B07A2A"
-DARK = "#20252B"; MID = "#68717B"; LIGHT = "#D9DEE3"; PALE = "#F3F5F7"
+PHYS = "#545454"; AI = "#606060"; ACCENT = "#808080"
+DARK = "#242424"; MID = "#707070"; LIGHT = "#DDDDDD"; PALE = "#F5F5F5"
 
 def save_eps(fig, name):
-    fig.savefig(OUT / name, format="eps", bbox_inches="tight", pad_inches=0.08)
+    stem = Path(name).stem
+    fig.savefig(OUT / f"{stem}.eps", format='eps', bbox_inches='tight', pad_inches=0.08)
+    fig.savefig(SVG_OUT / f"{stem}.svg", format='svg', bbox_inches='tight', pad_inches=0.08)
+    fig.savefig(PDF_OUT / f"{stem}.pdf", format='pdf', bbox_inches='tight', pad_inches=0.08)
     plt.close(fig)
 
 def arrow(ax, xy1, xy2, color=DARK, lw=1.4, ms=12, style="-|>"):
@@ -61,7 +69,7 @@ def fig14_manifold_unfolding():
     fig.suptitle("多様体仮説と『アイロンがけ』：曲がったデータ空間をほどく", fontsize=14, fontweight="bold", color=DARK)
     ax=axs[0]; panel_label(ax,"(a) 高次元空間に埋め込まれた低次元多様体"); ax.set_xlim(-0.5,10.5); ax.set_ylim(-1,6.5); ax.axis("off")
     t=np.linspace(0,1,300); x=1+8*t; y=2.8+1.8*np.sin(2*np.pi*t)
-    ax.plot(x,y,color="#DCE7F0",lw=8); ax.plot(x,y,color=PHYS,lw=2)
+    ax.plot(x,y,color="#E5E5E5",lw=8); ax.plot(x,y,color=PHYS,lw=2)
     A=(x[30],y[30]); B=(x[265],y[265]); ax.plot(*A,"o",color=ACCENT,ms=7); ax.text(A[0]-0.25,A[1]+0.35,"A",fontsize=10)
     ax.plot(*B,"o",color=AI,ms=7); ax.text(B[0]+0.12,B[1]+0.25,"B",fontsize=10)
     ax.plot([A[0],B[0]],[A[1],B[1]],color=AI,lw=1.4,ls="--"); ax.plot(x[30:266],y[30:266],color=ACCENT,lw=2.8)
@@ -71,7 +79,7 @@ def fig14_manifold_unfolding():
     for i,y0 in enumerate([4.8,3.7,2.6]):
         xs=np.linspace(0.8,5.0,150); yy=y0+(0.55-0.18*i)*np.sin(1.5*xs+0.5*i); ax.plot(xs,yy,color=LIGHT if i<2 else PHYS,lw=2)
     for i in range(3): arrow(ax,(5.4,4.4-i*0.9),(6.6,4.4-i*0.9),color=MID,lw=1.1,ms=9)
-    ax.plot([7.0,9.2],[3.0,3.0],color="#DCE7F0",lw=6); ax.plot([7.0,9.2],[3.0,3.0],color=PHYS,lw=2)
+    ax.plot([7.0,9.2],[3.0,3.0],color="#E5E5E5",lw=6); ax.plot([7.0,9.2],[3.0,3.0],color=PHYS,lw=2)
     ax.plot(7.25,3.0,"o",color=ACCENT,ms=7); ax.plot(8.95,3.0,"o",color=AI,ms=7); arrow(ax,(7.3,3.0),(8.9,3.0),color=ACCENT,lw=1.6,ms=11)
     ax.text(3.0,5.55,"層ごとに少しずつ変形",ha="center",fontsize=9); ax.text(8.1,4.1,"潜在空間では\n意味の距離が単純になる",ha="center",fontsize=9)
     ax.text(8.1,1.6,"A → B の補間が\nシート上の道に対応",ha="center",fontsize=8.8,color=MID)
@@ -116,7 +124,7 @@ def fig17_symbolic_regression():
 def fig18_stress_strain():
     fig, ax=plt.subplots(figsize=(7.8,4.9)); fig.suptitle("応力–ひずみ曲線：弾性変形から塑性・破断へ",fontsize=14,fontweight="bold",color=DARK); panel_label(ax,"(a) 連続体が壊れるまで")
     strain=np.array([0,0.01,0.02,0.035,0.055,0.08,0.11,0.14,0.17,0.20]); stress=np.array([0,0.7,1.4,2.45,2.8,3.05,3.18,3.12,2.85,2.35])
-    ax.plot(strain,stress,color=PHYS,lw=2.4); ax.axvline(0.035,color=LIGHT,lw=1); ax.axvline(0.17,color=LIGHT,lw=1); ax.fill_between([0,0.035],[0,0],[3.5,3.5],color="#E7EEF4"); ax.fill_between([0.035,0.17],[0,0],[3.5,3.5],color="#F5EBDD"); ax.plot(0.20,2.35,"o",color=AI,ms=7)
+    ax.plot(strain,stress,color=PHYS,lw=2.4); ax.axvline(0.035,color=LIGHT,lw=1); ax.axvline(0.17,color=LIGHT,lw=1); ax.fill_between([0,0.035],[0,0],[3.5,3.5],color="#EDEDED"); ax.fill_between([0.035,0.17],[0,0],[3.5,3.5],color="#ECECEC"); ax.plot(0.20,2.35,"o",color=AI,ms=7)
     ax.text(0.017,3.28,"弾性域\n力を抜くと戻る",ha="center",fontsize=9,color=PHYS); ax.text(0.095,3.28,"塑性域\n永久変形が残る",ha="center",fontsize=9,color=ACCENT); ax.text(0.188,2.55,"破断",ha="center",fontsize=9,color=AI)
     ax.set_xlim(0,0.215); ax.set_ylim(0,3.55); ax.set_xlabel("ひずみ  ε"); ax.set_ylabel("応力  σ"); ax.grid(color=LIGHT,lw=0.6); fig.tight_layout(rect=[0,0.02,1,0.92]); save_eps(fig,"fig18_stress_strain.eps")
 
@@ -152,6 +160,6 @@ def fig20_pinn_architecture():
     fig.tight_layout(rect=[0,0.03,1,0.90]); save_eps(fig,"fig20_pinn_architecture.eps")
 
 def main():
-    fig13_light_cone_curvature(); fig14_manifold_unfolding(); fig15_blackbody_radiation(); fig16_bohr_spectrum(); fig17_symbolic_regression(); fig18_stress_strain(); fig19_chaos_lyapunov(); fig20_pinn_architecture(); print(f"Generated 8 EPS figures in {OUT}")
+    fig13_light_cone_curvature(); fig14_manifold_unfolding(); fig15_blackbody_radiation(); fig16_bohr_spectrum(); fig17_symbolic_regression(); fig18_stress_strain(); fig19_chaos_lyapunov(); fig20_pinn_architecture(); print(f'Generated 8 figures as EPS/SVG/PDF in {ROOT}')
 
 if __name__ == "__main__": main()
