@@ -19,6 +19,7 @@ mpl.rcParams['font.family'] = 'sans-serif'
 mpl.rcParams['font.sans-serif'] = ['Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans']
 mpl.rcParams['axes.unicode_minus'] = False
 
+mpl.rcParams['axes.prop_cycle'] = mpl.cycler(color=['#444444', '#777777', '#AAAAAA', '#CCCCCC'])
 PHYS = '#545454'
 AI = '#606060'
 ACCENT = '#808080'
