@@ -29,6 +29,7 @@ def save_eps(fig, name):
     fig.savefig(PDF_OUT / f"{stem}.pdf", format='pdf', bbox_inches='tight', pad_inches=0.08)
     plt.close(fig)
 
+
 def arrow(ax, xy1, xy2, color=DARK, lw=1.4, ms=12, style="-|>"):
     p = FancyArrowPatch(xy1, xy2, arrowstyle=style, mutation_scale=ms,
                         linewidth=lw, color=color, shrinkA=0, shrinkB=0)
