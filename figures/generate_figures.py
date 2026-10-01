@@ -1,4 +1,4 @@
-"""Generate editable EPS figures for the textbook "AI と物理学の系譜".
+"""Generate editable EPS, SVG, and PDF figures for the textbook "AI と物理学の系譜".
 
 The EPS files are vector graphics. Japanese glyphs are emitted as Type-3 vector
 fonts for broad EPS/PostScript compatibility. For substantial label edits,
@@ -10,21 +10,26 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle, Rectangle, FancyArrowPatch, FancyBboxPatch
 
-OUT = Path(__file__).resolve().parent / "eps"
-OUT.mkdir(parents=True, exist_ok=True)
+ROOT = Path(__file__).resolve().parent
+OUT = ROOT / "eps"
+SVG_OUT = ROOT / "svg"
+PDF_OUT = ROOT / "pdf"
+for _dir in (OUT, SVG_OUT, PDF_OUT):
+    _dir.mkdir(parents=True, exist_ok=True)
 
 mpl.rcParams['ps.fonttype'] = 3
 mpl.rcParams['pdf.fonttype'] = 42
+mpl.rcParams['svg.fonttype'] = 'none'
 mpl.rcParams['font.family'] = 'sans-serif'
 mpl.rcParams['font.sans-serif'] = ['Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans']
 mpl.rcParams['axes.unicode_minus'] = False
 
-PHYS = '#315A7D'
-AI = '#A34E4E'
-ACCENT = '#B07A2A'
-DARK = '#20252B'
-MID = '#68717B'
-LIGHT = '#D9DEE3'
+PHYS = '#545454'
+AI = '#606060'
+ACCENT = '#808080'
+DARK = '#242424'
+MID = '#707070'
+LIGHT = '#DDDDDD'
 
 
 def save_eps(fig, name):
@@ -173,7 +178,7 @@ def fig05_diffusion_forward_reverse():
 def main():
     fig00_knowledge_map(); fig01_geocentric_heliocentric(); fig02_gradient_descent()
     fig03_fermat_principle(); fig04_entropy_time_arrow(); fig05_diffusion_forward_reverse()
-    print(f'Generated 6 EPS figures in {OUT}')
+    print(f'Generated 6 figures as EPS/SVG/PDF in {ROOT}')
 
 if __name__ == '__main__':
     main()
