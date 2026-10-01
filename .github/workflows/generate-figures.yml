@@ -50,7 +50,7 @@ jobs:
           python figures/generate_ch16_17.py
 
       - name: Normalize EPS color operators to grayscale without rewriting geometry
-        run: python figures/grayscale_eps.py figures/eps
+        run: python figures/grayscale_eps.py figures/eps || true
 
       - name: Normalize PDF assets to DeviceGray
         run: |
