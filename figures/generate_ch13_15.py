@@ -1,4 +1,4 @@
-"""Generate editable EPS, SVG, and PDF figures for chapters 13–15 of AI と物理学の系譜."""
+"""Generate grayscale PDF/SVG textbook figures plus optional EPS side output."""
 from pathlib import Path
 import numpy as np
 import matplotlib as mpl
@@ -6,15 +6,15 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Circle, Rectangle, FancyArrowPatch, FancyBboxPatch, Polygon, Wedge
 
 ROOT = Path(__file__).resolve().parent
-OUT = ROOT / "eps"
-SVG_OUT = ROOT / "svg"
-PDF_OUT = ROOT / "pdf"
+OUT = ROOT / "eps"      # optional EPS side output
+SVG_OUT = ROOT / "svg"  # editable vector master
+PDF_OUT = ROOT / "pdf"  # primary LaTeX / production asset
 for _dir in (OUT, SVG_OUT, PDF_OUT):
     _dir.mkdir(parents=True, exist_ok=True)
 
-mpl.rcParams['ps.fonttype'] = 3
-mpl.rcParams['pdf.fonttype'] = 42
-mpl.rcParams['svg.fonttype'] = 'none'
+mpl.rcParams['ps.fonttype'] = 3      # EPS side output: robust PostScript glyph outlines
+mpl.rcParams['pdf.fonttype'] = 42     # production PDF: embedded TrueType/OpenType fonts
+mpl.rcParams['svg.fonttype'] = 'none' # editable SVG: preserve ordinary text elements
 mpl.rcParams['font.family'] = 'sans-serif'
 mpl.rcParams['font.sans-serif'] = ['Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans']
 mpl.rcParams['axes.unicode_minus'] = False
@@ -29,7 +29,7 @@ LIGHT = '#DDDDDD'
 PALE = '#F5F5F5'
 
 
-def save_eps(fig, name):
+def save_assets(fig, name):
     stem = Path(name).stem
     fig.savefig(OUT / f"{stem}.eps", format='eps', bbox_inches='tight', pad_inches=0.08)
     fig.savefig(SVG_OUT / f"{stem}.svg", format='svg', bbox_inches='tight', pad_inches=0.08)
@@ -75,7 +75,7 @@ def fig32_reduction_hierarchy():
     ax.text(6.0, 0.85, '標準模型では、クォークとレプトンが物質の基本的な構成要素として整理される',
             ha='center', fontsize=9, color=MID)
     fig.tight_layout(rect=[0,0.02,1,0.90])
-    save_eps(fig, 'fig32_reduction_hierarchy.eps')
+    save_assets(fig, 'fig32_reduction_hierarchy.eps')
 
 
 def fig33_standard_model_map():
@@ -112,7 +112,7 @@ def fig33_standard_model_map():
     ax.text(6.0,0.05,'12種類のフェルミ粒子 + 4種類のゲージ粒子 + 1種類のヒッグス粒子 = 17種類',
             ha='center',fontsize=9.3,color=ACCENT)
     fig.tight_layout(rect=[0,0.02,1,0.92])
-    save_eps(fig, 'fig33_standard_model_map.eps')
+    save_assets(fig, 'fig33_standard_model_map.eps')
 
 
 def fig34_feynman_gnn():
@@ -146,7 +146,7 @@ def fig34_feynman_gnn():
     fig.text(0.5,0.02,'同じものではないが、「複雑な関係を点と線のグラフとして扱う」という発想が共通する',
              ha='center',fontsize=9.2,color=MID)
     fig.tight_layout(rect=[0,0.06,1,0.90])
-    save_eps(fig,'fig34_feynman_gnn.eps')
+    save_assets(fig,'fig34_feynman_gnn.eps')
 
 
 def fig35_higgs_symmetry_breaking():
@@ -171,7 +171,7 @@ def fig35_higgs_symmetry_breaking():
     ax.grid(color=LIGHT,lw=0.5)
     ax.text(0,2.35,'法則は左右対称でも、\n真空はどちらか一方を選ぶ',ha='center',fontsize=9,color=DARK)
     fig.tight_layout(rect=[0,0.03,1,0.90])
-    save_eps(fig,'fig35_higgs_symmetry_breaking.eps')
+    save_assets(fig,'fig35_higgs_symmetry_breaking.eps')
 
 
 def fig36_lhc_trigger_funnel():
@@ -193,7 +193,7 @@ def fig36_lhc_trigger_funnel():
     ax.text(5.0,1.3,r'概念図：原稿では最終的に約 $10^{-5}$ まで絞り込んで保存',ha='center',fontsize=9,color=MID)
     ax.text(5.0,0.65,'未知の物理を探すには「既知に似た事象だけ残す」バイアスにも注意が必要',ha='center',fontsize=9,color=AI)
     fig.tight_layout(rect=[0,0.02,1,0.92])
-    save_eps(fig,'fig36_lhc_trigger_funnel.eps')
+    save_assets(fig,'fig36_lhc_trigger_funnel.eps')
 
 
 def fig37_hubble_law():
@@ -212,7 +212,7 @@ def fig37_hubble_law():
     ax.grid(color=LIGHT,lw=0.5); ax.legend(frameon=False,fontsize=8.5)
     ax.text(230,5000,r'傾き $H_0$ が現在の'+'\n'+'宇宙膨張率を表す',fontsize=9,color=DARK)
     fig.tight_layout(rect=[0,0.02,1,0.92])
-    save_eps(fig,'fig37_hubble_law.eps')
+    save_assets(fig,'fig37_hubble_law.eps')
 
 
 def fig38_cosmic_timeline():
@@ -232,7 +232,7 @@ def fig38_cosmic_timeline():
         ax.plot([x,x],[0.525 if y>0.5 else 0.475, y-0.06 if y>0.5 else y+0.06],color=LIGHT,lw=1)
     ax.text(0.5,0.93,'時間軸は概念図（縮尺は対数的な宇宙史を正確には表していない）',ha='center',fontsize=8.6,color=MID)
     fig.tight_layout(rect=[0,0.02,1,0.90])
-    save_eps(fig,'fig38_cosmic_timeline.eps')
+    save_assets(fig,'fig38_cosmic_timeline.eps')
 
 
 def fig39_universe_composition():
@@ -250,7 +250,7 @@ def fig39_universe_composition():
     ax.text(0,0,'宇宙の\nエネルギー収支',ha='center',va='center',fontsize=10,fontweight='bold',color=DARK)
     ax.set_aspect('equal')
     fig.tight_layout(rect=[0,0.02,1,0.92])
-    save_eps(fig,'fig39_universe_composition.eps')
+    save_assets(fig,'fig39_universe_composition.eps')
 
 
 def fig40_gravitational_chirp():
@@ -272,7 +272,7 @@ def fig40_gravitational_chirp():
     ax.set_xlabel('合体までの時間'); ax.set_ylabel('周波数（規格化）'); ax.grid(color=LIGHT,lw=0.45)
     ax.text(-0.55,7.5,'CNNなどはノイズ中の\n特徴的な時間周波数パターンを探す',ha='center',fontsize=9,color=DARK)
     fig.tight_layout(rect=[0,0.03,1,0.91])
-    save_eps(fig,'fig40_gravitational_chirp.eps')
+    save_assets(fig,'fig40_gravitational_chirp.eps')
 
 
 def fig41_holographic_principle():
@@ -296,7 +296,7 @@ def fig41_holographic_principle():
     ax.text(7.0,6.35,'高次元の「バルク」',ha='center',fontsize=9,color=AI)
     ax.text(5.0,0.45,'ブラックホールではエントロピーが体積ではなく表面積に比例することが出発点',ha='center',fontsize=8.8,color=MID)
     fig.tight_layout(rect=[0,0.02,1,0.92])
-    save_eps(fig,'fig41_holographic_principle.eps')
+    save_assets(fig,'fig41_holographic_principle.eps')
 
 
 def fig42_math_intuition_proof_loop():
@@ -321,7 +321,7 @@ def fig42_math_intuition_proof_loop():
     ax.text(5.0,6.35,'AIは「筋の良い仮説」を広い探索空間から提案できる',ha='center',fontsize=9,color=AI)
     ax.text(5.0,0.55,'人間・AI・形式証明器が役割を分担しながら循環する研究プロセス',ha='center',fontsize=9,color=MID)
     fig.tight_layout(rect=[0,0.02,1,0.92])
-    save_eps(fig,'fig42_math_intuition_proof_loop.eps')
+    save_assets(fig,'fig42_math_intuition_proof_loop.eps')
 
 
 def fig43_formal_proof_pipeline():
@@ -346,7 +346,7 @@ def fig43_formal_proof_pipeline():
     ax.text(3.0,0.65,'AIの「幻覚」は証明器が拒否し、候補探索へ戻す',ha='center',fontsize=9,color=AI)
     ax.text(9.3,0.65,'正しさの検査と「人間が理解できるか」は別問題',ha='center',fontsize=9,color=MID)
     fig.tight_layout(rect=[0,0.02,1,0.92])
-    save_eps(fig,'fig43_formal_proof_pipeline.eps')
+    save_assets(fig,'fig43_formal_proof_pipeline.eps')
 
 
 def main():
