@@ -42,9 +42,9 @@ mpl.rcParams['ytick.color'] = TEXT
 
 def save_assets(fig, name):
     stem = Path(name).stem
-    fig.savefig(OUT / f"{stem}.eps", format='eps', bbox_inches='tight', pad_inches=0.08)
-    fig.savefig(SVG_OUT / f"{stem}.svg", format='svg', bbox_inches='tight', pad_inches=0.08)
-    fig.savefig(PDF_OUT / f"{stem}.pdf", format='pdf', bbox_inches='tight', pad_inches=0.08)
+    fig.savefig(OUT / f"{stem}.eps", format='eps', bbox_inches='tight', pad_inches=0.12)
+    fig.savefig(SVG_OUT / f"{stem}.svg", format='svg', bbox_inches='tight', pad_inches=0.12)
+    fig.savefig(PDF_OUT / f"{stem}.pdf", format='pdf', bbox_inches='tight', pad_inches=0.12)
     plt.close(fig)
 
 
@@ -62,9 +62,9 @@ def panel_label(ax, text):
 
 def fig00_knowledge_map():
     fig, ax = plt.subplots(figsize=(11, 3.4))
-    ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.axis('off')
+    ax.set_xlim(-0.02, 1.02); ax.set_ylim(0, 1); ax.axis('off')
     nodes = [
-        (0.06, '神話・観測', '経験'), (0.19, '古典力学', '運動・最適化'),
+        (0.08, '神話・観測', '経験'), (0.19, '古典力学', '運動・最適化'),
         (0.32, '熱・統計', 'エントロピー'), (0.45, '場・波', '伝播・変換'),
         (0.58, '相対論・量子', '幾何・確率'), (0.71, '複雑系', '創発・カオス'),
         (0.84, '宇宙論', '全体像'), (0.93, 'AI', '学習・発見')]
