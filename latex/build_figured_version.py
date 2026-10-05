@@ -63,7 +63,7 @@ SPECS = [
 
 
 def figure_block(stem: str, caption: str) -> str:
-    return f'''\n\n\\begin{{figure}}[tbp]\n  \\centering\n  \\includegraphics[width=0.92\\textwidth,height=0.58\\textheight,keepaspectratio]{{generated/figures/{stem}.pdf}}\n  \\caption{{{caption}}}\n  \\label{{fig:{stem}}}\n\\end{{figure}}\n'''
+    return f'''\n\n\\begin{{figure}}[tbp]\n  \\centering\n  \\includegraphics[width=0.92\\textwidth,height=0.58\\textheight,keepaspectratio]{{../figures/pdf/{stem}.pdf}}\n  \\caption{{{caption}}}\n  \\label{{fig:{stem}}}\n\\end{{figure}}\n'''
 
 
 def insert_after_anchor(text: str, anchor: str, block: str) -> tuple[str, bool]:
@@ -86,20 +86,16 @@ def main() -> None:
     if GEN.exists():
         shutil.rmtree(GEN)
     (GEN / 'chapters').mkdir(parents=True)
-    (GEN / 'figures').mkdir(parents=True)
 
-    # Local builds use the committed grayscale PDF figure assets directly.
-    # This keeps the Windows/macOS/Linux build path independent of Ghostscript.
+    # Figures are committed under ../figures/pdf and are referenced directly
+    # from the generated TeX. Local compilation therefore needs only LuaLaTeX.
     figure_pdf_dir = ROOT.parent / 'figures' / 'pdf'
     figure_pdfs = sorted(figure_pdf_dir.glob('fig*.pdf'))
     if len(figure_pdfs) != len(SPECS):
         raise RuntimeError(
             f'Expected {len(SPECS)} PDF figures in {figure_pdf_dir}, '
-            f'but found {len(figure_pdfs)}. '
-            'Make sure you are on the figure-layout-prototype branch and have pulled the latest files.'
+            f'but found {len(figure_pdfs)}.'
         )
-    for src in figure_pdfs:
-        shutil.copy2(src, GEN / 'figures' / src.name)
 
     by_file: dict[str, list[tuple[str, str, str]]] = {}
     for filename, stem, anchor, caption in SPECS:
@@ -118,12 +114,11 @@ def main() -> None:
 
     main_tex = (ROOT / 'main.tex').read_text(encoding='utf-8')
     main_tex = main_tex.replace('\\include{chapters/', '\\include{generated/chapters/')
-    main_tex = main_tex.replace('\\usepackage{graphicx}', '\\usepackage{graphicx}\n\\graphicspath{{generated/figures/}}')
     (GEN / 'main_with_figures.tex').write_text(main_tex, encoding='utf-8')
     (GEN / 'insertion-report.txt').write_text('\n'.join(report) + '\n', encoding='utf-8')
 
     print(f'Prepared figure-layout manuscript with {len(SPECS)} figures.')
-    print(f'Copied {len(figure_pdfs)} committed grayscale PDF figures into {GEN / "figures"}.')
+    print(f'Using {len(figure_pdfs)} committed grayscale PDF figures from {figure_pdf_dir}.')
     print(f'Anchors matched: {sum("OK" in x for x in report)}/{len(SPECS)}')
 
 
