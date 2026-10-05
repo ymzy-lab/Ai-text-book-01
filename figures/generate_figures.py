@@ -211,23 +211,54 @@ def fig02_gradient_descent():
     fig, axs = plt.subplots(1, 2, figsize=(10, 4.2))
     fig.suptitle('谷底へ向かう運動とAIの学習：共通する「勾配」の構造', fontsize=14, fontweight='bold', color=TEXT)
     x = np.linspace(-3.2, 3.2, 500)
-    V = 0.12*x**4 - 0.75*x**2 + 0.18*x + 2.1
-    ax = axs[0]; panel_label(ax, '(a) 物理：ポテンシャルの谷'); ax.plot(x,V,color=PHYS,lw=2)
-    pts = [2.7,2.15,1.55,0.95,0.42]
-    for i,p in enumerate(pts[:-1]):
-        q=pts[i+1]; y=0.12*p**4-0.75*p**2+0.18*p+2.1; yq=0.12*q**4-0.75*q**2+0.18*q+2.1
-        ax.plot(p,y,'o',ms=6,color=ACCENT); arrow(ax,(p,y),(q,yq),color=ACCENT,lw=1.2,ms=10)
-    p=pts[-1]; ax.plot(p,0.12*p**4-0.75*p**2+0.18*p+2.1,'o',ms=7,color=ACCENT)
-    ax.set_xlabel('位置  x'); ax.set_ylabel('ポテンシャル  V(x)'); ax.grid(color=LIGHT,linewidth=0.6)
-    ax = axs[1]; panel_label(ax, '(b) AI：損失関数の谷'); L=0.10*x**4-0.62*x**2-0.12*x+1.8; ax.plot(x,L,color=AI,lw=2)
-    pts=[-2.8,-2.2,-1.65,-1.15,-0.78]
-    for i,p in enumerate(pts[:-1]):
-        q=pts[i+1]; y=0.10*p**4-0.62*p**2-0.12*p+1.8; yq=0.10*q**4-0.62*q**2-0.12*q+1.8
-        ax.plot(p,y,'o',ms=6,color=AI); arrow(ax,(p,y),(q,yq),color=AI,lw=1.2,ms=10)
-    p=pts[-1]; ax.plot(p,0.10*p**4-0.62*p**2-0.12*p+1.8,'o',ms=7,color=AI)
-    ax.set_xlabel('パラメータ  θ'); ax.set_ylabel('損失  L(θ)'); ax.grid(color=LIGHT,linewidth=0.6)
+
+    def draw_offset_descent(ax, f, pts, color, offset=0.24):
+        """Draw markers on the function and arrows slightly above the curve."""
+        ys = [f(p) for p in pts]
+        ax.plot(pts, ys, 'o', ms=6, color=color, zorder=4)
+        for p, q, y, yq in zip(pts[:-1], pts[1:], ys[:-1], ys[1:]):
+            ax.annotate(
+                '',
+                xy=(q, yq + offset),
+                xytext=(p, y + offset),
+                arrowprops=dict(
+                    arrowstyle='-|>',
+                    color=color,
+                    lw=1.25,
+                    mutation_scale=11,
+                    shrinkA=2,
+                    shrinkB=2,
+                ),
+                zorder=5,
+            )
+
+    # (a) Physical potential: descend from right to left toward the local minimum.
+    Vfun = lambda t: 0.12*t**4 - 0.75*t**2 + 0.18*t + 2.1
+    V = Vfun(x)
+    ax = axs[0]
+    panel_label(ax, '(a) 物理：ポテンシャルの谷')
+    ax.plot(x, V, color=PHYS, lw=2, zorder=2)
+    pts = [2.85, 2.45, 2.12, 1.88, 1.72]
+    draw_offset_descent(ax, Vfun, pts, ACCENT)
+    ax.set_xlabel('位置  x')
+    ax.set_ylabel('ポテンシャル  V(x)')
+    ax.grid(color=LIGHT, linewidth=0.6)
+
+    # (b) AI loss: use the same leftward descent orientation as panel (a).
+    Lfun = lambda t: 0.10*t**4 - 0.62*t**2 + 0.12*t + 1.8
+    L = Lfun(x)
+    ax = axs[1]
+    panel_label(ax, '(b) AI：損失関数の谷')
+    ax.plot(x, L, color=AI, lw=2, zorder=2)
+    pts = [2.85, 2.45, 2.12, 1.88, 1.72]
+    draw_offset_descent(ax, Lfun, pts, AI)
+    ax.set_xlabel('パラメータ  θ')
+    ax.set_ylabel('損失  L(θ)')
+    ax.grid(color=LIGHT, linewidth=0.6)
+
     fig.text(0.5,0.02,'傾き（微分）を使って「下る方向」を決める点が共通している',ha='center',fontsize=10,color=TEXT)
-    fig.tight_layout(rect=[0,0.05,1,0.90]); save_assets(fig, 'fig02_gradient_descent.eps')
+    fig.tight_layout(rect=[0,0.05,1,0.90])
+    save_assets(fig, 'fig02_gradient_descent.eps')
 
 
 def fig03_fermat_principle():
