@@ -32,8 +32,8 @@ build_figured_windows.bat
 or manually:
 
 ```powershell
-lualatex -interaction=nonstopmode -halt-on-error generated\main_with_figures.tex
-lualatex -interaction=nonstopmode -halt-on-error generated\main_with_figures.tex
+lualatex -interaction=nonstopmode -halt-on-error generated/main_with_figures.tex
+lualatex -interaction=nonstopmode -halt-on-error generated/main_with_figures.tex
 ```
 
 The result is:
