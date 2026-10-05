@@ -212,8 +212,8 @@ def fig02_gradient_descent():
     fig.suptitle('谷底へ向かう運動とAIの学習：共通する「勾配」の構造', fontsize=14, fontweight='bold', color=TEXT)
     x = np.linspace(-3.2, 3.2, 500)
 
-    def draw_offset_descent(ax, f, pts, color, offset=0.24):
-        """Draw markers on the function and arrows slightly above the curve."""
+    def draw_offset_descent(ax, f, pts, color, offset=0.28):
+        """Draw a descent trajectory toward the global minimum with arrows offset from the curve."""
         ys = [f(p) for p in pts]
         ax.plot(pts, ys, 'o', ms=6, color=color, zorder=4)
         for p, q, y, yq in zip(pts[:-1], pts[1:], ys[:-1], ys[1:]):
@@ -231,27 +231,32 @@ def fig02_gradient_descent():
                 ),
                 zorder=5,
             )
+        ax.plot(pts[-1], ys[-1], marker='*', ms=11, color=TEXT, zorder=6)
+        ax.text(pts[-1], ys[-1]-0.12, '大域最小', ha='center', va='top',
+                fontsize=8.3, color=TEXT, zorder=6)
 
-    # (a) Physical potential: descend from right to left toward the local minimum.
+    # (a) Physical potential: descend leftward toward the true global minimum.
     Vfun = lambda t: 0.12*t**4 - 0.75*t**2 + 0.18*t + 2.1
     V = Vfun(x)
     ax = axs[0]
     panel_label(ax, '(a) 物理：ポテンシャルの谷')
     ax.plot(x, V, color=PHYS, lw=2, zorder=2)
-    pts = [2.85, 2.45, 2.12, 1.88, 1.72]
+    pts = [-0.35, -0.70, -1.05, -1.35, -1.58, -1.74, -1.82]
     draw_offset_descent(ax, Vfun, pts, ACCENT)
+    ax.set_ylim(bottom=0.25)
     ax.set_xlabel('位置  x')
     ax.set_ylabel('ポテンシャル  V(x)')
     ax.grid(color=LIGHT, linewidth=0.6)
 
-    # (b) AI loss: use the same leftward descent orientation as panel (a).
+    # (b) AI loss: use the same leftward descent orientation and target the global minimum.
     Lfun = lambda t: 0.10*t**4 - 0.62*t**2 + 0.12*t + 1.8
     L = Lfun(x)
     ax = axs[1]
     panel_label(ax, '(b) AI：損失関数の谷')
     ax.plot(x, L, color=AI, lw=2, zorder=2)
-    pts = [2.85, 2.45, 2.12, 1.88, 1.72]
+    pts = [-0.35, -0.70, -1.05, -1.35, -1.58, -1.72, -1.81]
     draw_offset_descent(ax, Lfun, pts, AI)
+    ax.set_ylim(bottom=0.25)
     ax.set_xlabel('パラメータ  θ')
     ax.set_ylabel('損失  L(θ)')
     ax.grid(color=LIGHT, linewidth=0.6)
