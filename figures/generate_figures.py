@@ -1,8 +1,9 @@
-"""Generate editable EPS, SVG, and PDF figures for the textbook "AI と物理学の系譜".
+"""Generate grayscale textbook figure assets for "AI と物理学の系譜".
 
-The EPS files are vector graphics. Japanese glyphs are emitted as Type-3 vector
-fonts for broad EPS/PostScript compatibility. For substantial label edits,
-modify this source and regenerate the EPS files.
+PDF is the primary LuaLaTeX/production asset, SVG is the editable vector master,
+and EPS is retained as an optional compatibility/archival side output.
+Primary text is black; dark gray is reserved for secondary text and graphical
+structure.
 """
 from pathlib import Path
 import numpy as np
