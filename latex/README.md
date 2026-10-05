@@ -2,68 +2,55 @@
 
 LaTeX source for **AI と物理学の系譜**.
 
-## Structure
+## Important
 
-- `main.tex` — base manuscript without inserted figures
-- `chapters/preface.tex` — preface
-- `chapters/chapter01.tex` ... `chapters/chapter17.tex` — chapter source files
-- `chapters/references/chapter01_refs.tex` ... `chapter17_refs.tex` — chapter-end references
-- `build_figured_version.py` — generates a figure-inserted manuscript
-- `../figures/pdf/` — committed grayscale figure PDFs used by local builds
+- `main.tex` is the base/text-only manuscript.
+- `generated/main_with_figures.tex` is the ready-to-compile manuscript with all 52 figures and captions.
+- `../figures/pdf/` contains the committed grayscale figure PDFs.
 
-The manuscript does not use BibTeX or Biber. References are ordinary LaTeX source files.
+**Python is not required on the local PC to compile the figured manuscript.**
+Python is used only by GitHub Actions / maintainers to regenerate the derived
+`generated/*.tex` sources when the manuscript layout changes.
 
-## Important: `main.tex` has no figures
+## Windows 11: build the figured manuscript
 
-Compiling `main.tex` directly produces the pre-figure manuscript.
-
-For the version with all 52 figures and Japanese captions, first generate
-`generated/main_with_figures.tex`, then compile that file.
-
-## Windows 11 build
-
-Make sure you are on the `figure-layout-prototype` branch and have the latest files:
+Update the branch first:
 
 ```powershell
+git fetch origin
 git switch figure-layout-prototype
 git pull
 cd latex
 ```
 
-Then either run the batch file:
+Then run:
 
 ```powershell
 build_figured_windows.bat
 ```
 
-or run the commands manually:
+or manually:
 
 ```powershell
-python build_figured_version.py
-lualatex -interaction=nonstopmode -halt-on-error generated/main_with_figures.tex
-lualatex -interaction=nonstopmode -halt-on-error generated/main_with_figures.tex
+lualatex -interaction=nonstopmode -halt-on-error generated\main_with_figures.tex
+lualatex -interaction=nonstopmode -halt-on-error generated\main_with_figures.tex
 ```
 
-The resulting PDF is:
+The result is:
 
 ```text
-latex/main_with_figures.pdf
+latex\main_with_figures.pdf
 ```
 
-The build script copies the committed grayscale PDFs from `figures/pdf/` into
-`latex/generated/figures/`, so Ghostscript is not required just to compile the
-figure-inserted manuscript locally.
+Do not compile `main.tex` when you want the illustrated version.
 
-## Base manuscript build
+## Base manuscript
 
-To compile the text-only manuscript intentionally:
+To intentionally build the text-only manuscript:
 
-```bash
-cd latex
+```powershell
 lualatex -interaction=nonstopmode -halt-on-error main.tex
 lualatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-The document class is `ltjsbook`, so LuaLaTeX is required. Required packages
-include LuaTeX-ja / `ltjsbook`, `luatexja-fontspec`, `geometry`, `amsmath`,
-`graphicx`, `hyperref`, `bookmark`, and `enumitem`.
+The document class is `ltjsbook`, so LuaLaTeX is required.
