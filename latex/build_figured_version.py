@@ -88,6 +88,19 @@ def main() -> None:
     (GEN / 'chapters').mkdir(parents=True)
     (GEN / 'figures').mkdir(parents=True)
 
+    # Local builds use the committed grayscale PDF figure assets directly.
+    # This keeps the Windows/macOS/Linux build path independent of Ghostscript.
+    figure_pdf_dir = ROOT.parent / 'figures' / 'pdf'
+    figure_pdfs = sorted(figure_pdf_dir.glob('fig*.pdf'))
+    if len(figure_pdfs) != len(SPECS):
+        raise RuntimeError(
+            f'Expected {len(SPECS)} PDF figures in {figure_pdf_dir}, '
+            f'but found {len(figure_pdfs)}. '
+            'Make sure you are on the figure-layout-prototype branch and have pulled the latest files.'
+        )
+    for src in figure_pdfs:
+        shutil.copy2(src, GEN / 'figures' / src.name)
+
     by_file: dict[str, list[tuple[str, str, str]]] = {}
     for filename, stem, anchor, caption in SPECS:
         by_file.setdefault(filename, []).append((stem, anchor, caption))
@@ -110,6 +123,7 @@ def main() -> None:
     (GEN / 'insertion-report.txt').write_text('\n'.join(report) + '\n', encoding='utf-8')
 
     print(f'Prepared figure-layout manuscript with {len(SPECS)} figures.')
+    print(f'Copied {len(figure_pdfs)} committed grayscale PDF figures into {GEN / "figures"}.')
     print(f'Anchors matched: {sum("OK" in x for x in report)}/{len(SPECS)}')
 
 
