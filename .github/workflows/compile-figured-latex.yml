@@ -2,6 +2,7 @@ name: Compile figured LaTeX manuscript
 
 # Production figures are native Matplotlib PDFs from figures/pdf/.
 # EPS is retained separately and is never used as an intermediate in this build.
+# Primary figure text is black; dark gray is reserved for secondary text and graphics.
 
 on:
   workflow_dispatch:
