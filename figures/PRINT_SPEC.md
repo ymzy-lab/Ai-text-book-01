@@ -1,16 +1,40 @@
-# Figure print specification
+# Figure asset and print specification
 
 The textbook figures for **AI と物理学の系譜** are intended for monochrome printing.
 
-## Mandatory color rule
+## Asset roles
 
-- Final figure assets must be **black-and-white or grayscale only**.
-- No RGB/CMYK chromatic color may remain in the print-ready EPS or in the compiled manuscript PDF.
-- Multiple conceptual categories that were previously distinguished by color must instead be distinguished by grayscale value, line style, line weight, marker shape, hatch/pattern, or annotation.
-- The editable source code may retain semantic color constants for development convenience, but the canonical `figures/eps/*.eps` assets are normalized to DeviceGray by CI before they are committed.
-- The figure-inserted manuscript CI independently converts figures to DeviceGray and rejects any final PDF with nonzero cyan, magenta, or yellow ink coverage.
+- `figures/pdf/*.pdf` — **primary LaTeX / production assets**.
+  - Generated directly by Matplotlib.
+  - Embedded in LuaLaTeX without an EPS conversion step.
+  - `pdf.fonttype = 42` is used so TrueType/OpenType glyphs are embedded rather than intentionally converted to Type 3.
+  - CI must not rewrite these PDFs through Ghostscript, because preserving text/font structure is part of the production requirement.
+- `figures/svg/*.svg` — **editable vector masters**.
+  - `svg.fonttype = "none"` keeps ordinary labels as SVG `<text>` wherever Matplotlib permits.
+  - Intended for Illustrator/Inkscape editing and editorial corrections.
+- `figures/eps/*.eps` — **optional EPS side output**.
+  - Retained for compatibility, experimentation, and archival preference.
+  - EPS is not used by the LaTeX manuscript build.
+  - `ps.fonttype = 3` may be used here for robust PostScript rendering; EPS editability is not a production requirement.
 
-This specification is enforced by:
+## Mandatory monochrome rule
 
-- `.github/workflows/generate-figures.yml`
-- `.github/workflows/compile-figured-latex.yml`
+- Production PDF and editable SVG assets must be black-and-white or grayscale only.
+- The compiled manuscript PDF must contain no chromatic cyan, magenta, or yellow ink coverage.
+- Conceptual categories should be distinguished by grayscale value, line style, line weight, marker shape, hatch/pattern, or annotation rather than color alone.
+- EPS side output is also normalized/validated as grayscale, but EPS must never be used as an intermediate source for the production PDF.
+
+## CI policy
+
+`.github/workflows/generate-figures.yml`:
+- generates PDF, SVG, and EPS directly from Matplotlib;
+- keeps the **native PDF** as the production asset;
+- validates PDF grayscale ink coverage;
+- verifies that representative PDF text survives as text;
+- verifies that SVG files contain editable `<text>` elements and grayscale-only colors;
+- validates EPS separately.
+
+`.github/workflows/compile-figured-latex.yml`:
+- embeds `figures/pdf/*.pdf` directly;
+- does not convert EPS to PDF;
+- validates the final manuscript as monochrome.
