@@ -1,4 +1,4 @@
-"""Generate editable EPS, SVG, and PDF figures for chapters 16–17 of AI と物理学の系譜."""
+"""Generate grayscale PDF/SVG textbook figures plus optional EPS side output."""
 from pathlib import Path
 import numpy as np
 import matplotlib as mpl
@@ -6,15 +6,15 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Circle, Rectangle, FancyArrowPatch, FancyBboxPatch
 
 ROOT = Path(__file__).resolve().parent
-OUT = ROOT / "eps"
-SVG_OUT = ROOT / "svg"
-PDF_OUT = ROOT / "pdf"
+OUT = ROOT / "eps"      # optional EPS side output
+SVG_OUT = ROOT / "svg"  # editable vector master
+PDF_OUT = ROOT / "pdf"  # primary LaTeX / production asset
 for _dir in (OUT, SVG_OUT, PDF_OUT):
     _dir.mkdir(parents=True, exist_ok=True)
 
-mpl.rcParams['ps.fonttype'] = 3
-mpl.rcParams['pdf.fonttype'] = 42
-mpl.rcParams['svg.fonttype'] = 'none'
+mpl.rcParams['ps.fonttype'] = 3      # EPS side output: robust PostScript glyph outlines
+mpl.rcParams['pdf.fonttype'] = 42     # production PDF: embedded TrueType/OpenType fonts
+mpl.rcParams['svg.fonttype'] = 'none' # editable SVG: preserve ordinary text elements
 mpl.rcParams['font.family'] = 'sans-serif'
 mpl.rcParams['font.sans-serif'] = ['Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans']
 mpl.rcParams['axes.unicode_minus'] = False
@@ -28,7 +28,7 @@ LIGHT = '#DDDDDD'
 PALE = '#F5F5F5'
 
 
-def save_eps(fig, name):
+def save_assets(fig, name):
     stem = Path(name).stem
     fig.savefig(OUT / f"{stem}.eps", format='eps', bbox_inches='tight', pad_inches=0.08)
     fig.savefig(SVG_OUT / f"{stem}.svg", format='svg', bbox_inches='tight', pad_inches=0.08)
@@ -80,7 +80,7 @@ def fig44_spin_glass_landscape():
     ax.grid(color=LIGHT,lw=0.5)
     ax.text(0,2.25,'局所極小・平らな谷・鞍点が共存',ha='center',fontsize=9,color=DARK)
     fig.tight_layout(rect=[0,0.03,1,0.90])
-    save_eps(fig,'fig44_spin_glass_landscape.eps')
+    save_assets(fig,'fig44_spin_glass_landscape.eps')
 
 
 def fig45_double_descent():
@@ -103,7 +103,7 @@ def fig45_double_descent():
     ax.set_xlabel('モデル複雑度 / パラメータ数'); ax.set_ylabel('テスト誤差')
     ax.set_ylim(0.35,y.max()+0.35); ax.grid(color=LIGHT,lw=0.5)
     fig.tight_layout(rect=[0,0.02,1,0.92])
-    save_eps(fig,'fig45_double_descent.eps')
+    save_assets(fig,'fig45_double_descent.eps')
 
 
 def fig46_grokking_learning_curve():
@@ -122,7 +122,7 @@ def fig46_grokking_learning_curve():
     ax.set_xlabel('学習ステップ'); ax.set_ylabel('正解率')
     ax.set_ylim(0,1.08); ax.grid(color=LIGHT,lw=0.5); ax.legend(frameon=False,fontsize=8.5,loc='lower right')
     fig.tight_layout(rect=[0,0.02,1,0.92])
-    save_eps(fig,'fig46_grokking_learning_curve.eps')
+    save_assets(fig,'fig46_grokking_learning_curve.eps')
 
 
 def fig47_ntk_infinite_width():
@@ -153,7 +153,7 @@ def fig47_ntk_infinite_width():
     ax.text(8.95,2.95,'複雑なパラメータ更新を\nカーネルによる線形化された流れとして解析',ha='center',fontsize=9,color=DARK)
     ax.text(8.95,1.15,'「巨大化すると逆に単純化する」という物理学的な極限操作',ha='center',fontsize=8.8,color=MID)
     fig.tight_layout(rect=[0,0.02,1,0.92])
-    save_eps(fig,'fig47_ntk_infinite_width.eps')
+    save_assets(fig,'fig47_ntk_infinite_width.eps')
 
 
 def fig48_rg_deep_learning():
@@ -184,7 +184,7 @@ def fig48_rg_deep_learning():
     ax.text(5.0,6.35,'局所特徴 → 中間パーツ → 大域的な意味',ha='center',fontsize=9,color=DARK)
     ax.text(5.0,0.8,'対応は厳密な同一視ではなく、「粗視化と階層的表現」という数学的類似',ha='center',fontsize=8.8,color=MID)
     fig.tight_layout(rect=[0,0.03,1,0.90])
-    save_eps(fig,'fig48_rg_deep_learning.eps')
+    save_assets(fig,'fig48_rg_deep_learning.eps')
 
 
 def fig49_five_paradigms():
@@ -206,7 +206,7 @@ def fig49_five_paradigms():
         ax.text(x,0.08,examples[i],ha='center',fontsize=7.8,color=col)
     ax.text(0.5,0.94,'知識の作り方そのものが変化してきた',ha='center',fontsize=9,color=MID)
     fig.tight_layout(rect=[0,0.02,1,0.90])
-    save_eps(fig,'fig49_five_paradigms.eps')
+    save_assets(fig,'fig49_five_paradigms.eps')
 
 
 def fig50_prediction_vs_understanding():
@@ -229,7 +229,7 @@ def fig50_prediction_vs_understanding():
     arrow(ax,(0.33,0.86),(0.67,0.75),color=ACCENT,lw=1.3,ms=10)
     ax.text(0.52,0.91,'目標：予測を「理解可能な構造」へ翻訳',ha='center',fontsize=9,color=ACCENT)
     fig.tight_layout(rect=[0,0.02,1,0.92])
-    save_eps(fig,'fig50_prediction_vs_understanding.eps')
+    save_assets(fig,'fig50_prediction_vs_understanding.eps')
 
 
 def fig51_self_referential_universe():
@@ -251,7 +251,7 @@ def fig51_self_referential_universe():
     ax.text(0,-0.13,'観測 → 理解 → 創造 → 再観測',ha='center',fontsize=9,color=MID)
     ax.text(0,-1.08,'人間が宇宙を解き明かし、その法則でAIを作り、AIが次の発見を支援する循環',ha='center',fontsize=8.8,color=MID)
     fig.tight_layout(rect=[0,0.02,1,0.92])
-    save_eps(fig,'fig51_self_referential_universe.eps')
+    save_assets(fig,'fig51_self_referential_universe.eps')
 
 
 def main():
