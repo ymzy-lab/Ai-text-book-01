@@ -2,18 +2,6 @@ name: Generate textbook figure assets
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - figure-layout-prototype
-    paths:
-      - 'figures/generate_figures.py'
-      - 'figures/generate_new_figures.py'
-      - 'figures/generate_ch07_09.py'
-      - 'figures/generate_ch10_12.py'
-      - 'figures/generate_ch13_15.py'
-      - 'figures/generate_ch16_17.py'
-      - 'figures/grayscale_eps.py'
-      - '.github/workflows/generate-figures.yml'
 
 permissions:
   contents: write
