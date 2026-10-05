@@ -1,4 +1,4 @@
-"""Generate editable EPS, SVG, and PDF figures for chapters 7–9 of AI と物理学の系譜."""
+"""Generate grayscale PDF/SVG textbook figures plus optional EPS side output."""
 from pathlib import Path
 import numpy as np
 import matplotlib as mpl
@@ -6,15 +6,15 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Circle, Rectangle, FancyArrowPatch, FancyBboxPatch
 
 ROOT = Path(__file__).resolve().parent
-OUT = ROOT / "eps"
-SVG_OUT = ROOT / "svg"
-PDF_OUT = ROOT / "pdf"
+OUT = ROOT / "eps"      # optional EPS side output
+SVG_OUT = ROOT / "svg"  # editable vector master
+PDF_OUT = ROOT / "pdf"  # primary LaTeX / production asset
 for _dir in (OUT, SVG_OUT, PDF_OUT):
     _dir.mkdir(parents=True, exist_ok=True)
 
-mpl.rcParams["ps.fonttype"] = 3
-mpl.rcParams["pdf.fonttype"] = 42
-mpl.rcParams['svg.fonttype'] = 'none'
+mpl.rcParams["ps.fonttype"] = 3      # EPS side output: robust PostScript glyph outlines
+mpl.rcParams["pdf.fonttype"] = 42     # production PDF: embedded TrueType/OpenType fonts
+mpl.rcParams['svg.fonttype'] = 'none' # editable SVG: preserve ordinary text elements
 mpl.rcParams["font.family"] = "sans-serif"
 mpl.rcParams["font.sans-serif"] = ["Noto Sans CJK JP", "Noto Sans CJK JP Regular", "DejaVu Sans"]
 mpl.rcParams["axes.unicode_minus"] = False
@@ -22,7 +22,7 @@ mpl.rcParams["axes.unicode_minus"] = False
 PHYS = "#545454"; AI = "#606060"; ACCENT = "#808080"
 DARK = "#242424"; MID = "#707070"; LIGHT = "#DDDDDD"; PALE = "#F5F5F5"
 
-def save_eps(fig, name):
+def save_assets(fig, name):
     stem = Path(name).stem
     fig.savefig(OUT / f"{stem}.eps", format='eps', bbox_inches='tight', pad_inches=0.08)
     fig.savefig(SVG_OUT / f"{stem}.svg", format='svg', bbox_inches='tight', pad_inches=0.08)
@@ -63,7 +63,7 @@ def fig13_light_cone_curvature():
     ax.plot(xs,ys,color=ACCENT,lw=2.2); arrow(ax,(5.4,3.0),(6.05,2.6),color=ACCENT,lw=1.3,ms=10)
     ax.text(3.5,4.65,"光は局所的には光円錐に沿うが、\n時空そのものが曲がっている",ha="center",fontsize=9)
     ax.text(5.0,1.1,"重力源へ近づくほど\n未来方向が内側へ傾く",ha="center",fontsize=8.8,color=MID)
-    fig.tight_layout(rect=[0,0.03,1,0.90]); save_eps(fig,"fig13_light_cone_curvature.eps")
+    fig.tight_layout(rect=[0,0.03,1,0.90]); save_assets(fig,"fig13_light_cone_curvature.eps")
 
 def fig14_manifold_unfolding():
     fig, axs = plt.subplots(1, 2, figsize=(10.6, 4.2))
@@ -84,7 +84,7 @@ def fig14_manifold_unfolding():
     ax.plot(7.25,3.0,"o",color=ACCENT,ms=7); ax.plot(8.95,3.0,"o",color=AI,ms=7); arrow(ax,(7.3,3.0),(8.9,3.0),color=ACCENT,lw=1.6,ms=11)
     ax.text(3.0,5.55,"層ごとに少しずつ変形",ha="center",fontsize=9); ax.text(8.1,4.1,"潜在空間では\n意味の距離が単純になる",ha="center",fontsize=9)
     ax.text(8.1,1.6,"A → B の補間が\nシート上の道に対応",ha="center",fontsize=8.8,color=MID)
-    fig.tight_layout(rect=[0,0.03,1,0.90]); save_eps(fig,"fig14_manifold_unfolding.eps")
+    fig.tight_layout(rect=[0,0.03,1,0.90]); save_assets(fig,"fig14_manifold_unfolding.eps")
 
 def fig15_blackbody_radiation():
     fig, ax = plt.subplots(figsize=(7.8,5.0)); fig.suptitle("黒体放射：古典論の紫外破綻とプランク分布",fontsize=14,fontweight="bold",color=DARK)
@@ -95,7 +95,7 @@ def fig15_blackbody_radiation():
     ax.annotate("低振動数では\n古典論と一致",xy=(0.7,0.6),xytext=(1.4,3.8),arrowprops=dict(arrowstyle="->",color=PHYS),fontsize=9,color=PHYS)
     ax.annotate("古典論は高振動数で発散\n（紫外破綻）",xy=(2.15,4.6),xytext=(4.4,4.25),arrowprops=dict(arrowstyle="->",color=AI),fontsize=9,color=AI)
     ax.annotate("量子化により\n高振動数が抑制",xy=(4.5,1.05),xytext=(5.4,2.1),arrowprops=dict(arrowstyle="->",color=ACCENT),fontsize=9,color=ACCENT)
-    fig.tight_layout(rect=[0,0.02,1,0.92]); save_eps(fig,"fig15_blackbody_radiation.eps")
+    fig.tight_layout(rect=[0,0.02,1,0.92]); save_assets(fig,"fig15_blackbody_radiation.eps")
 
 def fig16_bohr_spectrum():
     fig, axs=plt.subplots(1,2,figsize=(10.8,4.7),gridspec_kw={"width_ratios":[1.05,1]}); fig.suptitle("水素スペクトルとボーア模型：飛び飛びの線は準位差から生まれる",fontsize=14,fontweight="bold",color=DARK)
@@ -109,7 +109,7 @@ def fig16_bohr_spectrum():
         ax.vlines(lam,0,1.0-0.13*i,color=AI if n==3 else PHYS,lw=3); ax.text(lam,1.05-0.13*i,f"{lam:.0f} nm",rotation=90,va="bottom",ha="center",fontsize=8.2)
     ax.set_xlim(400,700); ax.set_ylim(0,1.45); ax.set_xlabel("波長  λ [nm]"); ax.set_yticks([]); ax.grid(axis="x",color=LIGHT,lw=0.6)
     ax.text(550,0.32,"整数 n が\n飛び飛びの線位置を決める",ha="center",fontsize=9)
-    fig.tight_layout(rect=[0,0.03,1,0.90]); save_eps(fig,"fig16_bohr_spectrum.eps")
+    fig.tight_layout(rect=[0,0.03,1,0.90]); save_assets(fig,"fig16_bohr_spectrum.eps")
 
 def fig17_symbolic_regression():
     fig, axs=plt.subplots(1,2,figsize=(10.8,4.4)); fig.suptitle("シンボリック回帰：データから『読める数式』を探す",fontsize=14,fontweight="bold",color=DARK)
@@ -120,14 +120,14 @@ def fig17_symbolic_regression():
     ax.scatter(comp,err,s=45,color=MID); ax.plot(comp[:6],err[:6],color=ACCENT,lw=2); ax.plot(5,0.22,"o",ms=8,color=AI); ax.text(5.15,0.28,"精度と単純さの\nバランスが良い候補",fontsize=8.8,color=AI)
     ax.annotate("複雑化しても\n改善が小さい",xy=(9,0.098),xytext=(7.2,0.55),arrowprops=dict(arrowstyle="->",color=MID),fontsize=8.8,color=MID)
     ax.set_xlabel("数式の複雑さ（記号数）"); ax.set_ylabel("データ誤差"); ax.grid(color=LIGHT,lw=0.6)
-    fig.tight_layout(rect=[0,0.03,1,0.90]); save_eps(fig,"fig17_symbolic_regression.eps")
+    fig.tight_layout(rect=[0,0.03,1,0.90]); save_assets(fig,"fig17_symbolic_regression.eps")
 
 def fig18_stress_strain():
     fig, ax=plt.subplots(figsize=(7.8,4.9)); fig.suptitle("応力–ひずみ曲線：弾性変形から塑性・破断へ",fontsize=14,fontweight="bold",color=DARK); panel_label(ax,"(a) 連続体が壊れるまで")
     strain=np.array([0,0.01,0.02,0.035,0.055,0.08,0.11,0.14,0.17,0.20]); stress=np.array([0,0.7,1.4,2.45,2.8,3.05,3.18,3.12,2.85,2.35])
     ax.plot(strain,stress,color=PHYS,lw=2.4); ax.axvline(0.035,color=LIGHT,lw=1); ax.axvline(0.17,color=LIGHT,lw=1); ax.fill_between([0,0.035],[0,0],[3.5,3.5],color="#EDEDED"); ax.fill_between([0.035,0.17],[0,0],[3.5,3.5],color="#ECECEC"); ax.plot(0.20,2.35,"o",color=AI,ms=7)
     ax.text(0.017,3.28,"弾性域\n力を抜くと戻る",ha="center",fontsize=9,color=PHYS); ax.text(0.095,3.28,"塑性域\n永久変形が残る",ha="center",fontsize=9,color=ACCENT); ax.text(0.188,2.55,"破断",ha="center",fontsize=9,color=AI)
-    ax.set_xlim(0,0.215); ax.set_ylim(0,3.55); ax.set_xlabel("ひずみ  ε"); ax.set_ylabel("応力  σ"); ax.grid(color=LIGHT,lw=0.6); fig.tight_layout(rect=[0,0.02,1,0.92]); save_eps(fig,"fig18_stress_strain.eps")
+    ax.set_xlim(0,0.215); ax.set_ylim(0,3.55); ax.set_xlabel("ひずみ  ε"); ax.set_ylabel("応力  σ"); ax.grid(color=LIGHT,lw=0.6); fig.tight_layout(rect=[0,0.02,1,0.92]); save_assets(fig,"fig18_stress_strain.eps")
 
 def _lorenz(sigma=10.0,rho=28.0,beta=8/3,dt=0.005,steps=5000,x0=(1,1,1)):
     xyz=np.zeros((steps,3)); xyz[0]=x0
@@ -141,7 +141,7 @@ def fig19_chaos_lyapunov():
     ax=axs[0]; panel_label(ax,"(a) ローレンツ・アトラクタ"); ax.plot(a[600:,0],a[600:,2],color=PHYS,lw=0.75); ax.set_xlabel("x"); ax.set_ylabel("z"); ax.grid(color=LIGHT,lw=0.4); ax.text(0,48,"決定論的な方程式でも\n軌道は非周期的になる",ha="center",fontsize=9)
     ax=axs[1]; panel_label(ax,"(b) 初期値誤差の増幅"); d=np.maximum(np.linalg.norm(a-b,axis=1),1e-10); t=np.arange(len(d))*0.005; ax.semilogy(t,d,color=AI,lw=1.8); ax.set_xlim(0,18); ax.set_ylim(1e-5,1e2); ax.set_xlabel("時間  t"); ax.set_ylabel(r"$|\delta x(t)|$"); ax.grid(color=LIGHT,lw=0.5,which="both"); ax.text(8.5,2e-4,r"$|\delta x(t)| \sim |\delta x_0|e^{\lambda t}$",ha="center",fontsize=10)
     ax.annotate("小さな差が急速に拡大",xy=(13,1.0),xytext=(5.0,15),arrowprops=dict(arrowstyle="->",color=AI),fontsize=9,color=AI)
-    fig.tight_layout(rect=[0,0.03,1,0.90]); save_eps(fig,"fig19_chaos_lyapunov.eps")
+    fig.tight_layout(rect=[0,0.03,1,0.90]); save_assets(fig,"fig19_chaos_lyapunov.eps")
 
 def fig20_pinn_architecture():
     fig, axs=plt.subplots(1,2,figsize=(11.5,4.8),gridspec_kw={"width_ratios":[1.25,1]}); fig.suptitle("PINNs：データ誤差だけでなく『物理法則違反』も罰する",fontsize=14,fontweight="bold",color=DARK)
@@ -158,7 +158,7 @@ def fig20_pinn_architecture():
         r=FancyBboxPatch((x,y),2.4,1.0,boxstyle="round,pad=0.02",facecolor="white",edgecolor=col,lw=1.5); ax.add_patch(r); ax.text(x+1.2,y+0.5,txt,ha="center",va="center",fontsize=9)
     arrow(ax,(3.3,5.7),(6.65,5.7),color=PHYS,lw=1.6,ms=11); ax.text(5,4.55,"既知の方程式",ha="center",fontsize=8.7,color=MID)
     ax.text(5,2.95,"逆問題",ha="center",fontsize=10,fontweight="bold",color=AI); arrow(ax,(3.3,1.95),(6.65,1.95),color=AI,lw=1.6,ms=11); ax.text(5,0.75,"観測と物理法則を同時に満たす原因を探索",ha="center",fontsize=8.7,color=MID)
-    fig.tight_layout(rect=[0,0.03,1,0.90]); save_eps(fig,"fig20_pinn_architecture.eps")
+    fig.tight_layout(rect=[0,0.03,1,0.90]); save_assets(fig,"fig20_pinn_architecture.eps")
 
 def main():
     fig13_light_cone_curvature(); fig14_manifold_unfolding(); fig15_blackbody_radiation(); fig16_bohr_spectrum(); fig17_symbolic_regression(); fig18_stress_strain(); fig19_chaos_lyapunov(); fig20_pinn_architecture(); print(f'Generated 8 figures as EPS/SVG/PDF in {ROOT}')
