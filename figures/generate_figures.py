@@ -24,12 +24,19 @@ mpl.rcParams['font.family'] = 'sans-serif'
 mpl.rcParams['font.sans-serif'] = ['Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans']
 mpl.rcParams['axes.unicode_minus'] = False
 
+TEXT = '#000000'
+SUBTEXT = '#555555'
 PHYS = '#545454'
 AI = '#606060'
 ACCENT = '#808080'
-DARK = '#242424'
+DARK = '#404040'
 MID = '#707070'
 LIGHT = '#DDDDDD'
+mpl.rcParams['text.color'] = TEXT
+mpl.rcParams['axes.labelcolor'] = TEXT
+mpl.rcParams['axes.titlecolor'] = TEXT
+mpl.rcParams['xtick.color'] = TEXT
+mpl.rcParams['ytick.color'] = TEXT
 
 
 def save_assets(fig, name):
@@ -49,7 +56,7 @@ def arrow(ax, xy1, xy2, color=DARK, lw=1.4, ms=12, style='-|>'):
 
 def panel_label(ax, text):
     ax.text(0.02, 0.98, text, transform=ax.transAxes, ha='left', va='top',
-            fontsize=9, fontweight='bold', color=MID)
+            fontsize=9, fontweight='bold', color=SUBTEXT)
 
 
 def fig00_knowledge_map():
@@ -69,17 +76,17 @@ def fig00_knowledge_map():
                              boxstyle='round,pad=0.012,rounding_size=0.015',
                              facecolor='white', edgecolor=color, lw=1.2)
         ax.add_patch(box)
-        ax.text(x, y+0.022, title, ha='center', va='center', fontsize=9, color=DARK, fontweight='bold')
-        ax.text(x, y-0.03, sub, ha='center', va='center', fontsize=7.5, color=MID)
+        ax.text(x, y+0.022, title, ha='center', va='center', fontsize=9, color=TEXT, fontweight='bold')
+        ax.text(x, y-0.03, sub, ha='center', va='center', fontsize=7.5, color=SUBTEXT)
         ax.plot([x, x], [0.56 + (0.025 if y > 0.56 else -0.025), y + (-0.075 if y > 0.56 else 0.075)], color=LIGHT, lw=1)
-    ax.text(0.5, 0.94, 'AIと物理学の系譜：複雑な世界から法則を見つける知の流れ', ha='center', va='center', fontsize=14, fontweight='bold', color=DARK)
-    ax.text(0.50, 0.08, '観測 → モデル化 → 数学的圧縮 → 予測 → 理解 → 新しい発見', ha='center', va='center', fontsize=10, color=MID)
+    ax.text(0.5, 0.94, 'AIと物理学の系譜：複雑な世界から法則を見つける知の流れ', ha='center', va='center', fontsize=14, fontweight='bold', color=TEXT)
+    ax.text(0.50, 0.08, '観測 → モデル化 → 数学的圧縮 → 予測 → 理解 → 新しい発見', ha='center', va='center', fontsize=10, color=SUBTEXT)
     save_assets(fig, 'fig00_knowledge_map.eps')
 
 
 def fig01_geocentric_heliocentric():
     fig, axs = plt.subplots(1, 2, figsize=(10, 4.5))
-    fig.suptitle('天動説と地動説：同じ観測を異なるモデルで説明する', fontsize=14, fontweight='bold', color=DARK)
+    fig.suptitle('天動説と地動説：同じ観測を異なるモデルで説明する', fontsize=14, fontweight='bold', color=TEXT)
     th = np.linspace(0, 2*np.pi, 500)
     ax = axs[0]; ax.set_aspect('equal'); ax.axis('off'); panel_label(ax, '(a) 天動説：周転円で逆行を説明')
     ax.set_xlim(-2.2, 2.2); ax.set_ylim(-2.0, 2.0)
@@ -90,22 +97,22 @@ def fig01_geocentric_heliocentric():
     ex = re*np.cos(5*center_angle); ey = re*np.sin(5*center_angle)
     ax.plot(cx+ex, cy+ey, color=AI, lw=1.8)
     idx = 95; ax.add_patch(Circle((cx[idx]+ex[idx], cy[idx]+ey[idx]), 0.08, facecolor=AI, edgecolor='none'))
-    ax.text(0,-1.78,'複雑な軌道を追加して観測に合わせる',ha='center',fontsize=9,color=MID)
+    ax.text(0,-1.78,'複雑な軌道を追加して観測に合わせる',ha='center',fontsize=9,color=SUBTEXT)
     ax = axs[1]; ax.set_aspect('equal'); ax.axis('off'); panel_label(ax, '(b) 地動説：太陽中心＋楕円軌道')
     ax.set_xlim(-2.2, 2.2); ax.set_ylim(-2.0, 2.0)
     ax.add_patch(Circle((0,0), 0.15, facecolor=ACCENT, edgecolor='none')); ax.text(0,-0.34,'太陽',ha='center',fontsize=9)
     for a,b,c in [(0.8,0.72,PHYS),(1.35,1.0,AI)]: ax.plot(a*np.cos(th),b*np.sin(th),color=c,lw=1.6)
     ax.add_patch(Circle((0.8*np.cos(0.9),0.72*np.sin(0.9)),0.07,facecolor=PHYS,edgecolor='none'))
     ax.add_patch(Circle((1.35*np.cos(2.0),1.0*np.sin(2.0)),0.08,facecolor=AI,edgecolor='none'))
-    ax.text(0,-1.78,'基準系を変えると逆行は見かけの運動になる',ha='center',fontsize=9,color=MID)
-    fig.text(0.5,0.03,'モデルの複雑さを増やすか、世界の見方そのものを変えるか',ha='center',fontsize=10,color=DARK)
+    ax.text(0,-1.78,'基準系を変えると逆行は見かけの運動になる',ha='center',fontsize=9,color=SUBTEXT)
+    fig.text(0.5,0.03,'モデルの複雑さを増やすか、世界の見方そのものを変えるか',ha='center',fontsize=10,color=TEXT)
     fig.tight_layout(rect=[0,0.06,1,0.91])
     save_assets(fig, 'fig01_geocentric_heliocentric.eps')
 
 
 def fig02_gradient_descent():
     fig, axs = plt.subplots(1, 2, figsize=(10, 4.2))
-    fig.suptitle('谷底へ向かう運動とAIの学習：共通する「勾配」の構造', fontsize=14, fontweight='bold', color=DARK)
+    fig.suptitle('谷底へ向かう運動とAIの学習：共通する「勾配」の構造', fontsize=14, fontweight='bold', color=TEXT)
     x = np.linspace(-3.2, 3.2, 500)
     V = 0.12*x**4 - 0.75*x**2 + 0.18*x + 2.1
     ax = axs[0]; panel_label(ax, '(a) 物理：ポテンシャルの谷'); ax.plot(x,V,color=PHYS,lw=2)
@@ -122,28 +129,28 @@ def fig02_gradient_descent():
         ax.plot(p,y,'o',ms=6,color=AI); arrow(ax,(p,y),(q,yq),color=AI,lw=1.2,ms=10)
     p=pts[-1]; ax.plot(p,0.10*p**4-0.62*p**2-0.12*p+1.8,'o',ms=7,color=AI)
     ax.set_xlabel('パラメータ  θ'); ax.set_ylabel('損失  L(θ)'); ax.grid(color=LIGHT,linewidth=0.6)
-    fig.text(0.5,0.02,'傾き（微分）を使って「下る方向」を決める点が共通している',ha='center',fontsize=10,color=DARK)
+    fig.text(0.5,0.02,'傾き（微分）を使って「下る方向」を決める点が共通している',ha='center',fontsize=10,color=TEXT)
     fig.tight_layout(rect=[0,0.05,1,0.90]); save_assets(fig, 'fig02_gradient_descent.eps')
 
 
 def fig03_fermat_principle():
     fig, axs = plt.subplots(1, 2, figsize=(10.5, 4.3), gridspec_kw={'width_ratios':[1.1,1]})
-    fig.suptitle('フェルマーの原理：光は「距離」ではなく「時間」を最小にする', fontsize=14, fontweight='bold', color=DARK)
+    fig.suptitle('フェルマーの原理：光は「距離」ではなく「時間」を最小にする', fontsize=14, fontweight='bold', color=TEXT)
     ax=axs[0]; panel_label(ax,'(a) 2つの媒質を通る候補経路'); ax.set_xlim(-3,3); ax.set_ylim(-2.2,2.2); ax.axis('off'); ax.axhline(0,color=DARK,lw=1)
-    ax.text(-2.8,1.72,'媒質1：速い',fontsize=9,color=PHYS); ax.text(-2.8,-1.9,'媒質2：遅い',fontsize=9,color=AI)
+    ax.text(-2.8,1.72,'媒質1：速い',fontsize=9,color=TEXT); ax.text(-2.8,-1.9,'媒質2：遅い',fontsize=9,color=TEXT)
     S=(-2.4,1.45); T=(2.4,-1.45); ax.plot(*S,'o',color=PHYS,ms=7); ax.text(S[0]-0.2,S[1]+0.2,'S',fontsize=10); ax.plot(*T,'o',color=AI,ms=7); ax.text(T[0]+0.1,T[1]-0.1,'T',fontsize=10)
     for xc,c,lw in [(-0.8,LIGHT,1),(0.0,LIGHT,1),(0.65,ACCENT,2.2),(1.25,LIGHT,1)]: ax.plot([S[0],xc,T[0]],[S[1],0,T[1]],color=c,lw=lw)
-    ax.text(0.72,0.18,'最短時間',fontsize=9,color=ACCENT,fontweight='bold')
+    ax.text(0.72,0.18,'最短時間',fontsize=9,color=TEXT,fontweight='bold')
     ax=axs[1]; panel_label(ax,'(b) 境界を横切る位置と所要時間'); xc=np.linspace(-1.6,1.8,400); v1=2.0; v2=1.0
     tt=np.sqrt((xc-S[0])**2+S[1]**2)/v1 + np.sqrt((T[0]-xc)**2+T[1]**2)/v2; im=np.argmin(tt)
-    ax.plot(xc,tt,color=DARK,lw=2); ax.plot(xc[im],tt[im],'o',color=ACCENT,ms=7); ax.axvline(xc[im],color=LIGHT,lw=1); ax.text(xc[im]+0.08,tt[im]+0.05,'最小',color=ACCENT,fontsize=9)
+    ax.plot(xc,tt,color=DARK,lw=2); ax.plot(xc[im],tt[im],'o',color=ACCENT,ms=7); ax.axvline(xc[im],color=LIGHT,lw=1); ax.text(xc[im]+0.08,tt[im]+0.05,'最小',color=TEXT,fontsize=9)
     ax.set_xlabel('境界での通過位置'); ax.set_ylabel('所要時間'); ax.grid(color=LIGHT,linewidth=0.6)
     fig.tight_layout(rect=[0,0.03,1,0.90]); save_assets(fig, 'fig03_fermat_principle.eps')
 
 
 def fig04_entropy_time_arrow():
     rng=np.random.default_rng(7); fig, axs=plt.subplots(1,4,figsize=(11,3.1))
-    fig.suptitle('時間の矢：粒子は「特別な状態」から「ありふれた状態」へ広がる',fontsize=14,fontweight='bold',color=DARK)
+    fig.suptitle('時間の矢：粒子は「特別な状態」から「ありふれた状態」へ広がる',fontsize=14,fontweight='bold',color=TEXT)
     for i,ax in enumerate(axs):
         ax.set_xlim(0,1); ax.set_ylim(0,1); ax.set_aspect('equal'); ax.set_xticks([]); ax.set_yticks([])
         for s in ax.spines.values(): s.set_color(MID)
@@ -152,7 +159,7 @@ def fig04_entropy_time_arrow():
         y=np.concatenate([rng.uniform(0.06,0.94,left_n),rng.uniform(0.06,0.94,right_n)])
         ax.scatter(x,y,s=9,color=PHYS,edgecolors='none'); ax.axvline(0.5,color=LIGHT,lw=0.8,ls='--')
         ax.set_title(['低エントロピー','拡散開始','ほぼ均一','高エントロピー'][i],fontsize=9)
-    fig.text(0.5,0.02,'ミクロな運動は可逆でも、マクロには「均一化する向き」が圧倒的に起こりやすい',ha='center',fontsize=10,color=DARK)
+    fig.text(0.5,0.02,'ミクロな運動は可逆でも、マクロには「均一化する向き」が圧倒的に起こりやすい',ha='center',fontsize=10,color=TEXT)
     fig.tight_layout(rect=[0,0.07,1,0.88],w_pad=1.3); save_assets(fig, 'fig04_entropy_time_arrow.eps')
 
 
@@ -160,7 +167,7 @@ def fig05_diffusion_forward_reverse():
     rng=np.random.default_rng(12); base=np.zeros((10,10),dtype=int)
     for r,c in [(1,4),(1,5),(2,3),(2,6),(3,2),(3,7),(4,1),(4,8),(5,1),(5,8),(6,2),(6,7),(7,3),(7,6),(8,4),(8,5),(4,4),(4,5),(5,4),(5,5)]: base[r,c]=1
     levels=[0.0,0.15,0.35,0.50]; fig,axs=plt.subplots(2,4,figsize=(10.8,5.0))
-    fig.suptitle('拡散モデル：秩序をノイズへ壊し、その過程を逆向きに学習する',fontsize=14,fontweight='bold',color=DARK)
+    fig.suptitle('拡散モデル：秩序をノイズへ壊し、その過程を逆向きに学習する',fontsize=14,fontweight='bold',color=TEXT)
     def draw_grid(ax,arr):
         ax.set_xlim(0,10); ax.set_ylim(0,10); ax.set_aspect('equal'); ax.axis('off')
         for r in range(10):
@@ -173,8 +180,8 @@ def fig05_diffusion_forward_reverse():
         arrays.append(a)
     for i,a in enumerate(arrays): draw_grid(axs[0,i],a); axs[0,i].set_title(['$x_0$ データ','$x_{t_1}$','$x_{t_2}$','$x_T$ ノイズ'][i],fontsize=9)
     for j,i in enumerate([3,2,1,0]): draw_grid(axs[1,j],arrays[i]); axs[1,j].set_title(['$x_T$ ノイズ','$x_{t_2}$','$x_{t_1}$','$x_0$ 生成'][j],fontsize=9)
-    fig.text(0.02,0.73,'Forward\nnoise',ha='left',va='center',fontsize=9,color=AI,fontweight='bold'); fig.text(0.02,0.29,'Reverse\ndenoise',ha='left',va='center',fontsize=9,color=PHYS,fontweight='bold')
-    fig.text(0.5,0.02,'学習対象は「完成画像」そのものではなく、各段階でノイズを取り除く方向',ha='center',fontsize=10,color=DARK)
+    fig.text(0.02,0.73,'Forward\nnoise',ha='left',va='center',fontsize=9,color=TEXT,fontweight='bold'); fig.text(0.02,0.29,'Reverse\ndenoise',ha='left',va='center',fontsize=9,color=TEXT,fontweight='bold')
+    fig.text(0.5,0.02,'学習対象は「完成画像」そのものではなく、各段階でノイズを取り除く方向',ha='center',fontsize=10,color=TEXT)
     fig.tight_layout(rect=[0.06,0.06,1,0.90],h_pad=1.2,w_pad=1.0); save_assets(fig, 'fig05_diffusion_forward_reverse.eps')
 
 
