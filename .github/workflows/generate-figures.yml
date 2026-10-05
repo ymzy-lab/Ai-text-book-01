@@ -52,23 +52,21 @@ jobs:
       - name: Normalize EPS color operators to grayscale without rewriting geometry
         run: python figures/grayscale_eps.py figures/eps || true
 
-      - name: Normalize PDF assets to DeviceGray
+      - name: Build PDF assets from canonical grayscale EPS masters
         run: |
           set -euo pipefail
-          mkdir -p figures/pdf-gray
-          for f in figures/pdf/*.pdf; do
-            stem=$(basename "$f")
-            gs -q -dSAFER -dBATCH -dNOPAUSE \
+          rm -f figures/pdf/*.pdf
+          for f in figures/eps/*.eps; do
+            stem=$(basename "$f" .eps)
+            gs -q -dSAFER -dBATCH -dNOPAUSE -dEPSCrop \
               -sDEVICE=pdfwrite \
               -dCompatibilityLevel=1.7 \
               -sColorConversionStrategy=Gray \
               -dProcessColorModel=/DeviceGray \
               -dOverrideICC \
-              -sOutputFile="figures/pdf-gray/$stem" \
+              -sOutputFile="figures/pdf/${stem}.pdf" \
               "$f"
           done
-          mv figures/pdf-gray/*.pdf figures/pdf/
-          rmdir figures/pdf-gray
 
       - name: Validate asset counts
         run: |
