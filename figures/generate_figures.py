@@ -11,15 +11,15 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Circle, Rectangle, FancyArrowPatch, FancyBboxPatch
 
 ROOT = Path(__file__).resolve().parent
-OUT = ROOT / "eps"
-SVG_OUT = ROOT / "svg"
-PDF_OUT = ROOT / "pdf"
+OUT = ROOT / "eps"      # optional EPS side output
+SVG_OUT = ROOT / "svg"  # editable vector master
+PDF_OUT = ROOT / "pdf"  # primary LaTeX / production asset
 for _dir in (OUT, SVG_OUT, PDF_OUT):
     _dir.mkdir(parents=True, exist_ok=True)
 
-mpl.rcParams['ps.fonttype'] = 3
-mpl.rcParams['pdf.fonttype'] = 42
-mpl.rcParams['svg.fonttype'] = 'none'
+mpl.rcParams['ps.fonttype'] = 3      # EPS side output: robust PostScript glyph outlines
+mpl.rcParams['pdf.fonttype'] = 42     # production PDF: embedded TrueType/OpenType fonts
+mpl.rcParams['svg.fonttype'] = 'none' # editable SVG: preserve ordinary text elements
 mpl.rcParams['font.family'] = 'sans-serif'
 mpl.rcParams['font.sans-serif'] = ['Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans']
 mpl.rcParams['axes.unicode_minus'] = False
@@ -32,7 +32,7 @@ MID = '#707070'
 LIGHT = '#DDDDDD'
 
 
-def save_eps(fig, name):
+def save_assets(fig, name):
     stem = Path(name).stem
     fig.savefig(OUT / f"{stem}.eps", format='eps', bbox_inches='tight', pad_inches=0.08)
     fig.savefig(SVG_OUT / f"{stem}.svg", format='svg', bbox_inches='tight', pad_inches=0.08)
@@ -74,7 +74,7 @@ def fig00_knowledge_map():
         ax.plot([x, x], [0.56 + (0.025 if y > 0.56 else -0.025), y + (-0.075 if y > 0.56 else 0.075)], color=LIGHT, lw=1)
     ax.text(0.5, 0.94, 'AIと物理学の系譜：複雑な世界から法則を見つける知の流れ', ha='center', va='center', fontsize=14, fontweight='bold', color=DARK)
     ax.text(0.50, 0.08, '観測 → モデル化 → 数学的圧縮 → 予測 → 理解 → 新しい発見', ha='center', va='center', fontsize=10, color=MID)
-    save_eps(fig, 'fig00_knowledge_map.eps')
+    save_assets(fig, 'fig00_knowledge_map.eps')
 
 
 def fig01_geocentric_heliocentric():
@@ -100,7 +100,7 @@ def fig01_geocentric_heliocentric():
     ax.text(0,-1.78,'基準系を変えると逆行は見かけの運動になる',ha='center',fontsize=9,color=MID)
     fig.text(0.5,0.03,'モデルの複雑さを増やすか、世界の見方そのものを変えるか',ha='center',fontsize=10,color=DARK)
     fig.tight_layout(rect=[0,0.06,1,0.91])
-    save_eps(fig, 'fig01_geocentric_heliocentric.eps')
+    save_assets(fig, 'fig01_geocentric_heliocentric.eps')
 
 
 def fig02_gradient_descent():
@@ -123,7 +123,7 @@ def fig02_gradient_descent():
     p=pts[-1]; ax.plot(p,0.10*p**4-0.62*p**2-0.12*p+1.8,'o',ms=7,color=AI)
     ax.set_xlabel('パラメータ  θ'); ax.set_ylabel('損失  L(θ)'); ax.grid(color=LIGHT,linewidth=0.6)
     fig.text(0.5,0.02,'傾き（微分）を使って「下る方向」を決める点が共通している',ha='center',fontsize=10,color=DARK)
-    fig.tight_layout(rect=[0,0.05,1,0.90]); save_eps(fig, 'fig02_gradient_descent.eps')
+    fig.tight_layout(rect=[0,0.05,1,0.90]); save_assets(fig, 'fig02_gradient_descent.eps')
 
 
 def fig03_fermat_principle():
@@ -138,7 +138,7 @@ def fig03_fermat_principle():
     tt=np.sqrt((xc-S[0])**2+S[1]**2)/v1 + np.sqrt((T[0]-xc)**2+T[1]**2)/v2; im=np.argmin(tt)
     ax.plot(xc,tt,color=DARK,lw=2); ax.plot(xc[im],tt[im],'o',color=ACCENT,ms=7); ax.axvline(xc[im],color=LIGHT,lw=1); ax.text(xc[im]+0.08,tt[im]+0.05,'最小',color=ACCENT,fontsize=9)
     ax.set_xlabel('境界での通過位置'); ax.set_ylabel('所要時間'); ax.grid(color=LIGHT,linewidth=0.6)
-    fig.tight_layout(rect=[0,0.03,1,0.90]); save_eps(fig, 'fig03_fermat_principle.eps')
+    fig.tight_layout(rect=[0,0.03,1,0.90]); save_assets(fig, 'fig03_fermat_principle.eps')
 
 
 def fig04_entropy_time_arrow():
@@ -153,7 +153,7 @@ def fig04_entropy_time_arrow():
         ax.scatter(x,y,s=9,color=PHYS,edgecolors='none'); ax.axvline(0.5,color=LIGHT,lw=0.8,ls='--')
         ax.set_title(['低エントロピー','拡散開始','ほぼ均一','高エントロピー'][i],fontsize=9)
     fig.text(0.5,0.02,'ミクロな運動は可逆でも、マクロには「均一化する向き」が圧倒的に起こりやすい',ha='center',fontsize=10,color=DARK)
-    fig.tight_layout(rect=[0,0.07,1,0.88],w_pad=1.3); save_eps(fig, 'fig04_entropy_time_arrow.eps')
+    fig.tight_layout(rect=[0,0.07,1,0.88],w_pad=1.3); save_assets(fig, 'fig04_entropy_time_arrow.eps')
 
 
 def fig05_diffusion_forward_reverse():
@@ -175,7 +175,7 @@ def fig05_diffusion_forward_reverse():
     for j,i in enumerate([3,2,1,0]): draw_grid(axs[1,j],arrays[i]); axs[1,j].set_title(['$x_T$ ノイズ','$x_{t_2}$','$x_{t_1}$','$x_0$ 生成'][j],fontsize=9)
     fig.text(0.02,0.73,'Forward\nnoise',ha='left',va='center',fontsize=9,color=AI,fontweight='bold'); fig.text(0.02,0.29,'Reverse\ndenoise',ha='left',va='center',fontsize=9,color=PHYS,fontweight='bold')
     fig.text(0.5,0.02,'学習対象は「完成画像」そのものではなく、各段階でノイズを取り除く方向',ha='center',fontsize=10,color=DARK)
-    fig.tight_layout(rect=[0.06,0.06,1,0.90],h_pad=1.2,w_pad=1.0); save_eps(fig, 'fig05_diffusion_forward_reverse.eps')
+    fig.tight_layout(rect=[0.06,0.06,1,0.90],h_pad=1.2,w_pad=1.0); save_assets(fig, 'fig05_diffusion_forward_reverse.eps')
 
 
 def main():
