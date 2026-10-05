@@ -67,7 +67,7 @@ def fig44_spin_glass_landscape():
         col = PHYS if s == '+' else AI
         ax.plot([pts[a,0],pts[b,0]],[pts[a,1],pts[b,1]],color=col,lw=2)
         mid=(pts[a]+pts[b])/2
-        ax.text(mid[0],mid[1],s,fontsize=13,fontweight='bold',color=col,
+        ax.text(mid[0],mid[1],s,fontsize=13,fontweight='bold',color=TEXT,
                 bbox=dict(boxstyle='circle,pad=0.15',fc='white',ec='none'))
     spins=['↑','↑','↓']
     for (x,y),s in zip(pts,spins):
@@ -210,7 +210,7 @@ def fig49_five_paradigms():
         y=0.75 if i%2==0 else 0.30
         ax.text(x,y,titles[i],ha='center',va='center',fontsize=9.2,fontweight='bold',color=TEXT)
         ax.text(x,y-0.13 if y>0.5 else y+0.13,subs[i],ha='center',fontsize=8.2,color=SUBTEXT)
-        ax.text(x,0.08,examples[i],ha='center',fontsize=7.8,color=col)
+        ax.text(x,0.08,examples[i],ha='center',fontsize=7.8,color=TEXT)
     ax.text(0.5,0.94,'知識の作り方そのものが変化してきた',ha='center',fontsize=9,color=SUBTEXT)
     fig.tight_layout(rect=[0,0.02,1,0.90])
     save_assets(fig,'fig49_five_paradigms.eps')
