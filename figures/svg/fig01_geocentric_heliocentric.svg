@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-10-05T01:09:53.243190</dc:date>
+    <dc:date>2026-10-05T01:29:58.386670</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -40,7 +40,7 @@ C 124.475972 174.439045 123.631913 176.476784 123.631913 178.60125
 C 123.631913 180.725716 124.475972 182.763455 125.978196 184.265679 
 C 127.48042 185.767903 129.518159 186.611962 131.642625 186.611962 
 z
-" clip-path="url(#p8734935827)" style="fill: #545454"/>
+" clip-path="url(#p6218618a4b)" style="fill: #545454"/>
    </g>
    <g id="patch_3">
     <path d="M 170.791708 145.803655 
@@ -53,7 +53,7 @@ C 166.696478 138.847703 166.214158 140.012125 166.214158 141.226105
 C 166.214158 142.440086 166.696478 143.604508 167.554892 144.462922 
 C 168.413306 145.321336 169.577728 145.803655 170.791708 145.803655 
 z
-" clip-path="url(#p8734935827)" style="fill: #606060"/>
+" clip-path="url(#p6218618a4b)" style="fill: #606060"/>
    </g>
    <g id="line2d_1">
     <path d="M 208.888781 178.60125 
@@ -183,7 +183,7 @@ L 208.58892 185.400982
 L 208.833676 181.518503 
 L 208.888781 178.60125 
 L 208.888781 178.60125 
-" clip-path="url(#p8734935827)" style="fill: none; stroke: #dddddd; stroke-width: 1.2; stroke-linecap: square"/>
+" clip-path="url(#p6218618a4b)" style="fill: none; stroke: #dddddd; stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="line2d_2">
     <path d="M 221.477044 178.60125 
@@ -464,7 +464,7 @@ L 221.284854 182.991104
 L 221.455664 180.066818 
 L 221.477044 178.60125 
 L 221.477044 178.60125 
-" clip-path="url(#p8734935827)" style="fill: none; stroke: #606060; stroke-width: 1.8; stroke-linecap: square"/>
+" clip-path="url(#p6218618a4b)" style="fill: none; stroke: #606060; stroke-width: 1.8; stroke-linecap: square"/>
    </g>
    <g id="text_1">
     <text style="font-weight: 700; font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #707070" x="10.795305" y="76.66005" transform="rotate(-0 10.795305 76.66005)">(a) 天動説：周転円で逆行を説明</text>
@@ -488,7 +488,7 @@ C 478.564068 174.141745 477.659719 176.325037 477.659719 178.60125
 C 477.659719 180.877463 478.564068 183.060755 480.173594 184.670281 
 C 481.78312 186.279807 483.966412 187.184156 486.242625 187.184156 
 z
-" clip-path="url(#p2fa13f8347)" style="fill: #808080"/>
+" clip-path="url(#p67c7a87339)" style="fill: #808080"/>
    </g>
    <g id="patch_5">
     <path d="M 514.697132 150.335143 
@@ -501,7 +501,7 @@ C 511.113805 144.248685 510.691776 145.267554 510.691776 146.329787
 C 510.691776 147.39202 511.113805 148.41089 511.864918 149.162002 
 C 512.61603 149.913114 513.634899 150.335143 514.697132 150.335143 
 z
-" clip-path="url(#p2fa13f8347)" style="fill: #545454"/>
+" clip-path="url(#p67c7a87339)" style="fill: #545454"/>
    </g>
    <g id="patch_6">
     <path d="M 454.096881 131.14937 
@@ -514,7 +514,7 @@ C 450.001651 124.193417 449.519331 125.357839 449.519331 126.57182
 C 449.519331 127.7858 450.001651 128.950222 450.860065 129.808636 
 C 451.718479 130.66705 452.882901 131.14937 454.096881 131.14937 
 z
-" clip-path="url(#p2fa13f8347)" style="fill: #606060"/>
+" clip-path="url(#p67c7a87339)" style="fill: #606060"/>
    </g>
    <g id="line2d_3">
     <path d="M 532.018125 178.60125 
@@ -603,7 +603,7 @@ L 531.840429 182.227774
 L 532.014496 179.119982 
 L 532.018125 178.60125 
 L 532.018125 178.60125 
-" clip-path="url(#p2fa13f8347)" style="fill: none; stroke: #545454; stroke-width: 1.6; stroke-linecap: square"/>
+" clip-path="url(#p67c7a87339)" style="fill: none; stroke: #545454; stroke-width: 1.6; stroke-linecap: square"/>
    </g>
    <g id="line2d_4">
     <path d="M 563.488781 178.60125 
@@ -717,7 +717,7 @@ L 563.335742 182.201275
 L 563.482658 179.321712 
 L 563.488781 178.60125 
 L 563.488781 178.60125 
-" clip-path="url(#p2fa13f8347)" style="fill: none; stroke: #606060; stroke-width: 1.6; stroke-linecap: square"/>
+" clip-path="url(#p67c7a87339)" style="fill: none; stroke: #606060; stroke-width: 1.6; stroke-linecap: square"/>
    </g>
    <g id="text_4">
     <text style="font-weight: 700; font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #707070" x="365.395305" y="76.66005" transform="rotate(-0 365.395305 76.66005)">(b) 地動説：太陽中心＋楕円軌道</text>
@@ -737,10 +737,10 @@ L 563.488781 178.60125
   </g>
  </g>
  <defs>
-  <clipPath id="p8734935827">
+  <clipPath id="p6218618a4b">
    <rect x="5.76" y="64.1625" width="251.76525" height="228.8775"/>
   </clipPath>
-  <clipPath id="p2fa13f8347">
+  <clipPath id="p67c7a87339">
    <rect x="360.36" y="64.1625" width="251.76525" height="228.8775"/>
   </clipPath>
  </defs>
