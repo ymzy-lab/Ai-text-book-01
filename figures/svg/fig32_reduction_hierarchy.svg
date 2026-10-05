@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-10-05T01:30:59.970760</dc:date>
+    <dc:date>2026-10-05T04:22:07.916114</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -40,17 +40,17 @@ C 34.109051 150.261285 30.24 155.527902 30.24 161.018667
 C 30.24 166.509432 34.109051 171.776048 40.995039 175.658605 
 C 47.881027 179.541163 57.221742 181.722667 66.96 181.722667 
 z
-" clip-path="url(#pdd62c2f9f0)" style="fill: #ffffff; stroke: #545454; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#p9f6041108d)" style="fill: #ffffff; stroke: #545454; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 111.024 161.018667 
 Q 130.608 161.018667 148.738556 161.018667 
-" clip-path="url(#pdd62c2f9f0)" style="fill: none; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#p9f6041108d)" style="fill: none; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
     <path d="M 144.738556 159.018667 
 L 148.738556 161.018667 
 L 144.738556 163.018667 
 z
-" clip-path="url(#pdd62c2f9f0)" style="fill: #808080; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#p9f6041108d)" style="fill: #808080; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
    </g>
    <g id="patch_4">
     <path d="M 189.36 178.962133 
@@ -63,17 +63,17 @@ C 160.889177 151.695603 157.536 156.260004 157.536 161.018667
 C 157.536 165.77733 160.889177 170.341731 166.857034 173.706614 
 C 172.82489 177.071496 180.920177 178.962133 189.36 178.962133 
 z
-" clip-path="url(#pdd62c2f9f0)" style="fill: #ffffff; stroke: #545454; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#p9f6041108d)" style="fill: #ffffff; stroke: #545454; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
     <path d="M 228.528 161.018667 
 Q 252.396 161.018667 274.810556 161.018667 
-" clip-path="url(#pdd62c2f9f0)" style="fill: none; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#p9f6041108d)" style="fill: none; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
     <path d="M 270.810556 159.018667 
 L 274.810556 161.018667 
 L 270.810556 163.018667 
 z
-" clip-path="url(#pdd62c2f9f0)" style="fill: #808080; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#p9f6041108d)" style="fill: #808080; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
    </g>
    <g id="patch_6">
     <path d="M 311.76 176.891733 
@@ -86,17 +86,17 @@ C 286.574272 152.771341 283.608 156.80908 283.608 161.018667
 C 283.608 165.228253 286.574272 169.265993 291.85353 172.24262 
 C 297.132787 175.219247 304.294002 176.891733 311.76 176.891733 
 z
-" clip-path="url(#pdd62c2f9f0)" style="fill: #ffffff; stroke: #545454; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#p9f6041108d)" style="fill: #ffffff; stroke: #545454; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_7">
     <path d="M 347.256 161.018667 
 Q 374.796 161.018667 400.882556 161.018667 
-" clip-path="url(#pdd62c2f9f0)" style="fill: none; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#p9f6041108d)" style="fill: none; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
     <path d="M 396.882556 159.018667 
 L 400.882556 161.018667 
 L 396.882556 163.018667 
 z
-" clip-path="url(#pdd62c2f9f0)" style="fill: #808080; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#p9f6041108d)" style="fill: #808080; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
    </g>
    <g id="patch_8">
     <path d="M 434.16 174.821333 
@@ -109,17 +109,17 @@ C 412.259367 153.847079 409.68 157.358157 409.68 161.018667
 C 409.68 164.679177 412.259367 168.190254 416.850026 170.778626 
 C 421.440685 173.366997 427.667828 174.821333 434.16 174.821333 
 z
-" clip-path="url(#pdd62c2f9f0)" style="fill: #ffffff; stroke: #545454; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#p9f6041108d)" style="fill: #ffffff; stroke: #545454; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_9">
     <path d="M 465.984 161.018667 
 Q 497.196 161.018667 526.954556 161.018667 
-" clip-path="url(#pdd62c2f9f0)" style="fill: none; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#p9f6041108d)" style="fill: none; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
     <path d="M 522.954556 159.018667 
 L 526.954556 161.018667 
 L 522.954556 163.018667 
 z
-" clip-path="url(#pdd62c2f9f0)" style="fill: #808080; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#p9f6041108d)" style="fill: #808080; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
    </g>
    <g id="patch_10">
     <path d="M 556.56 172.750933 
@@ -132,17 +132,17 @@ C 537.944462 154.922817 535.752 157.907233 535.752 161.018667
 C 535.752 164.1301 537.944462 167.114516 541.846522 169.314632 
 C 545.748582 171.514748 551.041654 172.750933 556.56 172.750933 
 z
-" clip-path="url(#pdd62c2f9f0)" style="fill: #ffffff; stroke: #606060; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#p9f6041108d)" style="fill: #ffffff; stroke: #606060; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_11">
     <path d="M 584.712 161.018667 
 Q 619.596 161.018667 653.026556 161.018667 
-" clip-path="url(#pdd62c2f9f0)" style="fill: none; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#p9f6041108d)" style="fill: none; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
     <path d="M 649.026556 159.018667 
 L 653.026556 161.018667 
 L 649.026556 163.018667 
 z
-" clip-path="url(#pdd62c2f9f0)" style="fill: #808080; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#p9f6041108d)" style="fill: #808080; stroke: #808080; stroke-width: 1.3; stroke-linecap: round"/>
    </g>
    <g id="patch_12">
     <path d="M 678.96 170.680533 
@@ -155,67 +155,67 @@ C 663.629557 155.998555 661.824 158.45631 661.824 161.018667
 C 661.824 163.581024 663.629557 166.038778 666.843018 167.850638 
 C 670.056479 169.662498 674.41548 170.680533 678.96 170.680533 
 z
-" clip-path="url(#pdd62c2f9f0)" style="fill: #ffffff; stroke: #606060; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#p9f6041108d)" style="fill: #ffffff; stroke: #606060; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
-    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="66.96" y="164.514667" transform="rotate(-0 66.96 164.514667)">物質</text>
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="66.96" y="164.514667" transform="rotate(-0 66.96 164.514667)">物質</text>
    </g>
    <g id="text_2">
-    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #707070" x="66.96" y="193.8" transform="rotate(-0 66.96 193.8)">macroscopic</text>
+    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #555555" x="66.96" y="193.8" transform="rotate(-0 66.96 193.8)">macroscopic</text>
    </g>
    <g id="text_3">
-    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="189.36" y="164.514667" transform="rotate(-0 189.36 164.514667)">分子</text>
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="189.36" y="164.514667" transform="rotate(-0 189.36 164.514667)">分子</text>
    </g>
    <g id="text_4">
     <!-- H$_2$O など -->
-    <g style="fill: #707070" transform="translate(173.058 193.8)">
+    <g style="fill: #555555" transform="translate(173.058 193.8)">
      <text>
-      <tspan x="0" y="-0.640625" style="font-size: 7.8px; font-family: 'Noto Sans CJK JP'; fill: #707070">H</tspan>
-      <tspan x="9.436402" y="-0.640625" style="font-size: 7.8px; font-family: 'Noto Sans CJK JP'; fill: #707070">O</tspan>
-      <tspan x="15.221604" y="-0.640625" style="font-size: 7.8px; font-family: 'Noto Sans CJK JP'; fill: #707070"> </tspan>
-      <tspan x="16.96808" y="-0.640625" style="font-size: 7.8px; font-family: 'Noto Sans CJK JP'; fill: #707070">な</tspan>
-      <tspan x="24.764848" y="-0.640625" style="font-size: 7.8px; font-family: 'Noto Sans CJK JP'; fill: #707070">ど</tspan>
-      <tspan x="5.750689" y="0.529371" style="font-size: 5.46px; font-family: 'DejaVu Sans'; fill: #707070">2</tspan>
+      <tspan x="0" y="-0.640625" style="font-size: 7.8px; font-family: 'Noto Sans CJK JP'; fill: #555555">H</tspan>
+      <tspan x="9.436402" y="-0.640625" style="font-size: 7.8px; font-family: 'Noto Sans CJK JP'; fill: #555555">O</tspan>
+      <tspan x="15.221604" y="-0.640625" style="font-size: 7.8px; font-family: 'Noto Sans CJK JP'; fill: #555555"> </tspan>
+      <tspan x="16.96808" y="-0.640625" style="font-size: 7.8px; font-family: 'Noto Sans CJK JP'; fill: #555555">な</tspan>
+      <tspan x="24.764848" y="-0.640625" style="font-size: 7.8px; font-family: 'Noto Sans CJK JP'; fill: #555555">ど</tspan>
+      <tspan x="5.750689" y="0.529371" style="font-size: 5.46px; font-family: 'DejaVu Sans'; fill: #555555">2</tspan>
      </text>
     </g>
    </g>
    <g id="text_5">
-    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="311.76" y="164.514667" transform="rotate(-0 311.76 164.514667)">原子</text>
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="311.76" y="164.514667" transform="rotate(-0 311.76 164.514667)">原子</text>
    </g>
    <g id="text_6">
-    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #707070" x="311.76" y="193.8" transform="rotate(-0 311.76 193.8)">原子核 + 電子</text>
+    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #555555" x="311.76" y="193.8" transform="rotate(-0 311.76 193.8)">原子核 + 電子</text>
    </g>
    <g id="text_7">
-    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="434.16" y="164.514667" transform="rotate(-0 434.16 164.514667)">原子核</text>
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="434.16" y="164.514667" transform="rotate(-0 434.16 164.514667)">原子核</text>
    </g>
    <g id="text_8">
-    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #707070" x="434.16" y="193.8" transform="rotate(-0 434.16 193.8)">陽子 + 中性子</text>
+    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #555555" x="434.16" y="193.8" transform="rotate(-0 434.16 193.8)">陽子 + 中性子</text>
    </g>
    <g id="text_9">
-    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="556.56" y="164.514667" transform="rotate(-0 556.56 164.514667)">核子</text>
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="556.56" y="164.514667" transform="rotate(-0 556.56 164.514667)">核子</text>
    </g>
    <g id="text_10">
-    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #707070" x="556.56" y="193.8" transform="rotate(-0 556.56 193.8)">陽子・中性子</text>
+    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #555555" x="556.56" y="193.8" transform="rotate(-0 556.56 193.8)">陽子・中性子</text>
    </g>
    <g id="text_11">
-    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="678.96" y="164.514667" transform="rotate(-0 678.96 164.514667)">クォーク</text>
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="678.96" y="164.514667" transform="rotate(-0 678.96 164.514667)">クォーク</text>
    </g>
    <g id="text_12">
-    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #707070" x="678.96" y="193.8" transform="rotate(-0 678.96 193.8)">u, d, …</text>
+    <text style="font-size: 7.8px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #555555" x="678.96" y="193.8" transform="rotate(-0 678.96 193.8)">u, d, …</text>
    </g>
    <g id="text_13">
-    <text style="font-size: 9.5px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="372.96" y="102.357333" transform="rotate(-0 372.96 102.357333)">「基本粒子」を探す歴史は、発見のたびにさらに内側へ進んだ</text>
+    <text style="font-size: 9.5px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="372.96" y="102.357333" transform="rotate(-0 372.96 102.357333)">「基本粒子」を探す歴史は、発見のたびにさらに内側へ進んだ</text>
    </g>
    <g id="text_14">
-    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #707070" x="372.96" y="242.109333" transform="rotate(-0 372.96 242.109333)">標準模型では、クォークとレプトンが物質の基本的な構成要素として整理される</text>
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #555555" x="372.96" y="242.109333" transform="rotate(-0 372.96 242.109333)">標準模型では、クォークとレプトンが物質の基本的な構成要素として整理される</text>
    </g>
   </g>
   <g id="text_15">
-   <text style="font-weight: 700; font-size: 14px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="372.96" y="18.08" transform="rotate(-0 372.96 18.08)">究極のマトリョーシカ：物質をどこまで分解できるか</text>
+   <text style="font-weight: 700; font-size: 14px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="372.96" y="18.08" transform="rotate(-0 372.96 18.08)">究極のマトリョーシカ：物質をどこまで分解できるか</text>
   </g>
  </g>
  <defs>
-  <clipPath id="pdd62c2f9f0">
+  <clipPath id="p9f6041108d">
    <rect x="5.76" y="64.4" width="734.4" height="207.04"/>
   </clipPath>
  </defs>

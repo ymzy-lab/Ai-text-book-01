@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-10-05T01:31:01.350723</dc:date>
+    <dc:date>2026-10-05T04:22:09.276093</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -40,7 +40,7 @@ Q 67.5 153.787725 67.5 154.634917
 L 67.5 192.758542 
 Q 67.5 193.605733 68.76 193.605733 
 z
-" clip-path="url(#p5fdf5de25a)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p70b682c563)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 175.86 193.605733 
@@ -53,7 +53,7 @@ Q 174.6 153.787725 174.6 154.634917
 L 174.6 192.758542 
 Q 174.6 193.605733 175.86 193.605733 
 z
-" clip-path="url(#p5fdf5de25a)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p70b682c563)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 282.96 193.605733 
@@ -66,7 +66,7 @@ Q 281.7 153.787725 281.7 154.634917
 L 281.7 192.758542 
 Q 281.7 193.605733 282.96 193.605733 
 z
-" clip-path="url(#p5fdf5de25a)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p70b682c563)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
     <path d="M 68.76 252.90915 
@@ -79,7 +79,7 @@ Q 67.5 213.091142 67.5 213.938333
 L 67.5 252.061958 
 Q 67.5 252.90915 68.76 252.90915 
 z
-" clip-path="url(#p5fdf5de25a)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p70b682c563)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_6">
     <path d="M 175.86 252.90915 
@@ -92,7 +92,7 @@ Q 174.6 213.091142 174.6 213.938333
 L 174.6 252.061958 
 Q 174.6 252.90915 175.86 252.90915 
 z
-" clip-path="url(#p5fdf5de25a)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p70b682c563)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_7">
     <path d="M 282.96 252.90915 
@@ -105,7 +105,7 @@ Q 281.7 213.091142 281.7 213.938333
 L 281.7 252.061958 
 Q 281.7 252.90915 282.96 252.90915 
 z
-" clip-path="url(#p5fdf5de25a)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p70b682c563)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_8">
     <path d="M 68.76 329.1564 
@@ -118,7 +118,7 @@ Q 67.5 289.338392 67.5 290.185583
 L 67.5 328.309208 
 Q 67.5 329.1564 68.76 329.1564 
 z
-" clip-path="url(#p5fdf5de25a)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p70b682c563)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_9">
     <path d="M 175.86 329.1564 
@@ -131,7 +131,7 @@ Q 174.6 289.338392 174.6 290.185583
 L 174.6 328.309208 
 Q 174.6 329.1564 175.86 329.1564 
 z
-" clip-path="url(#p5fdf5de25a)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p70b682c563)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_10">
     <path d="M 282.96 329.1564 
@@ -144,7 +144,7 @@ Q 281.7 289.338392 281.7 290.185583
 L 281.7 328.309208 
 Q 281.7 329.1564 282.96 329.1564 
 z
-" clip-path="url(#p5fdf5de25a)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p70b682c563)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_11">
     <path d="M 68.76 388.459817 
@@ -157,7 +157,7 @@ Q 67.5 348.641808 67.5 349.489
 L 67.5 387.612625 
 Q 67.5 388.459817 68.76 388.459817 
 z
-" clip-path="url(#p5fdf5de25a)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p70b682c563)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_12">
     <path d="M 175.86 388.459817 
@@ -170,7 +170,7 @@ Q 174.6 348.641808 174.6 349.489
 L 174.6 387.612625 
 Q 174.6 388.459817 175.86 388.459817 
 z
-" clip-path="url(#p5fdf5de25a)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p70b682c563)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_13">
     <path d="M 282.96 388.459817 
@@ -183,7 +183,7 @@ Q 281.7 348.641808 281.7 349.489
 L 281.7 387.612625 
 Q 281.7 388.459817 282.96 388.459817 
 z
-" clip-path="url(#p5fdf5de25a)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p70b682c563)" style="fill: #ffffff; stroke: #545454; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_14">
     <path d="M 456.21 193.605733 
@@ -196,7 +196,7 @@ Q 454.95 153.787725 454.95 154.634917
 L 454.95 192.758542 
 Q 454.95 193.605733 456.21 193.605733 
 z
-" clip-path="url(#p5fdf5de25a)" style="fill: #ffffff; stroke: #606060; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p70b682c563)" style="fill: #ffffff; stroke: #606060; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_15">
     <path d="M 456.21 252.90915 
@@ -209,7 +209,7 @@ Q 454.95 213.091142 454.95 213.938333
 L 454.95 252.061958 
 Q 454.95 252.90915 456.21 252.90915 
 z
-" clip-path="url(#p5fdf5de25a)" style="fill: #ffffff; stroke: #606060; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p70b682c563)" style="fill: #ffffff; stroke: #606060; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_16">
     <path d="M 456.21 329.1564 
@@ -222,7 +222,7 @@ Q 454.95 289.338392 454.95 290.185583
 L 454.95 328.309208 
 Q 454.95 329.1564 456.21 329.1564 
 z
-" clip-path="url(#p5fdf5de25a)" style="fill: #ffffff; stroke: #606060; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p70b682c563)" style="fill: #ffffff; stroke: #606060; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_17">
     <path d="M 456.21 388.459817 
@@ -235,7 +235,7 @@ Q 454.95 348.641808 454.95 349.489
 L 454.95 387.612625 
 Q 454.95 388.459817 456.21 388.459817 
 z
-" clip-path="url(#p5fdf5de25a)" style="fill: #ffffff; stroke: #606060; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p70b682c563)" style="fill: #ffffff; stroke: #606060; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_18">
     <path d="M 446.76 432.937379 
@@ -248,108 +248,108 @@ Q 445.5 399.473308 445.5 400.3205
 L 445.5 432.090187 
 Q 445.5 432.937379 446.76 432.937379 
 z
-" clip-path="url(#p5fdf5de25a)" style="fill: #f5f5f5; stroke: #707070; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#p70b682c563)" style="fill: #f5f5f5; stroke: #707070; stroke-width: 1.1; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
-    <text style="font-weight: 700; font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #545454" x="213.66" y="101.685437" transform="rotate(-0 213.66 101.685437)">3世代のフェルミ粒子</text>
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="213.66" y="101.685437" transform="rotate(-0 213.66 101.685437)">3世代のフェルミ粒子</text>
    </g>
    <g id="text_2">
-    <text style="font-weight: 700; font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #606060" x="563.31" y="101.685437" transform="rotate(-0 563.31 101.685437)">ボース粒子</text>
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="563.31" y="101.685437" transform="rotate(-0 563.31 101.685437)">ボース粒子</text>
    </g>
    <g id="text_3">
-    <text style="font-size: 8.6px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #707070" x="103.41" y="131.337146" transform="rotate(-0 103.41 131.337146)">第1世代</text>
+    <text style="font-size: 8.6px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #555555" x="103.41" y="131.337146" transform="rotate(-0 103.41 131.337146)">第1世代</text>
    </g>
    <g id="text_4">
-    <text style="font-size: 8.6px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #707070" x="210.51" y="131.337146" transform="rotate(-0 210.51 131.337146)">第2世代</text>
+    <text style="font-size: 8.6px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #555555" x="210.51" y="131.337146" transform="rotate(-0 210.51 131.337146)">第2世代</text>
    </g>
    <g id="text_5">
-    <text style="font-size: 8.6px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #707070" x="317.61" y="131.337146" transform="rotate(-0 317.61 131.337146)">第3世代</text>
+    <text style="font-size: 8.6px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #555555" x="317.61" y="131.337146" transform="rotate(-0 317.61 131.337146)">第3世代</text>
    </g>
    <g id="text_6">
-    <text style="font-size: 8.5px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #707070" x="21.51" y="176.675714" transform="rotate(-0 21.51 176.675714)">クォーク +2/3</text>
+    <text style="font-size: 8.5px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #555555" x="21.51" y="176.675714" transform="rotate(-0 21.51 176.675714)">クォーク +2/3</text>
    </g>
    <g id="text_7">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="103.41" y="177.876729" transform="rotate(-0 103.41 177.876729)">u</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="103.41" y="177.876729" transform="rotate(-0 103.41 177.876729)">u</text>
    </g>
    <g id="text_8">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="210.51" y="177.876729" transform="rotate(-0 210.51 177.876729)">c</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="210.51" y="177.876729" transform="rotate(-0 210.51 177.876729)">c</text>
    </g>
    <g id="text_9">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="317.61" y="177.876729" transform="rotate(-0 317.61 177.876729)">t</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="317.61" y="177.876729" transform="rotate(-0 317.61 177.876729)">t</text>
    </g>
    <g id="text_10">
-    <text style="font-size: 8.5px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #707070" x="21.51" y="235.97913" transform="rotate(-0 21.51 235.97913)">クォーク −1/3</text>
+    <text style="font-size: 8.5px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #555555" x="21.51" y="235.97913" transform="rotate(-0 21.51 235.97913)">クォーク −1/3</text>
    </g>
    <g id="text_11">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="103.41" y="237.180146" transform="rotate(-0 103.41 237.180146)">d</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="103.41" y="237.180146" transform="rotate(-0 103.41 237.180146)">d</text>
    </g>
    <g id="text_12">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="210.51" y="237.180146" transform="rotate(-0 210.51 237.180146)">s</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="210.51" y="237.180146" transform="rotate(-0 210.51 237.180146)">s</text>
    </g>
    <g id="text_13">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="317.61" y="237.180146" transform="rotate(-0 317.61 237.180146)">b</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="317.61" y="237.180146" transform="rotate(-0 317.61 237.180146)">b</text>
    </g>
    <g id="text_14">
-    <text style="font-size: 8.5px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #707070" x="21.51" y="312.477396" transform="rotate(-0 21.51 312.477396)">荷電レプトン</text>
+    <text style="font-size: 8.5px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #555555" x="21.51" y="312.477396" transform="rotate(-0 21.51 312.477396)">荷電レプトン</text>
    </g>
    <g id="text_15">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="103.41" y="313.427396" transform="rotate(-0 103.41 313.427396)">e</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="103.41" y="313.427396" transform="rotate(-0 103.41 313.427396)">e</text>
    </g>
    <g id="text_16">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="210.51" y="312.987396" transform="rotate(-0 210.51 312.987396)">μ</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="210.51" y="312.987396" transform="rotate(-0 210.51 312.987396)">μ</text>
    </g>
    <g id="text_17">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="317.61" y="313.427396" transform="rotate(-0 317.61 313.427396)">τ</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="317.61" y="313.427396" transform="rotate(-0 317.61 313.427396)">τ</text>
    </g>
    <g id="text_18">
-    <text style="font-size: 8.5px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #707070" x="21.51" y="371.780812" transform="rotate(-0 21.51 371.780812)">ニュートリノ</text>
+    <text style="font-size: 8.5px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #555555" x="21.51" y="371.780812" transform="rotate(-0 21.51 371.780812)">ニュートリノ</text>
    </g>
    <g id="text_19">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="103.41" y="372.730812" transform="rotate(-0 103.41 372.730812)">νe</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="103.41" y="372.730812" transform="rotate(-0 103.41 372.730812)">νe</text>
    </g>
    <g id="text_20">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="210.51" y="372.290812" transform="rotate(-0 210.51 372.290812)">νμ</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="210.51" y="372.290812" transform="rotate(-0 210.51 372.290812)">νμ</text>
    </g>
    <g id="text_21">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="317.61" y="372.730812" transform="rotate(-0 317.61 372.730812)">ντ</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="317.61" y="372.730812" transform="rotate(-0 317.61 372.730812)">ντ</text>
    </g>
    <g id="text_22">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="512.91" y="177.436729" transform="rotate(-0 512.91 177.436729)">γ</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="512.91" y="177.436729" transform="rotate(-0 512.91 177.436729)">γ</text>
    </g>
    <g id="text_23">
-    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #707070" x="588.51" y="177.116729" transform="rotate(-0 588.51 177.116729)">電磁気力</text>
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #555555" x="588.51" y="177.116729" transform="rotate(-0 588.51 177.116729)">電磁気力</text>
    </g>
    <g id="text_24">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="512.91" y="236.465146" transform="rotate(-0 512.91 236.465146)">g</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="512.91" y="236.465146" transform="rotate(-0 512.91 236.465146)">g</text>
    </g>
    <g id="text_25">
-    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #707070" x="588.51" y="236.420146" transform="rotate(-0 588.51 236.420146)">強い力</text>
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #555555" x="588.51" y="236.420146" transform="rotate(-0 588.51 236.420146)">強い力</text>
    </g>
    <g id="text_26">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="512.91" y="313.042396" transform="rotate(-0 512.91 313.042396)">W±, Z</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="512.91" y="313.042396" transform="rotate(-0 512.91 313.042396)">W±, Z</text>
    </g>
    <g id="text_27">
-    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #707070" x="588.51" y="312.667396" transform="rotate(-0 588.51 312.667396)">弱い力</text>
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #555555" x="588.51" y="312.667396" transform="rotate(-0 588.51 312.667396)">弱い力</text>
    </g>
    <g id="text_28">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="512.91" y="372.730812" transform="rotate(-0 512.91 372.730812)">H</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="512.91" y="372.730812" transform="rotate(-0 512.91 372.730812)">H</text>
    </g>
    <g id="text_29">
-    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #707070" x="588.51" y="371.970812" transform="rotate(-0 588.51 371.970812)">ヒッグス</text>
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #555555" x="588.51" y="371.970812" transform="rotate(-0 588.51 371.970812)">ヒッグス</text>
    </g>
    <g id="text_30">
-    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="575.91" y="419.625344" transform="rotate(-0 575.91 419.625344)">重力は標準模型の外側</text>
+    <text style="font-size: 9px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="575.91" y="419.625344" transform="rotate(-0 575.91 419.625344)">重力は標準模型の外側</text>
    </g>
    <g id="text_31">
-    <text style="font-size: 9.3px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #808080" x="383.76" y="449.034021" transform="rotate(-0 383.76 449.034021)">12種類のフェルミ粒子 + 4種類のゲージ粒子 + 1種類のヒッグス粒子 = 17種類</text>
+    <text style="font-size: 9.3px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="383.76" y="449.034021" transform="rotate(-0 383.76 449.034021)">12種類のフェルミ粒子 + 4種類のゲージ粒子 + 1種類のヒッグス粒子 = 17種類</text>
    </g>
   </g>
   <g id="text_32">
-   <text style="font-weight: 700; font-size: 14px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #242424" x="383.76" y="18.08" transform="rotate(-0 383.76 18.08)">標準模型：物質を作る粒子・力を伝える粒子・ヒッグス</text>
+   <text style="font-weight: 700; font-size: 14px; font-family: 'Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans', sans-serif; text-anchor: middle" x="383.76" y="18.08" transform="rotate(-0 383.76 18.08)">標準模型：物質を作る粒子・力を伝える粒子・ヒッグス</text>
   </g>
  </g>
  <defs>
-  <clipPath id="p5fdf5de25a">
+  <clipPath id="p70b682c563">
    <rect x="5.76" y="69.91575" width="756" height="381.23625"/>
   </clipPath>
  </defs>
