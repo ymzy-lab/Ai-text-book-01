@@ -1,4 +1,4 @@
-"""Generate chapter 4-6 editable EPS, SVG, and PDF figures for AI と物理学の系譜."""
+"""Generate grayscale PDF/SVG textbook figures plus optional EPS side output."""
 from pathlib import Path
 import numpy as np
 import matplotlib as mpl
@@ -6,15 +6,15 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Circle, Rectangle, FancyArrowPatch, Arc
 
 ROOT = Path(__file__).resolve().parent
-OUT = ROOT / "eps"
-SVG_OUT = ROOT / "svg"
-PDF_OUT = ROOT / "pdf"
+OUT = ROOT / "eps"      # optional EPS side output
+SVG_OUT = ROOT / "svg"  # editable vector master
+PDF_OUT = ROOT / "pdf"  # primary LaTeX / production asset
 for _dir in (OUT, SVG_OUT, PDF_OUT):
     _dir.mkdir(parents=True, exist_ok=True)
 
-mpl.rcParams['ps.fonttype'] = 3
-mpl.rcParams['pdf.fonttype'] = 42
-mpl.rcParams['svg.fonttype'] = 'none'
+mpl.rcParams['ps.fonttype'] = 3      # EPS side output: robust PostScript glyph outlines
+mpl.rcParams['pdf.fonttype'] = 42     # production PDF: embedded TrueType/OpenType fonts
+mpl.rcParams['svg.fonttype'] = 'none' # editable SVG: preserve ordinary text elements
 mpl.rcParams['font.family'] = 'sans-serif'
 mpl.rcParams['font.sans-serif'] = ['Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans']
 mpl.rcParams['axes.unicode_minus'] = False
@@ -28,7 +28,7 @@ MID = '#707070'
 LIGHT = '#DDDDDD'
 PALE = '#F5F5F5'
 
-def save_eps(fig, name):
+def save_assets(fig, name):
     stem = Path(name).stem
     fig.savefig(OUT / f"{stem}.eps", format='eps', bbox_inches='tight', pad_inches=0.08)
     fig.savefig(SVG_OUT / f"{stem}.svg", format='svg', bbox_inches='tight', pad_inches=0.08)
@@ -76,7 +76,7 @@ def fig06_field_div_rot():
     ax.text(0, -2.15, '回転成分：場がぐるぐる回る', ha='center', fontsize=9, color=DARK)
     ax.set_aspect('equal'); ax.set_xlim(-2.1, 2.1); ax.set_ylim(-2.25, 2.1); ax.axis('off')
     fig.tight_layout(rect=[0, 0.02, 1, 0.90])
-    save_eps(fig, 'fig06_field_div_rot.eps')
+    save_assets(fig, 'fig06_field_div_rot.eps')
 
 def fig07_em_wave_attention():
     fig, axs = plt.subplots(1, 2, figsize=(11, 4.2), gridspec_kw={'width_ratios':[1.05, 1]})
@@ -120,7 +120,7 @@ def fig07_em_wave_attention():
     ax.text(xs[query_idx], 6.1, 'query token', ha='center', fontsize=9, color=AI)
     ax.text(5.0, 0.55, '1つのトークンが全体との関係を動的に参照する', ha='center', fontsize=8.6, color=DARK)
     fig.tight_layout(rect=[0, 0.03, 1, 0.90])
-    save_eps(fig, 'fig07_em_wave_attention.eps')
+    save_assets(fig, 'fig07_em_wave_attention.eps')
 
 def fig08_simple_harmonic_motion():
     fig, axs = plt.subplots(1, 3, figsize=(12, 3.9))
@@ -160,7 +160,7 @@ def fig08_simple_harmonic_motion():
     ax.grid(color=LIGHT, linewidth=0.6)
     ax.text(0, 2.25, '谷底が安定点', ha='center', fontsize=9, color=DARK)
     fig.tight_layout(rect=[0, 0.03, 1, 0.90])
-    save_eps(fig, 'fig08_simple_harmonic_motion.eps')
+    save_assets(fig, 'fig08_simple_harmonic_motion.eps')
 
 def fig09_interference_standing_wave():
     fig, axs = plt.subplots(1, 2, figsize=(10.8, 4.0))
@@ -193,7 +193,7 @@ def fig09_interference_standing_wave():
     ax.set_xlabel('位置'); ax.set_ylabel('振幅')
     ax.grid(color=LIGHT, linewidth=0.6)
     fig.tight_layout(rect=[0, 0.03, 1, 0.90])
-    save_eps(fig, 'fig09_interference_standing_wave.eps')
+    save_assets(fig, 'fig09_interference_standing_wave.eps')
 
 def fig10_fourier_decomposition():
     fig = plt.figure(figsize=(11.5, 6.2))
@@ -220,7 +220,7 @@ def fig10_fourier_decomposition():
     ax3.set_xlabel('周波数'); ax3.set_ylabel('強さ'); ax3.grid(color=LIGHT, linewidth=0.6)
     ax3.text(2.7, 1.07, '各周波数成分の強さを読む', ha='center', fontsize=8.8, color=DARK)
     fig.tight_layout(rect=[0, 0.02, 1, 0.92])
-    save_eps(fig, 'fig10_fourier_decomposition.eps')
+    save_assets(fig, 'fig10_fourier_decomposition.eps')
 
 def fig11_minkowski_time_dilation():
     fig, axs = plt.subplots(1, 2, figsize=(11, 4.3))
@@ -254,7 +254,7 @@ def fig11_minkowski_time_dilation():
     ax.text(2.0, 0.65, '速く動く経路ほど\n固有時間が短い', fontsize=9, color=DARK)
     ax.grid(color=LIGHT, linewidth=0.5)
     fig.tight_layout(rect=[0, 0.03, 1, 0.90])
-    save_eps(fig, 'fig11_minkowski_time_dilation.eps')
+    save_assets(fig, 'fig11_minkowski_time_dilation.eps')
 
 def fig12_embedding_analogy():
     fig, ax = plt.subplots(figsize=(7.5, 6.2))
@@ -275,7 +275,7 @@ def fig12_embedding_analogy():
     ax.text(1.35, 2.2, '性別方向', fontsize=9, color=ACCENT, rotation=58)
     ax.text(4.1, 5.2, '「意味」は単語単体ではなく\n相対的な距離と方向として表現される', ha='center', fontsize=9.5, color=DARK)
     fig.tight_layout(rect=[0, 0.02, 1, 0.92])
-    save_eps(fig, 'fig12_embedding_analogy.eps')
+    save_assets(fig, 'fig12_embedding_analogy.eps')
 
 def main():
     fig06_field_div_rot()
