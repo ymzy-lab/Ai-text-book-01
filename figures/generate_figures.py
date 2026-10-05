@@ -9,7 +9,7 @@ from pathlib import Path
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-from matplotlib.patches import Circle, Rectangle, FancyArrowPatch, FancyBboxPatch
+from matplotlib.patches import Circle, Ellipse, Rectangle, FancyArrowPatch, FancyBboxPatch
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "eps"      # optional EPS side output
@@ -87,28 +87,124 @@ def fig00_knowledge_map():
 
 def fig01_geocentric_heliocentric():
     fig, axs = plt.subplots(1, 2, figsize=(10, 4.5))
-    fig.suptitle('天動説と地動説：同じ観測を異なるモデルで説明する', fontsize=14, fontweight='bold', color=TEXT)
-    th = np.linspace(0, 2*np.pi, 500)
-    ax = axs[0]; ax.set_aspect('equal'); ax.axis('off'); panel_label(ax, '(a) 天動説：周転円で逆行を説明')
-    ax.set_xlim(-2.2, 2.2); ax.set_ylim(-2.0, 2.0)
-    ax.add_patch(Circle((0,0), 0.14, facecolor=PHYS, edgecolor='none')); ax.text(0,-0.32,'地球',ha='center',fontsize=9)
-    R = 1.35; ax.plot(R*np.cos(th), R*np.sin(th), color=LIGHT, lw=1.2)
-    center_angle = np.linspace(0, 2*np.pi, 700); Rc = 1.25; re = 0.32
-    cx = Rc*np.cos(center_angle); cy = Rc*np.sin(center_angle)
-    ex = re*np.cos(5*center_angle); ey = re*np.sin(5*center_angle)
-    ax.plot(cx+ex, cy+ey, color=AI, lw=1.8)
-    idx = 95; ax.add_patch(Circle((cx[idx]+ex[idx], cy[idx]+ey[idx]), 0.08, facecolor=AI, edgecolor='none'))
-    ax.text(0,-1.78,'複雑な軌道を追加して観測に合わせる',ha='center',fontsize=9,color=SUBTEXT)
-    ax = axs[1]; ax.set_aspect('equal'); ax.axis('off'); panel_label(ax, '(b) 地動説：太陽中心＋楕円軌道')
-    ax.set_xlim(-2.2, 2.2); ax.set_ylim(-2.0, 2.0)
-    ax.add_patch(Circle((0,0), 0.15, facecolor=ACCENT, edgecolor='none')); ax.text(0,-0.34,'太陽',ha='center',fontsize=9)
-    for a,b,c in [(0.8,0.72,PHYS),(1.35,1.0,AI)]: ax.plot(a*np.cos(th),b*np.sin(th),color=c,lw=1.6)
-    ax.add_patch(Circle((0.8*np.cos(0.9),0.72*np.sin(0.9)),0.07,facecolor=PHYS,edgecolor='none'))
-    ax.add_patch(Circle((1.35*np.cos(2.0),1.0*np.sin(2.0)),0.08,facecolor=AI,edgecolor='none'))
-    ax.text(0,-1.78,'基準系を変えると逆行は見かけの運動になる',ha='center',fontsize=9,color=SUBTEXT)
-    fig.text(0.5,0.03,'モデルの複雑さを増やすか、世界の見方そのものを変えるか',ha='center',fontsize=10,color=TEXT)
-    fig.tight_layout(rect=[0,0.06,1,0.91])
+    fig.suptitle(
+        '天動説と地動説：同じ観測を異なるモデルで説明する',
+        fontsize=14,
+        fontweight='bold',
+        color=TEXT
+    )
+
+    th = np.linspace(0, 2*np.pi, 900)
+
+    # -----------------------------
+    # (a) Geocentric model
+    # -----------------------------
+    ax = axs[0]
+    ax.set_aspect('equal')
+    ax.axis('off')
+    panel_label(ax, '(a) 天動説：周転円で逆行を説明')
+    ax.set_xlim(-2.35, 2.35)
+    ax.set_ylim(-2.05, 2.05)
+
+    # Earth
+    ax.add_patch(Circle((0, 0), 0.14, facecolor=PHYS, edgecolor='none'))
+    ax.text(0, -0.32, '地球', ha='center', fontsize=9, color=TEXT)
+
+    # Faint deferent circle
+    R = 1.45
+    ax.plot(R*np.cos(th), R*np.sin(th), color=LIGHT, lw=1.2)
+
+    # Larger epicycle-like path for clearer retrograde impression
+    center_angle = np.linspace(0, 2*np.pi, 900)
+    Rc = 1.18
+    re = 0.52
+    cx = Rc * np.cos(center_angle)
+    cy = Rc * np.sin(center_angle)
+    ex = re * np.cos(4 * center_angle)
+    ey = re * np.sin(4 * center_angle)
+
+    path_x = cx + ex
+    path_y = cy + ey
+
+    ax.plot(path_x, path_y, color=AI, lw=1.9)
+
+    # Planet marker
+    idx = 120
+    ax.add_patch(Circle((path_x[idx], path_y[idx]), 0.08, facecolor=AI, edgecolor='none'))
+
+    ax.text(
+        0, -1.82,
+        '複雑な軌道を追加して観測に合わせる',
+        ha='center',
+        fontsize=9,
+        color=SUBTEXT
+    )
+
+    # -----------------------------
+    # (b) Heliocentric model
+    # -----------------------------
+    ax = axs[1]
+    ax.set_aspect('equal')
+    ax.axis('off')
+    panel_label(ax, '(b) 地動説：太陽中心＋楕円軌道')
+    ax.set_xlim(-2.45, 2.45)
+    ax.set_ylim(-2.05, 2.05)
+
+    # Sun
+    ax.add_patch(Circle((0, 0), 0.15, facecolor=ACCENT, edgecolor='none'))
+    ax.text(0, -0.34, '太陽', ha='center', fontsize=9, color=TEXT)
+
+    # Beautiful ellipses
+    inner = Ellipse(
+        xy=(0, 0),
+        width=2.55,
+        height=1.85,
+        fill=False,
+        edgecolor=PHYS,
+        lw=1.7
+    )
+    outer = Ellipse(
+        xy=(0, 0),
+        width=4.15,
+        height=2.85,
+        fill=False,
+        edgecolor=AI,
+        lw=1.7
+    )
+    ax.add_patch(inner)
+    ax.add_patch(outer)
+
+    # Planet markers placed at visually balanced positions
+    t1 = np.deg2rad(42)
+    x1 = (2.55 / 2) * np.cos(t1)
+    y1 = (1.85 / 2) * np.sin(t1)
+
+    t2 = np.deg2rad(122)
+    x2 = (4.15 / 2) * np.cos(t2)
+    y2 = (2.85 / 2) * np.sin(t2)
+
+    ax.add_patch(Circle((x1, y1), 0.07, facecolor=PHYS, edgecolor='none'))
+    ax.add_patch(Circle((x2, y2), 0.08, facecolor=AI, edgecolor='none'))
+
+    ax.text(
+        0, -1.82,
+        '基準系を変えると逆行は見かけの運動になる',
+        ha='center',
+        fontsize=9,
+        color=SUBTEXT
+    )
+
+    fig.text(
+        0.5, 0.03,
+        'モデルの複雑さを増やすか、世界の見方そのものを変えるか',
+        ha='center',
+        fontsize=10,
+        color=TEXT
+    )
+
+    fig.tight_layout(rect=[0, 0.06, 1, 0.91])
     save_assets(fig, 'fig01_geocentric_heliocentric.eps')
+
 
 
 def fig02_gradient_descent():
