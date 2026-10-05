@@ -1,5 +1,8 @@
 name: Compile figured LaTeX manuscript
 
+# Production figures are native Matplotlib PDFs from figures/pdf/.
+# EPS is retained separately and is never used as an intermediate in this build.
+
 on:
   workflow_dispatch:
   push:
