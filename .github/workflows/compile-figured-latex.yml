@@ -1,19 +1,19 @@
 name: Compile figured LaTeX manuscript
 
-# Grayscale print specification is mandatory for all textbook figures.
-# This rebuild validates the geometry-preserving grayscale EPS masters.
 on:
   workflow_dispatch:
   push:
     branches:
       - figure-layout-prototype
     paths:
-      - 'latex/**'
-      - 'figures/eps/**'
+      - 'latex/main.tex'
+      - 'latex/chapters/**'
+      - 'latex/build_figured_version.py'
+      - 'figures/pdf/**'
       - '.github/workflows/compile-figured-latex.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   compile:
@@ -21,6 +21,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install LuaLaTeX, Japanese packages, and Ghostscript
         run: |
@@ -33,33 +35,32 @@ jobs:
             ghostscript \
             poppler-utils
 
-      - name: Generate figure-inserted LaTeX source
+      - name: Regenerate committed figure-inserted TeX sources
         run: |
           cd latex
           python3 build_figured_version.py
           cat generated/insertion-report.txt
 
-      - name: Convert EPS masters to grayscale build-time PDF
+      - name: Commit generated TeX sources
         run: |
-          set -euo pipefail
-          mkdir -p latex/generated/figures
-          for f in figures/eps/*.eps; do
-            stem=$(basename "$f" .eps)
-            gs -q -dSAFER -dBATCH -dNOPAUSE -dEPSCrop \
-              -sDEVICE=pdfwrite \
-              -dCompatibilityLevel=1.5 \
-              -sColorConversionStrategy=Gray \
-              -dProcessColorModel=/DeviceGray \
-              -dOverrideICC \
-              -sOutputFile="latex/generated/figures/${stem}.pdf" \
-              "$f"
-          done
-          test "$(find latex/generated/figures -name 'fig*.pdf' | wc -l)" -eq 52
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add latex/generated/main_with_figures.tex \
+                  latex/generated/insertion-report.txt \
+                  latex/generated/chapters/*.tex
+          if git diff --cached --quiet; then
+            echo "Generated TeX sources are already current."
+          else
+            git commit -m "Refresh committed figured TeX sources [skip ci]"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
 
-      - name: Verify every figure PDF is grayscale
+      - name: Verify 52 committed figure PDFs are grayscale
         run: |
           set -euo pipefail
-          for f in latex/generated/figures/fig*.pdf; do
+          test "$(find figures/pdf -maxdepth 1 -name 'fig*.pdf' | wc -l)" -eq 52
+          for f in figures/pdf/fig*.pdf; do
             while read -r c m y k rest; do
               awk -v c="$c" -v m="$m" -v y="$y" 'BEGIN { if ((c+0) > 0.00001 || (m+0) > 0.00001 || (y+0) > 0.00001) exit 1 }'
             done < <(gs -q -dSAFER -dBATCH -dNOPAUSE -sDEVICE=inkcov -o - "$f" | grep 'CMYK OK')
@@ -90,10 +91,8 @@ jobs:
           grep -E 'LaTeX Warning|Package .* Warning|Overfull|Underfull' main_with_figures.log || true
           echo '=== output PDF ==='
           pdfinfo main_with_figures.pdf | grep -E 'Pages|Page size' || true
-          echo '=== grayscale validation ==='
-          echo 'All figure PDFs and the final manuscript have zero C/M/Y ink coverage.'
 
-      - name: Upload grayscale figured manuscript
+      - name: Upload figured manuscript
         uses: actions/upload-artifact@v4
         with:
           name: figured-manuscript-grayscale-prototype
