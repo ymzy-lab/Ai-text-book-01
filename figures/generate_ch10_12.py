@@ -1,4 +1,4 @@
-"""Generate editable EPS, SVG, and PDF figures for chapters 10–12 of AI と物理学の系譜."""
+"""Generate grayscale PDF/SVG textbook figures plus optional EPS side output."""
 from pathlib import Path
 import numpy as np
 import matplotlib as mpl
@@ -6,15 +6,15 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Circle, Rectangle, FancyArrowPatch, FancyBboxPatch, Polygon
 
 ROOT = Path(__file__).resolve().parent
-OUT = ROOT / "eps"
-SVG_OUT = ROOT / "svg"
-PDF_OUT = ROOT / "pdf"
+OUT = ROOT / "eps"      # optional EPS side output
+SVG_OUT = ROOT / "svg"  # editable vector master
+PDF_OUT = ROOT / "pdf"  # primary LaTeX / production asset
 for _dir in (OUT, SVG_OUT, PDF_OUT):
     _dir.mkdir(parents=True, exist_ok=True)
 
-mpl.rcParams['ps.fonttype'] = 3
-mpl.rcParams['pdf.fonttype'] = 42
-mpl.rcParams['svg.fonttype'] = 'none'
+mpl.rcParams['ps.fonttype'] = 3      # EPS side output: robust PostScript glyph outlines
+mpl.rcParams['pdf.fonttype'] = 42     # production PDF: embedded TrueType/OpenType fonts
+mpl.rcParams['svg.fonttype'] = 'none' # editable SVG: preserve ordinary text elements
 mpl.rcParams['font.family'] = 'sans-serif'
 mpl.rcParams['font.sans-serif'] = ['Noto Sans CJK JP', 'Noto Sans CJK JP Regular', 'DejaVu Sans']
 mpl.rcParams['axes.unicode_minus'] = False
@@ -28,7 +28,7 @@ LIGHT = '#DDDDDD'
 PALE = '#F5F5F5'
 
 
-def save_eps(fig, name):
+def save_assets(fig, name):
     stem = Path(name).stem
     fig.savefig(OUT / f"{stem}.eps", format='eps', bbox_inches='tight', pad_inches=0.08)
     fig.savefig(SVG_OUT / f"{stem}.svg", format='svg', bbox_inches='tight', pad_inches=0.08)
@@ -79,7 +79,7 @@ def fig21_de_broglie_diffraction():
     ax.text(9.25, 3.5, '検出面', rotation=90, va='center', fontsize=9, color=DARK)
 
     fig.tight_layout(rect=[0, 0.03, 1, 0.90])
-    save_eps(fig, 'fig21_de_broglie_diffraction.eps')
+    save_assets(fig, 'fig21_de_broglie_diffraction.eps')
 
 
 def fig22_wavefunction_born_probability():
@@ -111,7 +111,7 @@ def fig22_wavefunction_born_probability():
     ax.grid(color=LIGHT, lw=0.5)
 
     fig.tight_layout(rect=[0, 0.03, 1, 0.91])
-    save_eps(fig, 'fig22_wavefunction_born_probability.eps')
+    save_assets(fig, 'fig22_wavefunction_born_probability.eps')
 
 
 def fig23_uncertainty_wavepacket():
@@ -144,7 +144,7 @@ def fig23_uncertainty_wavepacket():
     fig.text(0.5, 0.015, r'$\Delta x\,\Delta p \geq \hbar/2$ ：これは測定器の性能ではなく、状態そのものの制約',
              ha='center', fontsize=10, color=DARK)
     fig.tight_layout(rect=[0, 0.05, 1, 0.91])
-    save_eps(fig, 'fig23_uncertainty_wavepacket.eps')
+    save_assets(fig, 'fig23_uncertainty_wavepacket.eps')
 
 
 def fig24_curse_dimensionality_nnqs():
@@ -178,7 +178,7 @@ def fig24_curse_dimensionality_nnqs():
     ax.text(4.8, 0.95, 'すべての振幅を表に保存せず、\n重要な相関構造をネットワークで表現', ha='center', fontsize=9, color=DARK)
 
     fig.tight_layout(rect=[0, 0.03, 1, 0.90])
-    save_eps(fig, 'fig24_curse_dimensionality_nnqs.eps')
+    save_assets(fig, 'fig24_curse_dimensionality_nnqs.eps')
 
 
 def fig25_law_large_numbers():
@@ -204,7 +204,7 @@ def fig25_law_large_numbers():
     ax.text(1e5, 2e-2, '粒子数が巨大になると、\nマクロな量はほとんど揺らがない', fontsize=9, color=DARK)
 
     fig.tight_layout(rect=[0,0.03,1,0.90])
-    save_eps(fig, 'fig25_law_large_numbers.eps')
+    save_assets(fig, 'fig25_law_large_numbers.eps')
 
 
 def fig26_quantum_statistics():
@@ -233,7 +233,7 @@ def fig26_quantum_statistics():
     ax.legend(frameon=False, fontsize=8.5, loc='upper right')
 
     fig.tight_layout(rect=[0,0.02,1,0.92])
-    save_eps(fig, 'fig26_quantum_statistics.eps')
+    save_assets(fig, 'fig26_quantum_statistics.eps')
 
 
 def fig27_boltzmann_softmax():
@@ -261,7 +261,7 @@ def fig27_boltzmann_softmax():
              ha='center', fontsize=10, color=ACCENT)
 
     fig.tight_layout(rect=[0,0.06,1,0.90])
-    save_eps(fig, 'fig27_boltzmann_softmax.eps')
+    save_assets(fig, 'fig27_boltzmann_softmax.eps')
 
 
 def fig28_emergence_hierarchy():
@@ -292,7 +292,7 @@ def fig28_emergence_hierarchy():
     ax.text(7.55, 4.3, '（トップダウン因果）', ha='center', fontsize=8.5, color=MID)
 
     fig.tight_layout(rect=[0,0.02,1,0.92])
-    save_eps(fig, 'fig28_emergence_hierarchy.eps')
+    save_assets(fig, 'fig28_emergence_hierarchy.eps')
 
 
 def fig29_semiconductor_bands():
@@ -322,7 +322,7 @@ def fig29_semiconductor_bands():
         ax.text(2.0,0.25,['自由に動ける','適度なギャップ','ギャップが大きい'][i],ha='center',fontsize=8.8,color=MID)
 
     fig.tight_layout(rect=[0,0.03,1,0.90])
-    save_eps(fig, 'fig29_semiconductor_bands.eps')
+    save_assets(fig, 'fig29_semiconductor_bands.eps')
 
 
 def fig30_superconductivity_cooper_pair():
@@ -355,7 +355,7 @@ def fig30_superconductivity_cooper_pair():
     ax.text(5.0,0.9,'散乱が抑えられ、電気抵抗がゼロになる',ha='center',fontsize=9,color=DARK)
 
     fig.tight_layout(rect=[0,0.03,1,0.90])
-    save_eps(fig, 'fig30_superconductivity_cooper_pair.eps')
+    save_assets(fig, 'fig30_superconductivity_cooper_pair.eps')
 
 
 def fig31_quantum_interference_vqe():
@@ -391,7 +391,7 @@ def fig31_quantum_interference_vqe():
     ax.text(5.0,1.55,'量子側：重ね合わせを作る\n古典側：損失を最小化する',ha='center',fontsize=9,color=DARK)
 
     fig.tight_layout(rect=[0,0.03,1,0.90])
-    save_eps(fig, 'fig31_quantum_interference_vqe.eps')
+    save_assets(fig, 'fig31_quantum_interference_vqe.eps')
 
 
 def main():
