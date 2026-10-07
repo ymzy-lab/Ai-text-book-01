@@ -86,47 +86,104 @@ def fig06_field_div_rot():
     save_assets(fig, 'fig06_field_div_rot.eps')
 
 def fig07_em_wave_attention():
-    fig, axs = plt.subplots(1, 2, figsize=(11, 4.2), gridspec_kw={'width_ratios':[1.05, 1]})
-    fig.suptitle('場と情報の伝播：電磁波からSelf-Attentionへ', fontsize=14, fontweight='bold', color=TEXT)
+    """Contrast local finite-speed wave propagation with global attention lookup."""
+    fig, axs = plt.subplots(1, 2, figsize=(11.4, 4.7), gridspec_kw={'width_ratios':[1, 1]})
+    fig.suptitle('離れた場所へ情報が届く仕組み：電磁波とSelf-Attention',
+                 fontsize=14, fontweight='bold', color=TEXT)
+
+    # ---------------------------------------------------------
+    # (a) Electromagnetic wave: a local field disturbance moves
+    # through space at finite speed.  Three snapshots make the
+    # propagation itself visually explicit.
+    # ---------------------------------------------------------
     ax = axs[0]
-    panel_label(ax, '(a) 物理：電磁波')
-    ax.set_xlim(0, 10); ax.set_ylim(-1.8, 2.3); ax.axis('off')
-    xx = np.linspace(0.4, 9.2, 400)
-    Ey = 1.0*np.sin(1.5*xx); Bz = 0.7*np.sin(1.5*xx)
-    ax.plot(xx, Ey + 1.0, color=PHYS, lw=2, label='E場')
-    ax.plot(xx, Bz - 0.9, color=AI, lw=2, ls='--', label='B場')
-    arrow(ax, (0.8, 0), (9.2, 0), color=DARK, lw=1.4, ms=12)
-    ax.text(9.35, 0, '伝播方向', va='center', fontsize=9, color=TEXT)
-    for xpos in [1.3, 3.4, 5.5, 7.6]:
-        yE = 1.0*np.sin(1.5*xpos) + 1.0
-        yB = 0.7*np.sin(1.5*xpos) - 0.9
-        arrow(ax, (xpos, 0), (xpos, yE), color=PHYS, lw=1.2, ms=9)
-        arrow(ax, (xpos, 0), (xpos, yB), color=AI, lw=1.2, ms=9)
-    ax.text(0.55, 2.0, 'E場', color=TEXT, fontsize=10, fontweight='bold')
-    ax.text(0.55, -1.55, 'B場', color=TEXT, fontsize=10, fontweight='bold')
-    ax.text(5.0, -1.72, '互いに直交する場が空間を伝わる', ha='center', fontsize=9, color=TEXT)
+    panel_label(ax, '(a) 物理：電磁波は空間を伝播する')
+    ax.set_xlim(0, 10)
+    ax.set_ylim(0, 6.5)
+    ax.axis('off')
+
+    xx = np.linspace(0.4, 9.5, 700)
+    centers = [2.0, 4.5, 7.0]
+    rows = [5.0, 3.45, 1.9]
+    labels = [r'$t_0$', r'$t_1$', r'$t_2$']
+
+    for center, y0, lab in zip(centers, rows, labels):
+        packet = 0.62 * np.exp(-((xx-center)/0.95)**2) * np.sin(5.0*(xx-center))
+        ax.plot([0.55, 9.35], [y0, y0], color=LIGHT, lw=0.9, zorder=0)
+        ax.plot(xx, y0 + packet, color=PHYS, lw=2.0, zorder=2)
+        ax.text(0.18, y0, lab, va='center', fontsize=9, color=TEXT)
+
+    # Finite-speed propagation cue.
+    arrow(ax, (1.25, 0.75), (8.85, 0.75), color=DARK, lw=1.6, ms=12)
+    ax.text(5.05, 0.35, '局所的な場の変化が有限速度 c で右へ進む',
+            ha='center', fontsize=9, color=TEXT)
+    ax.text(9.05, 0.75, '空間 x', va='center', fontsize=8.5, color=SUBTEXT)
+
+    # A fixed observation point emphasizes that the signal arrives later.
+    ax.plot([8.35, 8.35], [1.25, 5.55], color=MID, lw=1.0, ls=':')
+    ax.text(8.35, 5.78, '観測点', ha='center', fontsize=8.5, color=SUBTEXT)
+
+    # ---------------------------------------------------------
+    # (b) Self-Attention: one query token directly gathers
+    # information from all tokens in the same layer.
+    # ---------------------------------------------------------
     ax = axs[1]
-    panel_label(ax, '(b) AI：Self-Attention')
-    ax.set_xlim(0, 10); ax.set_ylim(0, 7); ax.axis('off')
-    xs = np.linspace(1.3, 7.9, 6)
-    labels = ['The', 'universe', 'is', 'written', 'in', 'math']
+    panel_label(ax, '(b) AI：Self-Attentionは全体を参照する')
+    ax.set_xlim(0, 10)
+    ax.set_ylim(0, 6.5)
+    ax.axis('off')
+
+    xs = np.linspace(1.0, 9.0, 6)
+    words = ['The', 'universe', 'is', 'written', 'in', 'math']
     query_idx = 3
-    for i, (x0, lab) in enumerate(zip(xs, labels)):
-        face = PALE if i != query_idx else '#E5E5E5'
-        edge = MID if i != query_idx else AI
-        rect = Rectangle((x0-0.6, 4.8), 1.2, 0.8, facecolor=face, edgecolor=edge, lw=1.4)
+    weights = np.array([0.05, 0.27, 0.08, 0.18, 0.07, 0.35])
+
+    # Input tokens.
+    for i, (x0, word) in enumerate(zip(xs, words)):
+        edge = DARK if i == query_idx else MID
+        lw = 2.0 if i == query_idx else 1.2
+        face = '#E8E8E8' if i == query_idx else 'white'
+        rect = Rectangle((x0-0.62, 4.75), 1.24, 0.82,
+                         facecolor=face, edgecolor=edge, lw=lw)
         ax.add_patch(rect)
-        ax.text(x0, 5.2, lab, ha='center', va='center', fontsize=8.8, color=TEXT)
-    for i, x0 in enumerate(xs):
-        lw = 2.0 if i in [1, 5] else 1.0
-        col = AI if i in [1, 5] else LIGHT
-        arrow(ax, (xs[query_idx], 4.75), (x0, 2.0), color=col, lw=lw, ms=10)
-        circ = Circle((x0, 1.6), 0.18, edgecolor=col if i in [1, 5] else MID, facecolor='white', lw=1.1)
-        ax.add_patch(circ)
-        ax.text(x0, 1.15, f'w{i+1}', ha='center', fontsize=8, color=SUBTEXT)
-    ax.text(xs[query_idx], 6.1, 'query token', ha='center', fontsize=9, color=TEXT)
-    ax.text(5.0, 0.55, '1つのトークンが全体との関係を動的に参照する', ha='center', fontsize=8.6, color=TEXT)
-    fig.tight_layout(rect=[0, 0.03, 1, 0.90])
+        ax.text(x0, 5.16, word, ha='center', va='center', fontsize=8.5, color=TEXT)
+
+    ax.text(xs[query_idx], 5.95, 'query = written',
+            ha='center', fontsize=9, color=TEXT, fontweight='bold')
+
+    # Output representation for the query token.
+    out_x, out_y = xs[query_idx], 1.35
+    out = Rectangle((out_x-1.05, out_y-0.42), 2.10, 0.84,
+                    facecolor=PALE, edgecolor=DARK, lw=1.6)
+    ax.add_patch(out)
+    ax.text(out_x, out_y, 'written の\n更新後表現',
+            ha='center', va='center', fontsize=8.7, color=TEXT)
+
+    # Each token contributes to the query output; line width encodes attention weight.
+    for x0, w in zip(xs, weights):
+        lw = 0.8 + 4.0*w
+        col = DARK if w >= 0.18 else MID
+        p = FancyArrowPatch(
+            (x0, 4.70), (out_x, out_y+0.48),
+            arrowstyle='-|>', mutation_scale=9,
+            linewidth=lw, color=col,
+            connectionstyle='arc3,rad=0.0',
+            shrinkA=2, shrinkB=4,
+        )
+        ax.add_patch(p)
+
+    ax.text(5.0, 0.42,
+            '全トークンから重み付きで情報を集める（太い線ほど強く参照）',
+            ha='center', fontsize=8.6, color=TEXT)
+
+    # Make the intended analogy and the crucial difference explicit.
+    fig.text(
+        0.5, 0.015,
+        '共通点：離れた位置の情報が影響する　／　違い：電磁波＝局所・有限速度、Attention＝1層で全体参照',
+        ha='center', fontsize=9.2, color=TEXT
+    )
+
+    fig.tight_layout(rect=[0, 0.075, 1, 0.91])
     save_assets(fig, 'fig07_em_wave_attention.eps')
 
 def fig08_simple_harmonic_motion():
