@@ -346,12 +346,15 @@ def fig03_fermat_principle():
     # Plot the four candidate rays at their exact corresponding travel times.
     for xc, tc in zip(candidate_x, candidate_t):
         is_min = abs(xc - x_min) < 1e-10
+        point_color = ACCENT if is_min else MID
         ax.plot(
             xc, tc,
             marker='o',
+            linestyle='none',
+            color=point_color,
             ms=(7 if is_min else 4.5),
             markerfacecolor=(ACCENT if is_min else 'white'),
-            markeredgecolor=(ACCENT if is_min else MID),
+            markeredgecolor=point_color,
             markeredgewidth=1.2,
             zorder=4,
         )
