@@ -276,30 +276,136 @@ def fig09_interference_standing_wave():
     save_assets(fig, 'fig09_interference_standing_wave.eps')
 
 def fig10_fourier_decomposition():
-    fig = plt.figure(figsize=(11.5, 6.2))
-    fig.suptitle('フーリエの魔法：複雑な波は単純な波の足し合わせ', fontsize=14, fontweight='bold', color=TEXT)
-    ax1 = plt.subplot2grid((2, 2), (0, 0)); ax2 = plt.subplot2grid((2, 2), (1, 0)); ax3 = plt.subplot2grid((2, 2), (0, 1), rowspan=2)
+    fig = plt.figure(figsize=(11.8, 7.0))
+    fig.suptitle(
+        'フーリエ分解：複雑な波は単純な波の足し合わせ',
+        fontsize=14,
+        fontweight='bold',
+        color=TEXT
+    )
+
+    gs = fig.add_gridspec(
+        4, 2,
+        width_ratios=[1.45, 1.0],
+        height_ratios=[1.15, 0.8, 0.8, 0.8],
+        wspace=0.28,
+        hspace=0.34
+    )
+
+    ax_sum = fig.add_subplot(gs[0, 0])
+    ax_c1  = fig.add_subplot(gs[1, 0], sharex=ax_sum)
+    ax_c2  = fig.add_subplot(gs[2, 0], sharex=ax_sum)
+    ax_c3  = fig.add_subplot(gs[3, 0], sharex=ax_sum)
+    ax_sp  = fig.add_subplot(gs[:, 1])
+
     x = np.linspace(0, 2*np.pi, 800)
-    orig = 1.1*np.sin(x) + 0.55*np.sin(2*x + 0.6) + 0.35*np.sin(4*x - 0.8)
-    comp1 = 1.1*np.sin(x); comp2 = 0.55*np.sin(2*x + 0.6); comp3 = 0.35*np.sin(4*x - 0.8)
-    panel_label(ax1, '(a) 複雑な波形')
-    ax1.plot(x, orig, color=DARK, lw=2.2)
-    ax1.set_ylabel('振幅'); ax1.set_xticklabels([]); ax1.grid(color=LIGHT, linewidth=0.6)
-    ax1.text(np.pi, 1.65, '観測された信号', ha='center', fontsize=9, color=TEXT)
-    panel_label(ax2, '(b) 単純な波への分解')
-    ax2.plot(x, comp1, color=PHYS, lw=1.7, label='基本波  f')
-    ax2.plot(x, comp2, color=AI, lw=1.7, label='2f')
-    ax2.plot(x, comp3, color=ACCENT, lw=1.7, label='4f')
-    ax2.set_xlabel('時間または位置'); ax2.set_ylabel('振幅'); ax2.grid(color=LIGHT, linewidth=0.6)
-    ax2.legend(frameon=False, fontsize=8, loc='upper right')
-    panel_label(ax3, '(c) 周波数スペクトル')
-    freq = np.array([1, 2, 3, 4, 5]); amp = np.array([1.1, 0.55, 0.0, 0.35, 0.0])
-    ax3.vlines(freq, 0, amp, colors=[PHYS, AI, LIGHT, ACCENT, LIGHT], linewidth=3)
-    ax3.plot(freq, amp, 'o', color=DARK, ms=5)
-    ax3.set_xlim(0.5, 5.5); ax3.set_ylim(0, 1.3)
-    ax3.set_xlabel('周波数'); ax3.set_ylabel('強さ'); ax3.grid(color=LIGHT, linewidth=0.6)
-    ax3.text(2.7, 1.07, '各周波数成分の強さを読む', ha='center', fontsize=8.8, color=TEXT)
-    fig.tight_layout(rect=[0, 0.02, 1, 0.92])
+
+    # Fourier components
+    A1, A2, A4 = 1.10, 0.55, 0.35
+    p1, p2, p4 = 0.00, 0.60, -0.80
+
+    comp1 = A1 * np.sin(x + p1)
+    comp2 = A2 * np.sin(2*x + p2)
+    comp3 = A4 * np.sin(4*x + p4)
+    orig  = comp1 + comp2 + comp3
+
+    # (a) Original waveform
+    panel_label(ax_sum, '(a) 合成された複雑な波')
+    ax_sum.plot(x, orig, color=DARK, lw=2.3)
+    ax_sum.set_ylabel('振幅')
+    ax_sum.grid(color=LIGHT, linewidth=0.6)
+    ax_sum.text(
+        np.pi, 1.65,
+        '観測された信号  =  下の3成分の足し合わせ',
+        ha='center',
+        fontsize=9,
+        color=TEXT
+    )
+    ax_sum.set_xlim(0, 2*np.pi)
+    ax_sum.set_ylim(-1.9, 1.9)
+    ax_sum.set_xticklabels([])
+
+    # (b) Components shown separately
+    panel_label(ax_c1, '(b) 単純な波への分解')
+
+    def style_component_axis(ax, y, color, label, amp_text):
+        ax.plot(x, y, color=color, lw=1.9)
+        ax.axhline(0, color=LIGHT, lw=0.8)
+        ax.set_ylim(-1.2, 1.2)
+        ax.grid(color=LIGHT, linewidth=0.45)
+        ax.set_ylabel(label, rotation=0, labelpad=18, va='center')
+        ax.text(
+            2*np.pi*0.985, 0.90,
+            amp_text,
+            ha='right',
+            va='top',
+            fontsize=8.5,
+            color=SUBTEXT
+        )
+
+    style_component_axis(ax_c1, comp1, PHYS, 'f',  'A=1.10,  φ=0')
+    style_component_axis(ax_c2, comp2, AI,   '2f', 'A=0.55,  φ=+0.60')
+    style_component_axis(ax_c3, comp3, ACCENT, '4f', 'A=0.35,  φ=-0.80')
+
+    ax_c1.set_xticklabels([])
+    ax_c2.set_xticklabels([])
+    ax_c3.set_xlabel('時間または位置')
+    ax_c3.set_ylabel('4f', rotation=0, labelpad=18, va='center')
+
+    ax_c1.text(
+        -0.08, -0.36, '+',
+        transform=ax_c1.transAxes,
+        fontsize=16,
+        fontweight='bold',
+        color=TEXT,
+        ha='center',
+        va='center'
+    )
+    ax_c2.text(
+        -0.08, -0.36, '+',
+        transform=ax_c2.transAxes,
+        fontsize=16,
+        fontweight='bold',
+        color=TEXT,
+        ha='center',
+        va='center'
+    )
+
+    # (c) Spectrum
+    panel_label(ax_sp, '(c) 周波数スペクトル')
+    freq = np.array([1, 2, 4])
+    amp  = np.array([A1, A2, A4])
+    phase = ['φ=0', 'φ=+0.60', 'φ=-0.80']
+
+    ax_sp.vlines(freq, 0, amp, colors=[PHYS, AI, ACCENT], linewidth=3)
+    ax_sp.plot(freq, amp, 'o', color=DARK, ms=5)
+    ax_sp.set_xlim(0.5, 4.5)
+    ax_sp.set_ylim(0, 1.3)
+    ax_sp.set_xticks([1, 2, 3, 4])
+    ax_sp.set_xlabel('周波数')
+    ax_sp.set_ylabel('振幅')
+    ax_sp.grid(color=LIGHT, linewidth=0.6)
+
+    for f, a, ph in zip(freq, amp, phase):
+        ax_sp.text(f, a + 0.06, ph, ha='center', fontsize=8.5, color=TEXT)
+
+    ax_sp.text(
+        2.5, 1.16,
+        'どの周波数がどれだけ混ざっているかを見る',
+        ha='center',
+        fontsize=8.8,
+        color=TEXT
+    )
+
+    fig.text(
+        0.5, 0.02,
+        'ポイント：波形の形は「振幅」と「位相」をもつ複数の正弦波の和で決まる',
+        ha='center',
+        fontsize=9.4,
+        color=TEXT
+    )
+
+    fig.tight_layout(rect=[0, 0.04, 1, 0.93])
     save_assets(fig, 'fig10_fourier_decomposition.eps')
 
 def fig11_minkowski_time_dilation():
