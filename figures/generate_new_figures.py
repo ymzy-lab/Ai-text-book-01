@@ -193,8 +193,24 @@ def fig08_simple_harmonic_motion():
     panel_label(ax, '(a) バネと復元力')
     ax.set_xlim(0, 10); ax.set_ylim(0, 6); ax.axis('off')
     ax.plot([0.8, 0.8], [1.0, 5.0], color=DARK, lw=3)
-    zigx = [0.8, 1.3, 1.0, 1.6, 1.2, 1.8, 1.4, 2.0, 1.6, 2.2, 1.8, 2.4, 2.0, 2.7, 2.3, 3.0]
-    zigy = [3.0, 3.0, 3.4, 2.6, 3.4, 2.6, 3.4, 2.6, 3.4, 2.6, 3.4, 2.6, 3.4, 2.6, 3.0, 3.0]
+
+    # Horizontal spring with upright, evenly spaced zig-zags.
+    spring_start = 0.8
+    coil_start = 1.15
+    coil_end = 2.70
+    spring_y = 3.0
+    amp = 0.38
+    turns = 7
+
+    zigx = [spring_start, coil_start]
+    zigy = [spring_y, spring_y]
+    dx = (coil_end - coil_start) / (2 * turns)
+    for j in range(1, 2 * turns):
+        zigx.append(coil_start + j * dx)
+        zigy.append(spring_y + (amp if j % 2 else -amp))
+    zigx.extend([coil_end, 3.0])
+    zigy.extend([spring_y, spring_y])
+
     ax.plot(zigx, zigy, color=PHYS, lw=2)
     ax.add_patch(Rectangle((3.0, 2.2), 1.6, 1.6, facecolor=PALE, edgecolor=PHYS, lw=1.8))
     ax.text(3.8, 3.0, 'm', ha='center', va='center', fontsize=11, color=TEXT)
