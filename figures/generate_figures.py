@@ -269,16 +269,102 @@ def fig02_gradient_descent():
 def fig03_fermat_principle():
     fig, axs = plt.subplots(1, 2, figsize=(10.5, 4.3), gridspec_kw={'width_ratios':[1.1,1]})
     fig.suptitle('フェルマーの原理：光は「距離」ではなく「時間」を最小にする', fontsize=14, fontweight='bold', color=TEXT)
-    ax=axs[0]; panel_label(ax,'(a) 2つの媒質を通る候補経路'); ax.set_xlim(-3,3); ax.set_ylim(-2.2,2.2); ax.axis('off'); ax.axhline(0,color=DARK,lw=1)
-    ax.text(-2.8,1.72,'媒質1：速い',fontsize=9,color=TEXT); ax.text(-2.8,-1.9,'媒質2：遅い',fontsize=9,color=TEXT)
-    S=(-2.4,1.45); T=(2.4,-1.45); ax.plot(*S,'o',color=PHYS,ms=7); ax.text(S[0]-0.2,S[1]+0.2,'S',fontsize=10); ax.plot(*T,'o',color=AI,ms=7); ax.text(T[0]+0.1,T[1]-0.1,'T',fontsize=10)
-    for xc,c,lw in [(-0.8,LIGHT,1),(0.0,LIGHT,1),(0.65,ACCENT,2.2),(1.25,LIGHT,1)]: ax.plot([S[0],xc,T[0]],[S[1],0,T[1]],color=c,lw=lw)
-    ax.text(0.72,0.18,'最短時間',fontsize=9,color=TEXT,fontweight='bold')
-    ax=axs[1]; panel_label(ax,'(b) 境界を横切る位置と所要時間'); xc=np.linspace(-1.6,1.8,400); v1=2.0; v2=1.0
-    tt=np.sqrt((xc-S[0])**2+S[1]**2)/v1 + np.sqrt((T[0]-xc)**2+T[1]**2)/v2; im=np.argmin(tt)
-    ax.plot(xc,tt,color=DARK,lw=2); ax.plot(xc[im],tt[im],'o',color=ACCENT,ms=7); ax.axvline(xc[im],color=LIGHT,lw=1); ax.text(xc[im]+0.08,tt[im]+0.05,'最小',color=TEXT,fontsize=9)
-    ax.set_xlabel('境界での通過位置'); ax.set_ylabel('所要時間'); ax.grid(color=LIGHT,linewidth=0.6)
-    fig.tight_layout(rect=[0,0.03,1,0.90]); save_assets(fig, 'fig03_fermat_principle.eps')
+
+    # Geometry and speeds shared by both panels.
+    S = (-2.4, 1.45)
+    T = ( 2.4,-1.45)
+    v1, v2 = 2.0, 1.0
+
+    def travel_time(xc):
+        """Travel time for a broken ray S -> (xc, 0) -> T."""
+        d1 = np.hypot(xc - S[0], S[1])
+        d2 = np.hypot(T[0] - xc, T[1])
+        return d1 / v1 + d2 / v2
+
+    def dtime_dx(xc):
+        """Derivative of travel_time with respect to the interface crossing x."""
+        d1 = np.hypot(xc - S[0], S[1])
+        d2 = np.hypot(T[0] - xc, T[1])
+        return (xc - S[0]) / (v1 * d1) + (xc - T[0]) / (v2 * d2)
+
+    # Unique global minimizer: travel_time is strictly convex here.
+    lo, hi = S[0], T[0]
+    for _ in range(80):
+        mid = 0.5 * (lo + hi)
+        if dtime_dx(mid) > 0:
+            hi = mid
+        else:
+            lo = mid
+    x_min = 0.5 * (lo + hi)
+    t_min = travel_time(x_min)
+
+    # Independent physics check: Fermat minimum must satisfy Snell's law.
+    d1 = np.hypot(x_min - S[0], S[1])
+    d2 = np.hypot(T[0] - x_min, T[1])
+    sin_theta1 = abs(x_min - S[0]) / d1
+    sin_theta2 = abs(T[0] - x_min) / d2
+    assert abs(sin_theta1 / v1 - sin_theta2 / v2) < 1e-10
+
+    # Use the same crossing positions in both panels so the correspondence is exact.
+    candidate_x = np.array([-1.2, 0.2, x_min, 2.2])
+    candidate_t = np.array([travel_time(xc) for xc in candidate_x])
+
+    # (a) Candidate broken rays.
+    ax = axs[0]
+    panel_label(ax, '(a) 2つの媒質を通る候補経路')
+    ax.set_xlim(-3, 3)
+    ax.set_ylim(-2.2, 2.2)
+    ax.axis('off')
+    ax.axhline(0, color=DARK, lw=1)
+    ax.text(-2.8, 1.72, '媒質1：速い', fontsize=9, color=TEXT)
+    ax.text(-2.8,-1.90, '媒質2：遅い', fontsize=9, color=TEXT)
+    ax.plot(*S, 'o', color=PHYS, ms=7)
+    ax.text(S[0]-0.2, S[1]+0.2, 'S', fontsize=10)
+    ax.plot(*T, 'o', color=AI, ms=7)
+    ax.text(T[0]+0.1, T[1]-0.1, 'T', fontsize=10)
+
+    for xc in candidate_x:
+        is_min = abs(xc - x_min) < 1e-10
+        ax.plot(
+            [S[0], xc, T[0]], [S[1], 0, T[1]],
+            color=(ACCENT if is_min else LIGHT),
+            lw=(2.4 if is_min else 1.0),
+            zorder=(3 if is_min else 1),
+        )
+        ax.plot(xc, 0, 'o', ms=(5.5 if is_min else 3.5),
+                color=(ACCENT if is_min else MID), zorder=4)
+
+    ax.text(x_min + 0.08, 0.18, '最短時間', fontsize=9, color=TEXT, fontweight='bold')
+
+    # (b) Travel time calculated from exactly the same geometry.
+    ax = axs[1]
+    panel_label(ax, '(b) 境界を横切る位置と所要時間')
+    xgrid = np.linspace(S[0], T[0], 700)
+    tt = travel_time(xgrid)
+    ax.plot(xgrid, tt, color=DARK, lw=2)
+
+    # Plot the four candidate rays at their exact corresponding travel times.
+    for xc, tc in zip(candidate_x, candidate_t):
+        is_min = abs(xc - x_min) < 1e-10
+        ax.plot(
+            xc, tc,
+            marker='o',
+            ms=(7 if is_min else 4.5),
+            markerfacecolor=(ACCENT if is_min else 'white'),
+            markeredgecolor=(ACCENT if is_min else MID),
+            markeredgewidth=1.2,
+            zorder=4,
+        )
+
+    ax.axvline(x_min, color=LIGHT, lw=1)
+    ax.text(x_min + 0.08, t_min + 0.05, '最小', color=TEXT, fontsize=9)
+    ax.set_xlim(S[0], T[0])
+    ax.set_xlabel('境界での通過位置')
+    ax.set_ylabel('所要時間')
+    ax.grid(color=LIGHT, linewidth=0.6)
+
+    fig.tight_layout(rect=[0,0.03,1,0.90])
+    save_assets(fig, 'fig03_fermat_principle.eps')
 
 
 def fig04_entropy_time_arrow():
