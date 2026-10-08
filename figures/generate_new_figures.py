@@ -409,37 +409,140 @@ def fig10_fourier_decomposition():
     save_assets(fig, 'fig10_fourier_decomposition.eps')
 
 def fig11_minkowski_time_dilation():
-    fig, axs = plt.subplots(1, 2, figsize=(11, 4.3))
-    fig.suptitle('特殊相対論の直感：光時計とミンコフスキー図', fontsize=14, fontweight='bold', color=TEXT)
+    fig, axs = plt.subplots(
+        1, 2, figsize=(11.8, 5.0),
+        gridspec_kw={'width_ratios':[1.0, 1.08]}
+    )
+    fig.suptitle(
+        '特殊相対論の直感：光時計とミンコフスキー図',
+        fontsize=14, fontweight='bold', color=TEXT
+    )
+
+    # =========================================================
+    # (a) Light clock
+    # =========================================================
     ax = axs[0]
-    panel_label(ax, '(a) 光時計')
-    ax.set_xlim(0, 10); ax.set_ylim(0, 7); ax.axis('off')
-    ax.add_patch(Rectangle((0.9, 1.2), 2.6, 4.2, facecolor=PALE, edgecolor=PHYS, lw=1.5))
-    ax.plot([2.2, 2.2], [1.6, 5.0], color=PHYS, lw=1.5)
-    ax.plot([1.6, 2.8], [5.0, 5.0], 'o', color=PHYS, ms=4)
-    arrow(ax, (2.2, 1.8), (2.2, 4.8), color=PHYS, lw=1.3, ms=10)
-    arrow(ax, (2.2, 4.8), (2.2, 1.8), color=PHYS, lw=1.3, ms=10)
-    ax.text(2.2, 0.7, '静止系：光は上下に往復', ha='center', fontsize=9, color=TEXT)
-    ax.add_patch(Rectangle((5.2, 1.2), 3.2, 4.2, facecolor=PALE, edgecolor=AI, lw=1.5))
-    ax.plot([5.9, 7.9], [1.6, 5.0], color=AI, lw=1.5)
-    ax.plot([5.9, 7.9], [5.0, 1.6], color=AI, lw=1.5)
-    arrow(ax, (5.3, 5.8), (8.3, 5.8), color=DARK, lw=1.2, ms=10)
-    ax.text(6.8, 6.1, '運動', fontsize=9, color=TEXT)
-    ax.text(6.8, 0.7, '移動系：光の経路が斜めに長くなる', ha='center', fontsize=9, color=TEXT)
+    panel_label(ax, '(a) 光時計：同じ1往復を2つの座標系から見る')
+    ax.set_xlim(0, 10)
+    ax.set_ylim(0, 6.4)
+    ax.axis('off')
+
+    # Clock rest frame: mirrors stay vertically aligned.
+    ax.text(2.25, 5.78, '時計の静止系', ha='center',
+            fontsize=10, color=TEXT, fontweight='bold')
+    ax.add_patch(Rectangle((0.95, 1.25), 2.6, 3.9,
+                           facecolor='none', edgecolor=DARK, lw=1.6))
+    lower = (2.25, 1.65)
+    upper = (2.25, 4.70)
+    ax.plot([1.75, 2.75], [1.65, 1.65], color=DARK, lw=2.2)
+    ax.plot([1.75, 2.75], [4.70, 4.70], color=DARK, lw=2.2)
+    arrow(ax, (2.25, 1.78), (2.25, 4.55), color=PHYS, lw=1.7, ms=10)
+    arrow(ax, (2.25, 4.55), (2.25, 1.78), color=PHYS, lw=1.7, ms=10)
+    ax.text(2.25, 0.82, '光路 = 2L', ha='center', fontsize=9, color=TEXT)
+    ax.text(2.25, 0.42, r'$\Delta\tau = 2L/c$', ha='center',
+            fontsize=9.2, color=TEXT)
+
+    # Lab frame: the whole clock moves to the right while light travels.
+    ax.text(7.30, 5.78, '地上系から見る', ha='center',
+            fontsize=10, color=TEXT, fontweight='bold')
+    arrow(ax, (5.65, 5.38), (8.95, 5.38), color=DARK, lw=1.4, ms=11)
+    ax.text(7.30, 5.52, '時計が速度 v で移動', ha='center',
+            fontsize=8.8, color=TEXT)
+
+    # Three successive clock positions: emission, reflection, return.
+    yb, yt = 1.65, 4.70
+    x_emit, x_reflect, x_return = 5.55, 7.20, 8.85
+
+    for xb, alpha_col in [(x_emit, LIGHT), (x_reflect, MID), (x_return, LIGHT)]:
+        ax.plot([xb-0.42, xb+0.42], [yb, yb], color=alpha_col, lw=1.5)
+        ax.plot([xb-0.42, xb+0.42], [yt, yt], color=alpha_col, lw=1.5)
+
+    # Correct external-frame light path: two sides of an isosceles triangle.
+    ax.plot([x_emit, x_reflect, x_return], [yb, yt, yb],
+            color=AI, lw=2.2, zorder=3)
+    arrow(ax, (x_emit+0.06, yb+0.11), (x_reflect-0.06, yt-0.11),
+          color=AI, lw=1.4, ms=9)
+    arrow(ax, (x_reflect+0.06, yt-0.11), (x_return-0.06, yb+0.11),
+          color=AI, lw=1.4, ms=9)
+    ax.plot([x_emit, x_reflect, x_return], [yb, yt, yb],
+            'o', color=DARK, ms=4, linestyle='none', zorder=4)
+
+    # Horizontal displacement during half a tick.
+    ax.plot([x_emit, x_reflect], [1.18, 1.18], color=MID, lw=1.0)
+    ax.plot([x_emit, x_emit], [1.08, 1.28], color=MID, lw=1.0)
+    ax.plot([x_reflect, x_reflect], [1.08, 1.28], color=MID, lw=1.0)
+    ax.text((x_emit+x_reflect)/2, 0.88, r'$v\Delta t/2$',
+            ha='center', fontsize=8.5, color=SUBTEXT)
+    ax.text(7.20, 0.42,
+            '斜辺の方が長い → 地上系では1往復により長い時間が必要',
+            ha='center', fontsize=8.6, color=TEXT)
+
+    # =========================================================
+    # (b) Minkowski diagram
+    # =========================================================
     ax = axs[1]
-    panel_label(ax, '(b) ミンコフスキー図')
-    ax.set_xlim(-1.2, 5.5); ax.set_ylim(-0.2, 5.5)
+    panel_label(ax, '(b) ミンコフスキー図：世界線と光円錐')
+    ax.set_xlim(-3.2, 3.2)
+    ax.set_ylim(0, 5.9)
+    ax.set_aspect('equal', adjustable='box')
     ax.spines[['top', 'right']].set_visible(False)
-    ax.set_xlabel('空間  x'); ax.set_ylabel('時間  ct')
-    ax.plot([0, 0], [0, 5.2], color=DARK, lw=1.5); ax.plot([0, 5.2], [0, 0], color=DARK, lw=1.5)
-    ax.plot([0, 4.8], [0, 4.8], color=LIGHT, lw=1.4); ax.plot([0, -1.0], [0, 1.0], color=LIGHT, lw=1.4)
-    ax.text(4.55, 4.95, '光', fontsize=9, color=SUBTEXT); ax.text(-0.92, 1.12, '光', fontsize=9, color=SUBTEXT)
-    ax.plot([0, 0], [0, 5.0], color=PHYS, lw=2); ax.plot([0, 2.6], [0, 5.0], color=AI, lw=2)
-    ax.text(0.14, 4.7, '地球の双子', color=TEXT, fontsize=9); ax.text(2.1, 4.8, '宇宙船の双子', color=TEXT, fontsize=9)
-    ax.fill([0, 0.9, 1.4, 0.6], [0, 1.7, 2.7, 1.1], color=PALE, alpha=1.0)
-    ax.text(2.0, 0.65, '速く動く経路ほど\n固有時間が短い', fontsize=9, color=TEXT)
+    ax.set_xlabel('空間  x')
+    ax.set_ylabel('時間  ct')
+
+    # Future light cone from departure event O.  In ct-x coordinates light is 45 degrees.
+    yy = np.linspace(0, 3.1, 120)
+    ax.fill_betweenx(yy, -yy, yy, color=PALE, zorder=0)
+    ax.plot([0, 3.1], [0, 3.1], color=MID, lw=1.5, ls='--')
+    ax.plot([0,-3.1], [0, 3.1], color=MID, lw=1.5, ls='--')
+    ax.text(2.35, 2.62, '光', fontsize=8.8, color=SUBTEXT)
+    ax.text(-2.62, 2.62, '光', fontsize=8.8, color=SUBTEXT)
+    ax.text(0, 3.35, '未来光円錐', ha='center',
+            fontsize=8.8, color=SUBTEXT)
+    ax.text(0, 3.05, '物体の世界線はこの内側', ha='center',
+            fontsize=8.2, color=SUBTEXT)
+
+    # Same departure and reunion events for both twins.
+    O = (0.0, 0.0)
+    A = (2.05, 2.70)
+    B = (0.0, 5.40)
+
+    # Earth twin stays at x=0.
+    ax.plot([O[0], B[0]], [O[1], B[1]], color=PHYS, lw=2.4, zorder=3)
+    ax.text(-0.22, 4.45, '地球の双子', ha='right',
+            fontsize=9.2, color=TEXT)
+
+    # Travelling twin goes out and returns.
+    ax.plot([O[0], A[0], B[0]], [O[1], A[1], B[1]],
+            color=AI, lw=2.4, zorder=3)
+    ax.plot([O[0], A[0], B[0]], [O[1], A[1], B[1]],
+            'o', color=DARK, ms=4.5, linestyle='none', zorder=4)
+    ax.text(1.15, 1.58, '宇宙船', fontsize=9.0, color=TEXT)
+    ax.text(2.13, 2.76, 'A：折り返し', fontsize=8.4, color=SUBTEXT)
+
+    ax.text(0.10, 0.13, 'O：出発', fontsize=8.4, color=SUBTEXT)
+    ax.text(0.10, 5.48, 'B：再会', fontsize=8.4, color=SUBTEXT)
+
+    # Proper-time message tied to the diagram.
+    ax.text(-3.00, 5.45,
+            r'同じ O→B でも  $\tau_{\rm ship}<\tau_{\rm Earth}$',
+            fontsize=8.8, color=TEXT)
+    ax.text(-3.00, 5.08,
+            r'$d\tau=\sqrt{dt^2-dx^2/c^2}$',
+            fontsize=9.0, color=TEXT)
+    ax.text(-3.00, 4.70,
+            '空間方向へ傾くほど、同じ座標時間に対する固有時間は短い',
+            fontsize=8.2, color=TEXT)
+
     ax.grid(color=LIGHT, linewidth=0.5)
-    fig.tight_layout(rect=[0, 0.03, 1, 0.90])
+
+    fig.text(
+        0.5, 0.018,
+        '光時計：地上系では光が長い斜辺を進むため時間が延びる。'
+        '　ミンコフスキー図：光は45°、物体は光円錐の内側を進み、世界線に沿う固有時間が時計の読みになる。',
+        ha='center', fontsize=8.9, color=TEXT
+    )
+
+    fig.tight_layout(rect=[0, 0.065, 1, 0.91])
     save_assets(fig, 'fig11_minkowski_time_dilation.eps')
 
 def fig12_embedding_analogy():
