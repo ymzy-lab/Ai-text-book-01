@@ -46,30 +46,115 @@ def panel_label(ax, text):
             fontsize=9, fontweight="bold", color=SUBTEXT)
 
 def fig13_light_cone_curvature():
-    fig, axs = plt.subplots(1, 2, figsize=(10.5, 4.5))
-    fig.suptitle("光円錐と曲がった時空：因果律を幾何学で見る", fontsize=14, fontweight="bold", color=TEXT)
-    ax = axs[0]; panel_label(ax, "(a) 平らな時空：光円錐")
-    ax.set_xlim(-4, 4); ax.set_ylim(-0.5, 5.5); ax.spines[["top","right"]].set_visible(False)
-    ax.set_xlabel("空間  x"); ax.set_ylabel("時間  ct")
-    ax.plot([-4,4],[0,0],color=DARK,lw=1); ax.plot([0,0],[0,5.2],color=DARK,lw=1)
-    ax.plot([0,4.2],[0,4.2],color=PHYS,lw=2); ax.plot([0,-4.2],[0,4.2],color=PHYS,lw=2)
-    ax.fill_between([-3.7,0,3.7],[3.7,0,3.7],[5.2,5.2,5.2],color=PALE)
-    ax.text(0,4.65,"未来光円錐",ha="center",fontsize=9,color=TEXT)
-    ax.text(0,2.0,"因果的に\n到達可能",ha="center",fontsize=9,color=TEXT)
-    ax.text(3.0,2.0,"Elsewhere",ha="center",fontsize=8.5,color=SUBTEXT); ax.text(-3.0,2.0,"Elsewhere",ha="center",fontsize=8.5,color=SUBTEXT)
-    ax.grid(color=LIGHT,lw=0.5)
-    ax = axs[1]; panel_label(ax, "(b) 強い重力：光円錐が内側へ傾く")
-    ax.set_xlim(-1,8); ax.set_ylim(-0.5,5.5); ax.axis("off")
-    ax.add_patch(Circle((6.6,0.7),0.65,facecolor=DARK,edgecolor=DARK)); ax.text(6.6,-0.15,"強い重力源",ha="center",fontsize=9)
-    for x0,tilt in zip([1.1,2.5,3.9,5.1],[0.0,0.18,0.42,0.75]):
-        y0=1.0; ax.plot([x0,x0],[y0,y0+3.6],color=LIGHT,lw=0.8)
-        ax.plot([x0,x0+1.15+tilt],[y0,y0+2.4],color=PHYS,lw=1.8)
-        ax.plot([x0,x0-1.15+tilt],[y0,y0+2.4],color=PHYS,lw=1.8)
-    xs=np.linspace(0.8,6.0,300); ys=3.7-0.08*(xs-0.8)**2
-    ax.plot(xs,ys,color=ACCENT,lw=2.2); arrow(ax,(5.4,3.0),(6.05,2.6),color=ACCENT,lw=1.3,ms=10)
-    ax.text(3.5,4.65,"光は局所的には光円錐に沿うが、\n時空そのものが曲がっている",ha="center",fontsize=9)
-    ax.text(5.0,1.1,"重力源へ近づくほど\n未来方向が内側へ傾く",ha="center",fontsize=8.8,color=SUBTEXT)
-    fig.tight_layout(rect=[0,0.03,1,0.90]); save_assets(fig,"fig13_light_cone_curvature.eps")
+    """Separate a spacetime light cone from a spatial gravitational lens.
+
+    The right-panel rays use the first-order, weak-field Schwarzschild
+    deflection about an unperturbed impact parameter b.  This is an
+    illustrative weak-field approximation, not an exact null geodesic.
+    """
+    fig, axs = plt.subplots(
+        1, 2, figsize=(11.6, 4.8),
+        gridspec_kw={"width_ratios": [1.0, 1.15]}
+    )
+    fig.suptitle(
+        "光円錐と重力による光の偏向：時空図と空間図を区別する",
+        fontsize=14, fontweight="bold", color=TEXT
+    )
+
+    # (a) The future causal cone in flat 1+1 dimensional spacetime.
+    ax = axs[0]
+    panel_label(ax, "(a) 光円錐：光が届く限界（時空図）")
+    ax.set_xlim(-3.45, 3.45)
+    ax.set_ylim(-0.25, 4.30)
+    ax.set_aspect("equal", adjustable="box")
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.set_xlabel("空間  x")
+    ax.set_ylabel("時間  ct")
+
+    t = np.linspace(0.0, 4.3, 250)
+    ax.fill_betweenx(t, -t, t, color=PALE, zorder=0)
+    ax.plot([0, 3.45], [0, 3.45], color=PHYS, lw=2.0, zorder=2)
+    ax.plot([0, -3.45], [0, 3.45], color=PHYS, lw=2.0, zorder=2)
+    ax.axvline(0, color=LIGHT, lw=0.8)
+    ax.axhline(0, color=DARK, lw=0.8)
+    ax.plot(0, 0, "o", color=DARK, ms=4, zorder=4)
+    ax.text(0.12, 0.13, "出来事 O", fontsize=8.5, color=TEXT)
+    ax.text(0, 3.86, "未来光円錐", ha="center",
+            fontsize=9.5, color=TEXT, fontweight="bold")
+    ax.text(0, 2.25, "O から因果的に\n到達可能", ha="center",
+            va="center", fontsize=9, color=TEXT)
+    ax.text(-2.70, 1.55, "到達不可", ha="center",
+            fontsize=9, color=SUBTEXT)
+    ax.text(2.70, 1.55, "到達不可", ha="center",
+            fontsize=9, color=SUBTEXT)
+    ax.text(2.25, 3.12, "光の世界線", ha="left",
+            fontsize=8.8, color=TEXT)
+    ax.grid(color=LIGHT, lw=0.45, zorder=-1)
+
+    # (b) Gravitational bending in a spatial x-y slice (NOT a light cone).
+    ax = axs[1]
+    panel_label(ax, "(b) 重力レンズ：光路が曲がる（空間図）")
+    ax.set_xlim(-4.35, 4.85)
+    ax.set_ylim(-2.35, 2.50)
+    ax.set_aspect("equal", adjustable="box")
+    ax.axis("off")
+
+    xm, ym = 0.0, -1.62
+    rs = 0.16  # illustrative dimensionless Schwarzschild radius, rs = 2GM/c^2
+    x = np.linspace(-4.25, 4.75, 650)
+    x_start = x[0]
+    incident_heights = [-0.17, 0.57, 1.30]
+
+    def weak_field_ray(y_inc):
+        """First-order weak-field solution, straight-line impact parameter b."""
+        b = y_inc - ym
+        assert b > 0 and rs / b < 0.12  # remain in the weak-deflection regime
+        u = x - xm
+        u0 = x_start - xm
+        displacement = (rs / b) * (
+            u + np.hypot(u, b) - u0 - np.hypot(u0, b)
+        )
+        return y_inc - displacement
+
+    # A non-deflected reference for the ray that passes closest to the mass.
+    ax.plot([x[0], x[-1]],
+            [incident_heights[0], incident_heights[0]],
+            color=LIGHT, lw=1.2, ls="--", zorder=0)
+    ax.text(2.15, -0.05, "重力がなければ直進",
+            fontsize=8.5, color=SUBTEXT)
+
+    # The first-order asymptotic deflection is alpha = 4GM/(b c^2) = 2rs/b.
+    for y_inc in incident_heights:
+        b = y_inc - ym
+        alpha = 2.0 * rs / b
+        assert 0.0 < alpha < 0.25
+        y = weak_field_ray(y_inc)
+        ax.plot(x, y, color=PHYS, lw=2.0, zorder=2)
+        k = 515
+        arrow(ax, (x[k-24], y[k-24]), (x[k], y[k]),
+              color=PHYS, lw=1.4, ms=10)
+
+    ax.add_patch(Circle((xm, ym), 0.39,
+                        facecolor=DARK, edgecolor=DARK, zorder=3))
+    ax.text(xm, ym-0.55, "重力源 M", ha="center",
+            fontsize=9.3, color=TEXT)
+    ax.text(-3.75, 2.10, "入射する光", fontsize=9, color=TEXT)
+    arrow(ax, (-3.55, 1.91), (-2.55, 1.91),
+          color=MID, lw=1.2, ms=10)
+    ax.text(0.85, 1.98, "重力源に近い光ほど\n大きく偏向する",
+            ha="center", fontsize=9, color=TEXT)
+    ax.text(-3.95, -2.18,
+            r"弱い重力場：偏向角 $\alpha\simeq 4GM/(bc^2)$",
+            fontsize=9, color=TEXT)
+
+    fig.text(
+        0.5, 0.025,
+        "左は「光が到達できる時空上の範囲」、右は「重力による空間内の光路の偏向」。"
+        " 右図は弱重力場の一次近似（模式的な縮尺）。",
+        ha="center", fontsize=9, color=TEXT
+    )
+    fig.tight_layout(rect=[0, 0.085, 1, 0.91], w_pad=2.3)
+    save_assets(fig, "fig13_light_cone_curvature.eps")
 
 def fig14_manifold_unfolding():
     fig, axs = plt.subplots(1, 2, figsize=(10.6, 4.2))
