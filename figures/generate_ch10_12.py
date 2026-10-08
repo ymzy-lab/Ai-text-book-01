@@ -56,38 +56,143 @@ def panel_label(ax, text):
 
 
 def fig21_de_broglie_diffraction():
-    fig, axs = plt.subplots(1, 2, figsize=(10.8, 4.4))
-    fig.suptitle('物質も波である：ド・ブロイ波と電子回折', fontsize=14, fontweight='bold', color=TEXT)
+    fig, axs = plt.subplots(
+        1, 2, figsize=(12.4, 4.8),
+        gridspec_kw={'width_ratios': [0.88, 1.25]}
+    )
+    fig.suptitle(
+        '物質も波である：ド・ブロイ波と電子回折',
+        fontsize=14, fontweight='bold', color=TEXT
+    )
 
-    ax = axs[0]; panel_label(ax, '(a) 粒子に対応する波長')
-    ax.set_xlim(0, 10); ax.set_ylim(0, 6); ax.axis('off')
+    # (a) A moving electron has a de Broglie wavelength.
+    ax = axs[0]
+    panel_label(ax, '(a) 粒子に対応する波長')
+    ax.set_xlim(0, 10)
+    ax.set_ylim(0, 6)
+    ax.axis('off')
     xs = np.linspace(0.8, 9.2, 400)
-    wave = 3.0 + 0.65*np.sin(2*np.pi*xs/2.4)
+    wave = 3.0 + 0.65 * np.sin(2 * np.pi * xs / 2.4)
     ax.plot(xs, wave, color=PHYS, lw=2)
     for x0 in np.linspace(1.2, 8.8, 7):
-        ax.plot(x0, 3.0, 'o', color=AI, ms=5)
-    ax.text(5.0, 5.1, r'$\lambda = h/p$', ha='center', fontsize=15, color=TEXT)
-    ax.text(5.0, 1.15, '電子は「粒」として検出されるが、\n伝播では波長を持つ', ha='center', fontsize=9, color=TEXT)
+        ax.plot(x0, 3.0, marker='o', linestyle='none', color=AI, ms=5)
+    ax.text(5.0, 5.1, r'$\lambda=h/p$', ha='center', fontsize=15, color=TEXT)
+    ax.text(
+        5.0, 1.15,
+        '電子は「粒」として検出されるが、\n伝播では波長を持つ',
+        ha='center', fontsize=9, color=TEXT
+    )
 
-    ax = axs[1]; panel_label(ax, '(b) 結晶による電子回折')
-    ax.set_xlim(0, 10); ax.set_ylim(0, 7); ax.axis('off')
-    for x0 in [2.6, 3.2, 3.8]:
-        for y0 in np.linspace(1.0, 6.0, 7):
-            ax.add_patch(Circle((x0, y0), 0.09, facecolor=MID, edgecolor='none'))
-    for y0 in np.linspace(2.4, 4.6, 6):
-        arrow(ax, (0.4, y0), (2.25, y0), color=PHYS, lw=1.1, ms=8)
-    for ang, c in [(-0.65, PHYS), (-0.32, LIGHT), (0, ACCENT), (0.32, LIGHT), (0.65, PHYS)]:
-        x1, y1 = 4.0, 3.5
-        x2 = 8.8
-        y2 = y1 + np.tan(ang)*(x2-x1)
-        ax.plot([x1, x2], [y1, y2], color=c, lw=2 if c != LIGHT else 1)
-    ax.plot([9.0, 9.0], [0.7, 6.3], color=DARK, lw=2)
-    ax.text(6.6, 6.25, '特定方向で強め合う', ha='center', fontsize=9, color=TEXT)
-    ax.text(9.25, 3.5, '検出面', rotation=90, va='center', fontsize=9, color=TEXT)
+    # (b) A single row of coherently scattering atoms models one
+    # direction of diffraction from a crystal.  The detection pattern
+    # is calculated from the interference of all five amplitudes,
+    # not drawn by hand.
+    ax = axs[1]
+    panel_label(ax, '(b) 原子列による電子回折：散乱波が重なる')
+    ax.set_xlim(0, 12.0)
+    ax.set_ylim(0, 8.0)
+    ax.axis('off')
 
-    fig.tight_layout(rect=[0, 0.03, 1, 0.90])
+    n_atoms = 5
+    d = 0.72                   # lattice spacing, schematic units
+    wavelength = 0.31          # de Broglie wavelength, same units
+    x_atoms, x_screen = 3.10, 8.45
+    y_center = 4.0
+    atoms_y = y_center + np.arange(-2, 3) * d
+    distance = x_screen - x_atoms
+
+    # The Fraunhofer condition for coherent outgoing electron waves:
+    # d sin(theta_m) = m lambda, m = 0, +/-1.
+    theta_first = np.arcsin(wavelength / d)
+    y_first = distance * np.tan(theta_first)
+    bright_ys = [y_center - y_first, y_center, y_center + y_first]
+    theta_null = np.arcsin(wavelength / (n_atoms * d))
+    y_null = distance * np.tan(theta_null)
+    dark_ys = [y_center - y_null, y_center + y_null]
+
+    def relative_intensity(yy):
+        """Normalized N-atom far-field array factor on a flat screen."""
+        yy = np.atleast_1d(np.asarray(yy, dtype=float))
+        theta = np.arctan2(yy - y_center, distance)
+        phase = 2 * np.pi * d * np.sin(theta) / wavelength
+        j = np.arange(n_atoms, dtype=float)[:, None]
+        amplitude = np.exp(1j * j * phase[None, :]).sum(axis=0)
+        return (np.abs(amplitude) / n_atoms)**2
+
+    # Numerical checks tie the depicted detector peaks to interference.
+    assert np.allclose(relative_intensity(bright_ys), 1.0, atol=1e-10)
+    assert np.all(relative_intensity(dark_ys) < 1e-10)
+
+    ax.text(0.35, 7.02, '入射する電子波', fontsize=9, color=TEXT)
+    for yi in atoms_y:
+        arrow(ax, (0.35, yi), (2.48, yi),
+              color=PHYS, lw=1.2, ms=9)
+    ax.plot([x_atoms, x_atoms], [2.34, 5.66], color=LIGHT, lw=1)
+    for yi in atoms_y:
+        ax.add_patch(Circle((x_atoms, yi), 0.12,
+                            facecolor=MID, edgecolor='none', zorder=4))
+    ax.text(x_atoms, 6.12, '結晶中の原子列', ha='center',
+            fontsize=9, color=TEXT)
+    ax.text(x_atoms + 0.20, 2.35, '間隔 d', fontsize=8.2, color=SUBTEXT)
+
+    # Several coherent scattering contributions meet at one upper
+    # diffraction peak.  Light gray lines denote contributions,
+    # not classical electron trajectories.
+    top_peak = bright_ys[2]
+    for yi in atoms_y:
+        ax.plot([x_atoms + 0.10, x_screen - 0.10],
+                [yi, top_peak], color=LIGHT, lw=0.90, zorder=1)
+
+    # Highlight the three constructive outgoing DIRECTIONS.
+    for y_peak in bright_ys:
+        ax.plot([x_atoms + 0.15, x_screen - 0.20],
+                [y_center, y_peak], color=PHYS, lw=1.8, zorder=2)
+        xx0 = x_atoms + 3.55
+        xx1 = xx0 + 0.52
+        yy0 = y_center + (y_peak-y_center) * (xx0-x_atoms)/distance
+        yy1 = y_center + (y_peak-y_center) * (xx1-x_atoms)/distance
+        arrow(ax, (xx0, yy0), (xx1, yy1),
+              color=PHYS, lw=1.4, ms=9)
+
+    ax.text(5.57, 7.40, '波の位相が揃う方向で強め合う',
+            ha='center', fontsize=9, color=TEXT)
+    ax.text(5.57, 6.98, r'$d\sin\theta=m\lambda$',
+            ha='center', fontsize=11, color=TEXT)
+
+    # A real detector records the squared sum of amplitudes.
+    ax.plot([x_screen, x_screen], [0.67, 7.34],
+            color=DARK, lw=2, zorder=3)
+    ax.text(x_screen, 7.64, '検出面', ha='center',
+            fontsize=9, color=TEXT)
+    for yi in bright_ys:
+        ax.plot(x_screen, yi, 'o', color=DARK, ms=7,
+                zorder=5)
+    for yi in dark_ys:
+        ax.plot(x_screen, yi, 'o', color=LIGHT, ms=4.5,
+                zorder=5)
+
+    ys = np.linspace(0.67, 7.34, 900)
+    intensity = relative_intensity(ys)
+    x_base, profile_width = 8.95, 2.05
+    ax.plot([x_base, x_base], [0.67, 7.34],
+            color=LIGHT, lw=0.9)
+    ax.plot(x_base + profile_width * intensity, ys,
+            color=DARK, lw=2, zorder=2)
+    ax.text(10.04, 7.64, '検出強度', ha='center',
+            fontsize=9, color=TEXT)
+    ax.text(10.10, 0.27, '山＝明るい回折ピーク',
+            ha='center', fontsize=8.5, color=TEXT)
+
+    ax.text(5.10, 0.30,
+            '原子ごとの散乱波が重なる → 方向により明暗が現れる',
+            ha='center', fontsize=8.7, color=TEXT)
+    fig.text(0.5, 0.015,
+             '右図：実際の結晶を1次元の原子列に単純化した遠方回折モデル。'
+             '濃い点が強い検出方向、薄い点が打ち消し合う方向。',
+             ha='center', fontsize=9, color=TEXT)
+
+    fig.tight_layout(rect=[0, 0.070, 1, 0.90], w_pad=1.6)
     save_assets(fig, 'fig21_de_broglie_diffraction.eps')
-
 
 def fig22_wavefunction_born_probability():
     fig, axs = plt.subplots(2, 1, figsize=(8.4, 6.4), sharex=True)
