@@ -431,33 +431,151 @@ def fig25_law_large_numbers():
 
 
 def fig26_quantum_statistics():
-    fig, ax = plt.subplots(figsize=(8.2, 5.1))
-    fig.suptitle('三つの統計：Maxwell–Boltzmann / Fermi–Dirac / Bose–Einstein', fontsize=14, fontweight='bold', color=TEXT)
-    panel_label(ax, '(a) 同じ温度での占有数の違い（模式図）')
+    """Compare MB, FD and BE statistics by their occupancy rules."""
+    fig, axs = plt.subplots(1, 3, figsize=(12.2, 5.1))
+    fig.suptitle(
+        '三つの統計：違いは「同じ量子状態に何個入れるか」',
+        fontsize=14, fontweight='bold', color=TEXT
+    )
 
-    E = np.linspace(0.12, 6, 500)
-    mu = 0.0
-    T = 1.0
-    mb = np.exp(-(E-mu)/T)
-    fd = 1/(np.exp((E-mu)/T)+1)
-    be = 1/(np.exp((E-mu)/T)-1)
-    be = np.clip(be, 0, 4.5)
+    configs = [
+        {
+            'title': '(a) Maxwell–Boltzmann',
+            'subtitle': '古典極限：希薄なので量子効果を無視',
+            'formula': r'$\langle n\rangle \simeq e^{-x}$',
+            'rule1': '各状態の平均占有は小さい',
+            'rule2': '高いエネルギーほど少ない',
+            'example': '例：希薄な古典気体',
+            'kind': 'mb',
+        },
+        {
+            'title': '(b) Fermi–Dirac',
+            'subtitle': 'フェルミ粒子：Pauli 排他原理',
+            'formula': r'$\langle n\rangle = 1/(e^x+1)$',
+            'rule1': '同じ量子状態には 1個まで',
+            'rule2': r'$0\leq\langle n\rangle\leq1$',
+            'example': '例：電子',
+            'kind': 'fd',
+        },
+        {
+            'title': '(c) Bose–Einstein',
+            'subtitle': 'ボース粒子：同じ状態を共有できる',
+            'formula': r'$\langle n\rangle = 1/(e^x-1)$',
+            'rule1': '同じ量子状態に何個でも入れる',
+            'rule2': '低エネルギー状態に集まりやすい',
+            'example': '例：光子・ボース原子',
+            'kind': 'be',
+        },
+    ]
 
-    ax.plot(E, mb, color=MID, lw=2, label='Maxwell–Boltzmann')
-    ax.plot(E, fd, color=AI, lw=2, label='Fermi–Dirac  (+1)')
-    ax.plot(E, be, color=PHYS, lw=2, label='Bose–Einstein  (−1)')
-    ax.axhline(1, color=LIGHT, lw=1)
-    ax.text(4.2, 1.08, 'Fermi粒子は占有数1を超えない', fontsize=8.7, color=TEXT)
-    ax.annotate('Boson は低エネルギー状態に\n多数集まれる', xy=(0.42, 3.6), xytext=(1.6, 3.7),
-                arrowprops=dict(arrowstyle='->', color=TEXT), fontsize=9, color=TEXT)
-    ax.set_ylim(0, 4.6); ax.set_xlim(0, 6)
-    ax.set_xlabel(r'無次元エネルギー  $(E-\mu)/k_BT$'); ax.set_ylabel('平均占有数')
-    ax.grid(color=LIGHT, lw=0.5)
-    ax.legend(frameon=False, fontsize=8.5, loc='upper right')
+    for ax, cfg in zip(axs, configs):
+        ax.set_xlim(0, 6)
+        ax.set_ylim(0, 8)
+        ax.axis('off')
 
-    fig.tight_layout(rect=[0,0.02,1,0.92])
+        panel_label(ax, cfg['title'])
+        ax.text(
+            3.0, 7.20, cfg['subtitle'],
+            ha='center', fontsize=9.2, color=TEXT, fontweight='bold'
+        )
+
+        # Energy arrow and five single-particle quantum states.
+        arrow(ax, (0.55, 1.70), (0.55, 5.95),
+              color=MID, lw=1.1, ms=9)
+        ax.text(0.28, 5.82, 'E', fontsize=9, color=SUBTEXT)
+        levels = [2.05, 2.82, 3.59, 4.36, 5.13]
+        for y in levels:
+            ax.plot([1.05, 4.95], [y, y], color=LIGHT, lw=2.0)
+
+        # Occupancy cartoons.  Every horizontal segment represents one
+        # single-particle quantum state, not a degenerate energy shell.
+        if cfg['kind'] == 'mb':
+            # Dilute classical limit: sparse occupancy, mostly empty states.
+            pts = [(1.55, levels[0]), (3.55, levels[1]), (2.55, levels[3])]
+            for x0, y0 in pts:
+                ax.plot(x0, y0, 'o', color=MID, ms=7, zorder=3)
+            ax.text(
+                3.0, 5.70, 'ほとんどの状態は空',
+                ha='center', fontsize=8.5, color=SUBTEXT
+            )
+
+        elif cfg['kind'] == 'fd':
+            # At most one identical fermion in one quantum state.
+            pts = [(2.10, levels[0]), (3.25, levels[1]), (2.65, levels[2])]
+            for x0, y0 in pts:
+                ax.plot(x0, y0, 'o', color=DARK, ms=7, zorder=3)
+
+            # Show an attempted second occupation as forbidden.
+            x_forbid, y_forbid = 3.55, levels[0]
+            ax.plot(x_forbid, y_forbid, 'o',
+                    markerfacecolor='white', markeredgecolor=MID,
+                    markeredgewidth=1.2, ms=7, zorder=3)
+            ax.plot([x_forbid-0.12, x_forbid+0.12],
+                    [y_forbid-0.12, y_forbid+0.12],
+                    color=DARK, lw=1.2, zorder=4)
+            ax.plot([x_forbid-0.12, x_forbid+0.12],
+                    [y_forbid+0.12, y_forbid-0.12],
+                    color=DARK, lw=1.2, zorder=4)
+            ax.text(
+                3.55, y_forbid+0.36, '2個目は不可',
+                ha='center', fontsize=8.2, color=TEXT
+            )
+
+        else:
+            # Several bosons may occupy exactly the same quantum state.
+            low_y = levels[0]
+            for x0 in [1.75, 2.35, 2.95, 3.55, 4.15]:
+                ax.plot(x0, low_y, 'o', color=DARK, ms=7, zorder=3)
+            for x0 in [2.25, 3.15]:
+                ax.plot(x0, levels[1], 'o', color=MID, ms=6, zorder=3)
+            ax.plot(3.15, levels[3], 'o', color=LIGHT,
+                    markeredgecolor=MID, ms=5, zorder=3)
+            ax.text(
+                3.0, 5.70, '同じ最低状態に多数',
+                ha='center', fontsize=8.5, color=SUBTEXT
+            )
+
+        # The core rule gets a dedicated box.
+        box = FancyBboxPatch(
+            (0.75, 0.70), 4.50, 0.76,
+            boxstyle='round,pad=0.08,rounding_size=0.08',
+            facecolor=PALE, edgecolor=MID, lw=1.0
+        )
+        ax.add_patch(box)
+        ax.text(
+            3.0, 1.08, cfg['rule1'],
+            ha='center', va='center', fontsize=9.0,
+            color=TEXT, fontweight='bold'
+        )
+        ax.text(
+            3.0, 6.55, cfg['formula'],
+            ha='center', fontsize=10.5, color=TEXT
+        )
+        ax.text(
+            3.0, 0.36, cfg['rule2'],
+            ha='center', fontsize=8.5, color=TEXT
+        )
+        ax.text(
+            3.0, 7.72, cfg['example'],
+            ha='center', fontsize=8.3, color=SUBTEXT
+        )
+
+    fig.text(
+        0.5, 0.040,
+        r'$x=(E-\mu)/k_BT$　　'
+        '高温・低密度では量子効果が弱くなり、Fermi–Dirac と Bose–Einstein は '
+        'Maxwell–Boltzmann に近づく。',
+        ha='center', fontsize=9.1, color=TEXT
+    )
+    fig.text(
+        0.5, 0.012,
+        '要点：Fermi は「詰め込めない」、Bose は「同じ状態に集まれる」、'
+        'Maxwell–Boltzmann はその違いが見えない希薄な古典極限。',
+        ha='center', fontsize=9.3, color=TEXT
+    )
+
+    fig.tight_layout(rect=[0, 0.075, 1, 0.91], w_pad=1.1)
     save_assets(fig, 'fig26_quantum_statistics.eps')
-
 
 def fig27_boltzmann_softmax():
     fig, axs = plt.subplots(1, 2, figsize=(10.8, 4.4))
