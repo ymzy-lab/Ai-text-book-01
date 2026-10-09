@@ -227,37 +227,148 @@ def fig22_wavefunction_born_probability():
 
 
 def fig23_uncertainty_wavepacket():
-    fig, axs = plt.subplots(2, 2, figsize=(10.8, 6.2))
-    fig.suptitle('不確定性原理：位置を絞るほど運動量は広がる', fontsize=14, fontweight='bold', color=TEXT)
+    """Show the Fourier tradeoff as wavelength-estimation intuition.
 
-    x = np.linspace(-6, 6, 800)
-    p = np.linspace(-8, 8, 800)
-    sigmas = [0.65, 2.0]
-    titles = [('位置が鋭い', '運動量が広い'), ('位置が広い', '運動量が鋭い')]
-    for col, sigma_x in enumerate(sigmas):
-        psi_x = np.exp(-(x**2)/(4*sigma_x**2))
-        prob_x = psi_x**2
-        sigma_p = 1/(2*sigma_x)
-        prob_p = np.exp(-(p**2)/(2*sigma_p**2))
+    A short wave packet contains only a few visible oscillations, so its
+    wave number k (and therefore momentum p = hbar k) is poorly defined.
+    A long packet contains many oscillations, so k and p are sharply defined.
+    The momentum widths use the exact Gaussian minimum-uncertainty relation
+    sigma_p = hbar/(2 sigma_x), with hbar = 1 in the plotted units.
+    """
+    fig, axs = plt.subplots(2, 2, figsize=(11.8, 7.0))
+    fig.suptitle(
+        '不確定性原理の直感：波長を正確に読むには、広い空間範囲が必要',
+        fontsize=14, fontweight='bold', color=TEXT
+    )
+
+    # Dimensionless units with hbar = 1.
+    hbar = 1.0
+    k0 = 3.0
+    p0 = hbar * k0
+    wavelength = 2 * np.pi / k0
+
+    x = np.linspace(-10, 10, 1800)
+    p = np.linspace(0, 6, 1400)
+
+    cases = [
+        dict(
+            sigma_x=0.95,
+            title_x='(a) 狭い波束：見える周期が少ない',
+            title_p='(b) 運動量は広くなる',
+            dx_label='Δx 小',
+            dp_label='Δp 大',
+            note='数周期しか見えない\\n→ λ を精密に決めにくい',
+        ),
+        dict(
+            sigma_x=3.20,
+            title_x='(c) 広い波束：多くの周期を比べられる',
+            title_p='(d) 運動量は鋭く決まる',
+            dx_label='Δx 大',
+            dp_label='Δp 小',
+            note='多くの山谷を比べられる\\n→ λ を精密に決めやすい',
+        ),
+    ]
+
+    for col, case in enumerate(cases):
+        sigma_x = case['sigma_x']
+        sigma_p = hbar / (2 * sigma_x)
+
+        # Minimum-uncertainty Gaussian packet in position space.
+        envelope = np.exp(-(x**2) / (4 * sigma_x**2))
+        psi_real = envelope * np.cos(k0 * x)
+
+        # Corresponding Gaussian momentum probability density.
+        prob_p = np.exp(-((p - p0)**2) / (2 * sigma_p**2))
         prob_p /= prob_p.max()
 
-        ax = axs[0, col]; panel_label(ax, f'({chr(97+2*col)}) {titles[col][0]}')
-        ax.plot(x, prob_x/prob_x.max(), color=PHYS, lw=2)
-        ax.fill_between(x, 0, prob_x/prob_x.max(), color=PHYS, alpha=0.10)
-        ax.set_xlabel('位置 x'); ax.set_ylabel('確率密度')
-        ax.grid(color=LIGHT, lw=0.5)
+        # -----------------------------------------------------
+        # Position-space wave packet
+        # -----------------------------------------------------
+        ax = axs[0, col]
+        panel_label(ax, case['title_x'])
+        ax.plot(x, psi_real, color=PHYS, lw=1.8)
+        ax.plot(x, envelope, color=LIGHT, lw=1.1, ls='--')
+        ax.plot(x, -envelope, color=LIGHT, lw=1.1, ls='--')
+        ax.axhline(0, color=LIGHT, lw=0.8)
+        ax.set_xlim(-10, 10)
+        ax.set_ylim(-1.22, 1.22)
+        ax.set_xlabel('位置  x')
+        ax.set_ylabel('波の振幅')
+        ax.grid(color=LIGHT, lw=0.45)
 
-        ax = axs[1, col]; panel_label(ax, f'({chr(98+2*col)}) {titles[col][1]}')
-        ax.plot(p, prob_p, color=AI, lw=2)
-        ax.fill_between(p, 0, prob_p, color=AI, alpha=0.10)
-        ax.set_xlabel('運動量 p'); ax.set_ylabel('確率密度')
-        ax.grid(color=LIGHT, lw=0.5)
+        # Mark the spatial extent over which the packet has appreciable amplitude.
+        xL, xR = -2 * sigma_x, 2 * sigma_x
+        yb = -1.04
+        ax.plot([xL, xR], [yb, yb], color=DARK, lw=1.0)
+        ax.plot([xL, xL], [yb-0.045, yb+0.045], color=DARK, lw=1.0)
+        ax.plot([xR, xR], [yb-0.045, yb+0.045], color=DARK, lw=1.0)
+        ax.text(0, yb-0.06, case['dx_label'],
+                ha='center', va='top', fontsize=9, color=TEXT)
 
-    fig.text(0.5, 0.015, r'$\Delta x\,\Delta p \geq \hbar/2$ ：これは測定器の性能ではなく、状態そのものの制約',
-             ha='center', fontsize=10, color=TEXT)
-    fig.tight_layout(rect=[0, 0.05, 1, 0.91])
+        # Mark one wavelength where the envelope is large.
+        lam_left = -0.55 * wavelength
+        lam_right = lam_left + wavelength
+        ylam = 0.78
+        ax.plot([lam_left, lam_right], [ylam, ylam],
+                color=ACCENT, lw=1.2)
+        ax.plot([lam_left, lam_left], [ylam-0.04, ylam+0.04],
+                color=ACCENT, lw=1.0)
+        ax.plot([lam_right, lam_right], [ylam-0.04, ylam+0.04],
+                color=ACCENT, lw=1.0)
+        ax.text((lam_left+lam_right)/2, ylam+0.07, 'λ',
+                ha='center', fontsize=9, color=TEXT)
+
+        ax.text(
+            0, 1.07, case['note'],
+            ha='center', va='top', fontsize=8.8, color=TEXT,
+            bbox=dict(facecolor='white', edgecolor='none', pad=1.5)
+        )
+
+        # -----------------------------------------------------
+        # Momentum-space distribution
+        # -----------------------------------------------------
+        ax = axs[1, col]
+        panel_label(ax, case['title_p'])
+        ax.plot(p, prob_p, color=AI, lw=2.1)
+        ax.fill_between(p, 0, prob_p, color=PALE)
+        ax.set_xlim(0, 6)
+        ax.set_ylim(0, 1.08)
+        ax.set_xlabel('運動量  p')
+        ax.set_ylabel('確率密度')
+        ax.grid(color=LIGHT, lw=0.45)
+
+        # Mark the 1-sigma momentum width.
+        pL, pR = p0 - sigma_p, p0 + sigma_p
+        yb = 0.15
+        ax.plot([pL, pR], [yb, yb], color=DARK, lw=1.0)
+        ax.plot([pL, pL], [yb-0.03, yb+0.03], color=DARK, lw=1.0)
+        ax.plot([pR, pR], [yb-0.03, yb+0.03], color=DARK, lw=1.0)
+        ax.text(p0, yb+0.055, case['dp_label'],
+                ha='center', va='bottom', fontsize=9, color=TEXT)
+
+        ax.axvline(p0, color=LIGHT, lw=0.9, ls=':')
+        ax.text(
+            p0, 0.86,
+            'p = ħk = h/λ',
+            ha='center', fontsize=9.2, color=TEXT
+        )
+
+    # Explicitly tie the intuitive picture to the Fourier uncertainty relation.
+    fig.text(
+        0.5, 0.045,
+        '広い空間範囲に波が続くほど波長（波数 k）を正確に決められ、'
+        '運動量 p=ħk も鋭く定まる。',
+        ha='center', fontsize=9.6, color=TEXT
+    )
+    fig.text(
+        0.5, 0.014,
+        r'ガウス波束では $\sigma_x\sigma_p=\hbar/2$。'
+        ' これは測定器の不足ではなく、波束そのもののフーリエ構造。',
+        ha='center', fontsize=9.2, color=TEXT
+    )
+
+    fig.tight_layout(rect=[0, 0.085, 1, 0.91], h_pad=2.0, w_pad=1.7)
     save_assets(fig, 'fig23_uncertainty_wavepacket.eps')
-
 
 def fig24_curse_dimensionality_nnqs():
     fig, axs = plt.subplots(1, 2, figsize=(10.8, 4.5))
