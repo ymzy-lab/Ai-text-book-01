@@ -193,8 +193,36 @@ def fig16_bohr_spectrum():
     ax=axs[0]; panel_label(ax,"(a) 水素のエネルギー準位"); nvals=np.arange(1,7); E=-13.6/nvals**2
     ax.set_xlim(0,4.5); ax.set_ylim(-14.3,0.8); ax.set_xticks([]); ax.set_ylabel("エネルギー  E_n  [eV]"); ax.grid(axis="y",color=LIGHT,lw=0.5)
     for n,e in zip(nvals,E): ax.hlines(e,0.7,3.8,color=PHYS,lw=1.5); ax.text(0.45,e,f"n={n}",ha="right",va="center",fontsize=8.5,color=SUBTEXT)
-    for n,x0 in zip([3,4,5,6],[1.2,1.9,2.6,3.3]): arrow(ax,(x0,-13.6/n**2),(x0,-13.6/4+0.18),color=ACCENT,lw=1.3,ms=10)
-    ax.text(2.25,-2.3,"上の準位 → n=2 への遷移",ha="center",fontsize=9,color=TEXT); ax.text(2.25,-12.8,r"$E_n \propto -1/n^2$",ha="center",fontsize=10)
+
+    # Balmer transitions: make each downward arrow visibly connect the
+    # corresponding upper level to the n=2 level.  The previous arrows
+    # stopped short of n=2 and looked like floating "down" symbols.
+    e2 = -13.6 / 2**2
+    transition_x = [1.2, 1.9, 2.6, 3.3]
+    for n, x0 in zip([3, 4, 5, 6], transition_x):
+        en = -13.6 / n**2
+        ax.annotate(
+            "",
+            xy=(x0, e2),
+            xytext=(x0, en),
+            arrowprops=dict(
+                arrowstyle="-|>",
+                color=ACCENT,
+                lw=1.55,
+                mutation_scale=14,
+                shrinkA=2,
+                shrinkB=2,
+            ),
+            zorder=5,
+        )
+    ax.text(
+        2.25, -2.25,
+        "バルマー系列：n=3,4,5,6 → n=2",
+        ha="center", fontsize=9, color=TEXT,
+        bbox=dict(facecolor="white", edgecolor="none", pad=1.5),
+        zorder=6,
+    )
+    ax.text(2.25,-12.8,r"$E_n \propto -1/n^2$",ha="center",fontsize=10)
     ax=axs[1]; panel_label(ax,"(b) バルマー系列の可視スペクトル"); R=1.0973731568508e7; ns=np.array([3,4,5,6]); wl=1e9/(R*(1/2**2-1/ns**2))
     for i,(n,lam) in enumerate(zip(ns,wl)):
         ax.vlines(lam,0,1.0-0.13*i,color=AI if n==3 else PHYS,lw=3); ax.text(lam,1.05-0.13*i,f"{lam:.0f} nm",rotation=90,va="bottom",ha="center",fontsize=8.2)
